@@ -80,9 +80,17 @@ bloodCheck(bloodNumElementBoy);
 var bloodNumElementGirl = document.getElementById("bloodNumGirl");
 bloodCheck(bloodNumElementGirl);
 
-
 var bloodNumElementMonster = document.getElementById("bloodNumMonster");
 bloodCheck(bloodNumElementMonster);
+
+var bloodActionElementBoy = document.getElementById("bloodActionNumBoy");
+// attackActionBloodShow(bloodActionElementBoy,20);
+
+var bloodActionElementGirl = document.getElementById("bloodActionNumGirl");
+// attackActionBloodShow(bloodActionElementGirl,50);
+
+var bloodActionElementMonster = document.getElementById("bloodActionNumMonster");
+// attackActionBloodShow(bloodActionElementMonster,10);
 
 // 攻擊血減少
 function attackAction(bloodNumElement,bloodDecreaseNum){
@@ -113,11 +121,16 @@ function deathCheck(bloodNumElement){
 //一場戰鬥
 function battleRound(event){
     if ( event.keyCode == 49 ){
+        // attackAction(bloodNumElementMonster,20);
+        // attackAction(bloodNumElementMonster,20);
         attackAction(bloodNumElementMonster,20);
-        attackAction(bloodNumElementMonster,20);
-        attackAction(bloodNumElementMonster,20);
+        attackActionBloodShow(bloodActionElementMonster,-20);
+
         attackAction(bloodNumElementGirl,60);
+        attackActionBloodShow(bloodActionElementGirl,-60);
+
         attackAction(bloodNumElementBoy,15);
+        attackActionBloodShow(bloodActionElementBoy,-15);
     }
     if ( event.keyCode == 50 ){
         protectAction(bloodNumElementGirl,70);
@@ -130,3 +143,30 @@ function battleRound(event){
 //battleRound();
 
 document.addEventListener("keydown",battleRound);
+
+
+
+function attackActionBloodShow(bloodActionElement,bloodDecreaseNum){
+    var bloodNum = bloodDecreaseNum;
+    //var bloodActionBoy = document.getElementById("bloodActionNumBoy");
+
+    bloodActionElement.textContent = bloodNum;
+
+    var bloodActionBoyClass = bloodActionElement.getAttribute("class");
+    bloodActionElement.setAttribute("class",bloodActionBoyClass+" flash animated");      
+    //讓減少的血量晚點消失
+    setTimeout(function() {
+        //your code to be executed after 1 second
+        bloodActionElement.textContent = "";
+      }, 4000);
+    
+}
+
+var delayInMilliseconds = 4000; //1 second
+
+setTimeout(function() {
+  //your code to be executed after 1 second
+}, delayInMilliseconds);
+
+// var bloodActionElementBoy = document.getElementById("bloodActionNumBoy");
+// attackActionBloodShow(bloodActionElementBoy,50);

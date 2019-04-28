@@ -194,6 +194,14 @@ body{
     font-size: 44px;
 }
 
+.bloodActionNum{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    color: red;
+    font-size: 36px;
+}
+
 @keyframes walk_boy{
     99%{
         left: 900px;
