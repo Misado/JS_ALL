@@ -92,11 +92,39 @@ function attackAction(bloodNumElement,bloodDecreaseNum){
 }
 
 
-
-function battleRound(){
-    attackAction(bloodNumElementMonster,20);
-    attackAction(bloodNumElementGirl,10);
-    attackAction(bloodNumElementBoy,15);
+// 補血血增加
+function protectAction(bloodNumElement,bloodDecreaseNum){
+    var bloodStatus =  bloodCheck(bloodNumElement);
+    bloodStatus +=bloodDecreaseNum;
+    var bloodStatusTotal = bloodStatus+"/100";
+    bloodNumElement.textContent = bloodStatusTotal;
 }
 
-battleRound();
+//是否死亡確認
+function deathCheck(bloodNumElement){
+    var bloodStatus =  bloodCheck(bloodNumElement);
+    if ( bloodStatus <=0 ){
+        console.log("掛了");
+        console.log(bloodNumElement);
+    }
+}
+
+//一場戰鬥
+function battleRound(event){
+    if ( event.keyCode == 49 ){
+        attackAction(bloodNumElementMonster,20);
+        attackAction(bloodNumElementMonster,20);
+        attackAction(bloodNumElementMonster,20);
+        attackAction(bloodNumElementGirl,80);
+        attackAction(bloodNumElementBoy,15);
+    }
+    if ( event.keyCode == 50 ){
+        protectAction(bloodNumElementGirl,70);
+    }
+    deathCheck(bloodNumElementMonster);
+    deathCheck(bloodNumElementGirl);
+}
+
+//battleRound();
+
+document.addEventListener("keydown",battleRound);
