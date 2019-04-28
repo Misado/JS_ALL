@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>世界羽球排名資訊站(JSON作業練習)</title>
+</head>
+<body>
+    <h1>歡迎來到世界羽球排名資訊站！(Update by: 2019/04/16)</h1>
+    <p>請問你今天想知道什麼資料呢？</p>
+    <h2>請輸入數字：</h2>
+    <input type="number" name="selectItem" id="selectItem">
+    <input type="button" id="submutBtn" value="送出">
+    <p id="selectMsg"></p>
+    <br><br>
+    <hr>
+    <br><br>
+    <ol>
+        <li>世界女單前25名與小戴現在分數差距
+            <p id="diffScroreResult"></p>
+        </li>
+        <li>世界女單前25名人數(by國家)
+            <p></p>
+        </li>
+        <li>世界女單前25名各國選手名單
+                <h2>請輸入國家名字：</h2>
+                <input type="text" name="countryInput" id="countryInput">
+                <p id="playerList"></p>
+        </li>
+    </ol>
+    <br><br>
+    <hr>
+    <p>此為JSON作業練習，資料來源：<a target="_blank" href="http://bwfcontent.tournamentsoftware.com/ranking/category.aspx?id=20586&category=473">BWF World Rankings</a></p>
+    <script src="js/all.js"></script>
+</body>
+</html>
+
+

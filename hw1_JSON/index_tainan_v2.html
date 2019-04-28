@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>臺南市餐飲(含伴手禮)店家資訊站</title>
+    <script src="data/shops_zh-tw.js"></script>
+</head>
+<body>
+    <h1>歡迎來到臺南市餐飲(含伴手禮)店家資訊站！</h1>
+    <h2>台南各區美食數</h2>
+    <p id="districtFoodNum"></p>
+    <h2>台南各類別美食數</h2>
+    <p id="categoryFoodNum"></p>
+    <h2>請問你想搜尋哪一區哪一類的美食？</h2>
+    <select name="districtName" id="districtId"></select>
+    <select name="categoryName" id="categoryId"></select>
+    <input type="button" id="submitBtn" value="送出">
+    <h2>搜尋結果：</h2>
+    <p id="bothFoodNum">
+        <ul class="foodList"></ul>
+    </p>
+    <br>
+    <hr>
+    <br>
+    <p>此為80講座「createElement 與 for 運用」+JSON小作業練習，資料來源：<a target="_blank" href="https://www.twtainan.net/data/shops_zh-tw.json">臺南市政府觀光旅遊局</a></p>
+    <script src="js/all_tainan_v2.js"></script>
+</body>
+</html>

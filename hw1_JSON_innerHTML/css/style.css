@@ -1,0 +1,8 @@
+.diffTable td{
+    color: blue;
+}
+
+.resultTable td,.resultTable th{
+    border: 1px solid #000;
+    text-align: center;
+}

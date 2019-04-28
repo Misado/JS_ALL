@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>臺南市餐飲(含伴手禮)店家資訊站</title>
+    <script src="data/shops_zh-tw.json"></script>
+</head>
+<body>
+    <h1>歡迎來到臺南市餐飲(含伴手禮)店家資訊站！</h1>
+    <h2>台南各區美食數</h2>
+    <p id="districtFoodNum"></p>
+    <h2>台南各類別美食數</h2>
+    <p id="categoryFoodNum"></p>
+    <h2>請問你想搜尋哪一區哪一類的美食？</h2>
+    <input type="text" id="districtId" placeholder="中西區">
+    <input type="text" id="categoryId" placeholder="地方小吃">
+    <input type="button" id="submitBtn" value="送出">
+    <h2>搜尋結果：</h2>
+    <p id="bothFoodNum"></p>
+    <script src="js/all_tainan.js"></script>
+</body>
+</html>

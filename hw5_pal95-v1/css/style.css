@@ -1,0 +1,165 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS reset END */
+
+html{
+    height: 100%;
+}
+
+body{
+    background-image: url("../img/map.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    overflow: hidden;
+}
+
+.imgRole{
+    position: absolute;
+    
+}
+
+.imgBoy{
+    top: 300px;
+    left: 100px;
+    animation: walk_boy 2s 1;
+    animation-fill-mode: forwards;
+}
+
+.imgGirl{
+    top: 320px;
+    left: 10px;
+    animation: walk_girl 2s 1;
+    animation-fill-mode: forwards;
+}
+
+.imgMonster{
+    bottom: 120px;
+    right: 10px;
+    animation: walk_monster 2s 1;
+    animation-fill-mode: forwards;
+}
+
+.hideRole{
+    /*display: none;*/
+    /*eft: -100px;*/
+}
+
+.message{
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color:rgba(0,0,0,0.5);
+    padding: 50px;
+    
+}
+
+.message li{
+    list-style: decimal;
+    list-style-position: inside;
+    color: #fff;
+    text-align: center;
+    font-size: 44px;
+}
+
+.show .message{
+    display: block;
+}
+
+
+
+.bloodLine{
+    display: none;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 10px;
+    background-size: 10px 100px;
+    background-color: red;
+}
+
+.bloodMonster{
+    width: 80%;
+}
+
+.show .bloodLine{
+    display: block;
+}
+
+
+
+
+@keyframes walk_boy{
+    99%{
+        left: 900px;
+        
+    }
+    100%{
+        left: 200px;
+    }
+}
+
+@keyframes walk_girl{
+    99%{
+        left: 820px;
+        
+    }
+    100%{
+        left: 400px;
+    }
+}
+
+@keyframes walk_monster{
+    to{
+        right: 350px;
+        
+    }
+}
+
