@@ -1,4 +1,4 @@
-var battleFinishCheck = false;
+var battleIngCheck = 0;
 
 
 var boyElement = document.querySelector(".imgBoy");
@@ -39,11 +39,10 @@ function positionCheck(event){
         girlElement.setAttribute("class","hideRole");
         monsterlElement.setAttribute("class","hideRole");*/
         bodyElement.setAttribute("class","war");
-        //bloodMonsterElement.style.width = "100%";
+        bloodMonsterElement.style.width = "100%";
         /*bloodBoyElement.style.width = "100%";
         bloodGirlElement.style.width = "100%";*/
         warMenuElement.setAttribute("class","warMenu battleIng");
-        monsterlElement.style.top = "240px"; 
     }
 }
 
@@ -122,106 +121,68 @@ function deathCheck(bloodNumElement){
     if ( bloodStatus <=0 ){
         console.log("掛了");
         console.log(bloodNumElement);
-        /*messageElement.style.display = "block";*/
-        return true;
+        messageElement.style.display = "block";
     }
-    return false;
 }
 
 //一場戰鬥
 function battleRound(event){
-    battleFinishCheck = false;
-    if (battleFinishCheck == false){
-        if ( event.keyCode == 49 ){
-            // attackAction(bloodNumElementMonster,20);
-            // attackAction(bloodNumElementMonster,20);
-            attackAction(bloodNumElementMonster,20);
-            attackActionBloodShow(bloodActionElementMonster,-20);
-            bloodShowMonster(bloodNumElementMonster);
-            
-            
+    
+    if ( event.keyCode == 49 ){
+        // attackAction(bloodNumElementMonster,20);
+        // attackAction(bloodNumElementMonster,20);
+        attackAction(bloodNumElementMonster,20);
+        attackActionBloodShow(bloodActionElementMonster,-20);
 
-            
-        }
-        if ( event.keyCode == 50 ){
-            protectAction(bloodNumElementGirl,70);
-            attackActionBloodShow(bloodActionElementGirl,"+70");
-        }
-        console.log("deathMonster: "+deathMonster);
-        deathMonster = deathCheck(bloodNumElementMonster);
-        if ( deathMonster == false ){
-            warMenuElement.style.display = "none";
-            document.removeEventListener("keydown",battleRound);
-            console.log("removeEventListener");
-            //攻擊/補血後換怪攻擊要晚點觸發
-            setTimeout(function() {
-                attackAction(bloodNumElementGirl,60);
-                attackActionBloodShow(bloodActionElementGirl,-60);
+        
+        
 
-                attackAction(bloodNumElementBoy,15);
-                attackActionBloodShow(bloodActionElementBoy,-15);
-                deathCheck(bloodNumElementMonster);
-                deathCheck(bloodNumElementGirl);
-            }, 4000);
-        } else{
-            document.removeEventListener("keydown",battleRound);
-            setTimeout(function() {var messageSuccess1EL1 = document.querySelector(".messageSuccess1");
-            var messageSuccess1EL2 = document.querySelector(".messageSuccess2");
-            messageSuccess1EL1.style.display = "block";
-            messageSuccess1EL2.style.display = "block";
-            messageSuccess1EL1.setAttribute("class", messageSuccess1EL1.getAttribute("class")+" animated pulse");
-            messageSuccess1EL2.setAttribute("class", messageSuccess1EL2.getAttribute("class")+" animated pulse");
-            
-            return;
-            }, 4000);
-        }
         
-        // setTimeout(function() {
-        //     warMenuElement.setAttribute("class","warMenu");
-        //     console.log("HI");
-        //     console.log("warMenuElement class:" +warMenuElement.getAttribute("class"));
-        // }, 6000);
-        
-        // battleIngCheck = 1;
-        battleFinishCheck = true;
     }
+    if ( event.keyCode == 50 ){
+        protectAction(bloodNumElementGirl,70);
+        attackActionBloodShow(bloodActionElementGirl,"+70");
+    }
+    warMenuElement.style.display = "none";
+    document.removeEventListener("keydown",battleRound);
+    console.log("removeEventListener");
+    //攻擊/補血後換怪攻擊要晚點觸發
+    setTimeout(function() {
+        attackAction(bloodNumElementGirl,60);
+        attackActionBloodShow(bloodActionElementGirl,-60);
+
+        attackAction(bloodNumElementBoy,15);
+        attackActionBloodShow(bloodActionElementBoy,-15);
+        deathCheck(bloodNumElementMonster);
+        deathCheck(bloodNumElementGirl);
+      }, 4000);
+    
+    // setTimeout(function() {
+    //     warMenuElement.setAttribute("class","warMenu");
+    //     console.log("HI");
+    //     console.log("warMenuElement class:" +warMenuElement.getAttribute("class"));
+    // }, 6000);
+    
+    battleIngCheck = 1;
 }
 
 //battleRound();
 console.log("第一回合");
 document.addEventListener("keydown",battleRound);
-setTimeout(exec, 10000);
-setTimeout(exec, 20000);
-setTimeout(exec, 30000);
 
-// setTimeout(10000,function(){
-//     for ( var i=1; i<=2; i++){
-//         console.log("第"+i+"個 battleFinishCheck = "+battleFinishCheck);
-//         if ( battleFinishCheck == true ){
-//             console.log("第"+i+"個 battleFinishCheck = "+battleFinishCheck);
-//                 setTimeout(exec, 10000*i);
-//             }
-//     }
-// })
+setTimeout(function() {
+    console.log("第二回合");
+    console.log("addEventListener");
+    warMenuElement.style.display = "block";
+    document.addEventListener("keydown",battleRound);
+}, 10000);
 
-var deathMonster = false;
-function exec() {
-    deathMonster = deathCheck(bloodNumElementMonster);
-    
-    if ( battleFinishCheck == true && deathMonster == false ){
-        console.log("第二回合");
-        console.log("addEventListener");
-        warMenuElement.style.display = "block";
-        document.addEventListener("keydown",battleRound);
-    }
-}
-
-// setTimeout(function() {
-//     console.log("第三回合");
-//     console.log("addEventListener");
-//     warMenuElement.style.display = "block";
-//     document.addEventListener("keydown",battleRound);
-// }, 20000);
+setTimeout(function() {
+    console.log("第三回合");
+    console.log("addEventListener");
+    warMenuElement.style.display = "block";
+    document.addEventListener("keydown",battleRound);
+}, 20000);
 
 
 function attackActionBloodShow(bloodActionElement,bloodDecreaseNum){
@@ -242,11 +203,3 @@ function attackActionBloodShow(bloodActionElement,bloodDecreaseNum){
     
 }
 
-function bloodShowMonster(bloodNumElement){
-    var bloodNum = bloodCheck(bloodNumElement);
-    console.log("bloodNum" +bloodNum);
-    bloodMonsterElement.style.width = bloodNum+"%";
-    //bloodMonsterElement.style.width = "10%";
-}
-
-bloodShowMonster(bloodNumElementMonster);

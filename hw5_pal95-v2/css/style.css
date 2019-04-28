@@ -72,18 +72,6 @@ body{
     color: #fff;
 }
 
-.messageSuccess1{
-    position: absolute;
-    top: 60px;
-    left: 30%;
-}
-
-.messageSuccess2{
-    position: absolute;
-    top: 200px;
-    left: 25%;
-}
-
 .imgRole{
     position: absolute;
     
@@ -115,7 +103,6 @@ body{
 
 .imgMonster{
     bottom: 120px;
-    /* top: 240px; */
     right: 10px;
     animation: walk_monster 2s 1;
     animation-fill-mode: forwards;
@@ -150,7 +137,7 @@ body{
 
 
 
-/* .bloodLine{
+.bloodLine{
     display: none;
     position: absolute;
     top: -20px;
@@ -158,16 +145,10 @@ body{
     height: 10px;
     background-size: 10px 100px;
     background-color: red;
-} */
+}
 
 .bloodMonster{
-    display: none;
-    position: absolute;
-    top: -20px;
-    width: 10%;
-    height: 10px;
-    background-size: 10px 100px;
-    background-color: red;
+    width: 80%;
 }
 
 .war .bloodLine{
