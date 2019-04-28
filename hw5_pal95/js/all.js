@@ -6,8 +6,8 @@ var monsterlElement = document.querySelector(".imgMonster");
 var bodyElement = document.body;
 console.log(bodyElement.style.backgroundImage);
 
-var bloodBoyElement = document.querySelector(".bloodBoy");
-var bloodGirlElement = document.querySelector(".bloodGirl");
+/*var bloodBoyElement = document.querySelector(".bloodBoy");
+var bloodGirlElement = document.querySelector(".bloodGirl");*/
 var bloodMonsterElement = document.querySelector(".bloodMonster");
 
 document.addEventListener("animationend",positionCheck);
@@ -35,8 +35,8 @@ function positionCheck(event){
         monsterlElement.setAttribute("class","hideRole");*/
         bodyElement.setAttribute("class","war");
         bloodMonsterElement.style.width = "100%";
-        bloodBoyElement.style.width = "100%";
-        bloodGirlElement.style.width = "100%";
+        /*bloodBoyElement.style.width = "100%";
+        bloodGirlElement.style.width = "100%";*/
     }
 }
 
@@ -45,7 +45,7 @@ document.addEventListener("keydown",attackCheck);
 function attackCheck(event){
     if ( event.keyCode == 49 ){
         console.log(event.keyCode);
-        console.log(bloodBoyElement);
+        //console.log(bloodBoyElement);
         var bloodMonsterNum = bloodMonsterElement.style.width.split("%");
         console.log("bloodMonsterNum: "+parseInt(bloodMonsterNum[0]));
         //bloodMonsterNum -="20%";
@@ -60,3 +60,26 @@ function attackCheck(event){
         document.removeEventListener("keydown",attackCheck);
     }
 }
+
+// check目前血量 帶血量id元素進去
+function bloodCheck(bloodNumElement){
+    var bloodBoyStatus =  bloodNumElement.textContent;
+    console.log("bloodBoyStatus: "+bloodBoyStatus);
+    bloodBoyStatus = parseInt(bloodBoyStatus.split("/")[0]);
+    //bloodBoyStatus.textContent += "/100";*/
+    console.log("bloodBoyStatus: "+bloodBoyStatus);
+    var bloodBoyStatusTotal = bloodBoyStatus+"/100";
+    bloodNumElement.textContent = bloodBoyStatusTotal;
+}
+
+var bloodNumElementBoy = document.getElementById("bloodNumBoy");
+bloodCheck(bloodNumElementBoy);
+
+var bloodNumElementGirl = document.getElementById("bloodNumGirl");
+bloodCheck(bloodNumElementGirl);
+
+
+var bloodNumElementMonster = document.getElementById("bloodNumMonster");
+bloodCheck(bloodNumElementMonster);
+
+
