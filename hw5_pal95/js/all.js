@@ -59,6 +59,7 @@ function attackCheck(event){
         console.log("沒血了！");
         document.removeEventListener("keydown",attackCheck);
     }
+    document.removeEventListener("keydown",attackCheck);
 }
 
 // check目前血量 帶血量id元素進去
@@ -115,7 +116,7 @@ function battleRound(event){
         attackAction(bloodNumElementMonster,20);
         attackAction(bloodNumElementMonster,20);
         attackAction(bloodNumElementMonster,20);
-        attackAction(bloodNumElementGirl,80);
+        attackAction(bloodNumElementGirl,60);
         attackAction(bloodNumElementBoy,15);
     }
     if ( event.keyCode == 50 ){
@@ -123,6 +124,7 @@ function battleRound(event){
     }
     deathCheck(bloodNumElementMonster);
     deathCheck(bloodNumElementGirl);
+    document.removeEventListener("keydown",battleRound);
 }
 
 //battleRound();
