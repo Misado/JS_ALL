@@ -63,13 +63,14 @@ function attackCheck(event){
 
 // check目前血量 帶血量id元素進去
 function bloodCheck(bloodNumElement){
-    var bloodBoyStatus =  bloodNumElement.textContent;
-    console.log("bloodBoyStatus: "+bloodBoyStatus);
-    bloodBoyStatus = parseInt(bloodBoyStatus.split("/")[0]);
+    var bloodStatus =  bloodNumElement.textContent;
+    console.log("bloodStatus: "+bloodStatus);
+    bloodStatus = parseInt(bloodStatus.split("/")[0]);
     //bloodBoyStatus.textContent += "/100";*/
-    console.log("bloodBoyStatus: "+bloodBoyStatus);
-    var bloodBoyStatusTotal = bloodBoyStatus+"/100";
-    bloodNumElement.textContent = bloodBoyStatusTotal;
+    console.log("bloodStatus: "+bloodStatus);
+    var bloodStatusTotal = bloodStatus+"/100";
+    bloodNumElement.textContent = bloodStatusTotal;
+    return bloodStatus;
 }
 
 var bloodNumElementBoy = document.getElementById("bloodNumBoy");
@@ -82,4 +83,14 @@ bloodCheck(bloodNumElementGirl);
 var bloodNumElementMonster = document.getElementById("bloodNumMonster");
 bloodCheck(bloodNumElementMonster);
 
+// 攻擊血減少
+function attackAction(bloodNumElement,bloodDecreaseNum){
+    var bloodStatus =  bloodCheck(bloodNumElement);
+    bloodStatus -=bloodDecreaseNum;
+    var bloodStatusTotal = bloodStatus+"/100";
+    bloodNumElement.textContent = bloodStatusTotal;
+}
 
+attackAction(bloodNumElementMonster,20);
+attackAction(bloodNumElementGirl,10);
+attackAction(bloodNumElementBoy,15);
