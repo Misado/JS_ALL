@@ -40,3 +40,26 @@ function exec(event){
         setTimeout(a, 1000); 
     }
 }
+
+
+
+// var snd = new Audio("../mp3/battle.mp3");
+// snd.loop = true; //設定循環播放
+
+// //停止
+// function myStop(){
+//     snd.pause();
+//     snd.currentTime = 0;
+// }
+
+// var bgmAudioElement = document.getElementById("bgm");
+// bgmAudioElement.loop = true;
+
+var snd = new Audio("mp3/battle02.mp3");
+//snd.loop = true; //設定循環播放
+//snd.autoplay = true;
+
+var body = document.querySelector("body");
+body.appendChild(snd);
+
+console.log(snd.src);

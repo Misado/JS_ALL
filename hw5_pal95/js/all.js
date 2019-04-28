@@ -15,6 +15,13 @@ var messageElement = document.querySelector(".message");
 var bloodGirlElement = document.querySelector(".bloodGirl");*/
 var bloodMonsterElement = document.querySelector(".bloodMonster");
 
+var snd = new Audio("mp3/battle02.mp3");
+snd.loop = false; //設定循環播放
+snd.autoplay = true;
+
+
+
+
 document.addEventListener("animationend",positionCheck);
 
 function positionCheck(event){
@@ -31,7 +38,7 @@ function positionCheck(event){
     if ( boyPosition >= monsterPosition){
         console.log("碰到了！");
         //console.log(bodyElement.style);
-         var str = "url('img/war04.png')";
+         var str = "url('img/war05.png')";
          bodyElement.style.backgroundImage = str;
         //console.log(bodyElement.style.background-image.url);
         //console.log(event.target.parentNode.parentNode.style.backgroundImage);
@@ -44,6 +51,19 @@ function positionCheck(event){
         bloodGirlElement.style.width = "100%";*/
         warMenuElement.setAttribute("class","warMenu battleIng");
         monsterlElement.style.top = "240px"; 
+        // var snd = new Audio("mp3/battle02.mp3");
+        // snd.loop = true; //設定循環播放
+        //snd.autoplay = true;
+        // if ( snd.autoplay == false ){
+        //     console.log("snd.src:" +snd.src);
+        //     console.log("snd.autoplay:" +snd.autoplay);
+        //     snd.autoplay = true;
+        // }
+
+        //var body = document.querySelector("body");
+        // bodyElement.appendChild(snd);
+
+        console.log("snd.src:" +snd.src);
     }
 }
 
@@ -155,8 +175,8 @@ function battleRound(event){
             console.log("removeEventListener");
             //攻擊/補血後換怪攻擊要晚點觸發
             setTimeout(function() {
-                attackAction(bloodNumElementGirl,60);
-                attackActionBloodShow(bloodActionElementGirl,-60);
+                attackAction(bloodNumElementGirl,25);
+                attackActionBloodShow(bloodActionElementGirl,-25);
 
                 attackAction(bloodNumElementBoy,15);
                 attackActionBloodShow(bloodActionElementBoy,-15);
@@ -171,7 +191,7 @@ function battleRound(event){
             messageSuccess1EL2.style.display = "block";
             messageSuccess1EL1.setAttribute("class", messageSuccess1EL1.getAttribute("class")+" animated pulse");
             messageSuccess1EL2.setAttribute("class", messageSuccess1EL2.getAttribute("class")+" animated pulse");
-            
+            snd.src = "mp3/victory.mp3";
             return;
             }, 4000);
         }
@@ -190,6 +210,8 @@ function battleRound(event){
 //battleRound();
 console.log("第一回合");
 document.addEventListener("keydown",battleRound);
+
+
 setTimeout(exec, 10000);
 setTimeout(exec, 20000);
 setTimeout(exec, 30000);
@@ -213,6 +235,11 @@ function exec() {
         console.log("addEventListener");
         warMenuElement.style.display = "block";
         document.addEventListener("keydown",battleRound);
+        
+        
+            snd.autoplay = true;
+
+        
     }
 }
 

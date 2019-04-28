@@ -76,12 +76,14 @@ body{
     position: absolute;
     top: 60px;
     left: 30%;
+    z-index: 998;
 }
 
 .messageSuccess2{
     position: absolute;
     top: 200px;
     left: 25%;
+    z-index: 998;
 }
 
 .imgRole{
@@ -119,6 +121,7 @@ body{
     right: 10px;
     animation: walk_monster 2s 1;
     animation-fill-mode: forwards;
+    z-index: 1;
 }
 
 .hideRole{
