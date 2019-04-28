@@ -16,6 +16,7 @@ var bloodGirlElement = document.querySelector(".bloodGirl");*/
 var bloodMonsterElement = document.querySelector(".bloodMonster");
 
 var snd = new Audio("mp3/battle02.mp3");
+snd.volume = 0.7;
 snd.loop = false; //設定循環播放
 snd.autoplay = true;
 
@@ -186,13 +187,21 @@ function battleRound(event){
         } else{
             document.removeEventListener("keydown",battleRound);
             warMenuElement.style.display = "none";
-            setTimeout(function() {var messageSuccess1EL1 = document.querySelector(".messageSuccess1");
+            // monsterlElement.setAttribute("class",monsterlElement.getAttribute("class")+" animated fadeOut");
+            setTimeout(function() {
+                monsterlElement.setAttribute("class","animated fadeOutDown");
+            },3500);
+            
+            setTimeout(function() {
+            var messageSuccess1EL1 = document.querySelector(".messageSuccess1");
             var messageSuccess1EL2 = document.querySelector(".messageSuccess2");
             messageSuccess1EL1.style.display = "block";
             messageSuccess1EL2.style.display = "block";
             messageSuccess1EL1.setAttribute("class", messageSuccess1EL1.getAttribute("class")+" animated pulse");
             messageSuccess1EL2.setAttribute("class", messageSuccess1EL2.getAttribute("class")+" animated pulse");
+            
             snd.src = "mp3/victory.mp3";
+            snd.volume = 1;
             return;
             }, 4000);
         }
