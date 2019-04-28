@@ -91,6 +91,12 @@ function attackAction(bloodNumElement,bloodDecreaseNum){
     bloodNumElement.textContent = bloodStatusTotal;
 }
 
-attackAction(bloodNumElementMonster,20);
-attackAction(bloodNumElementGirl,10);
-attackAction(bloodNumElementBoy,15);
+
+
+function battleRound(){
+    attackAction(bloodNumElementMonster,20);
+    attackAction(bloodNumElementGirl,10);
+    attackAction(bloodNumElementBoy,15);
+}
+
+battleRound();
