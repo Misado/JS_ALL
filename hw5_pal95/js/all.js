@@ -26,14 +26,14 @@ function positionCheck(event){
     if ( boyPosition >= monsterPosition){
         console.log("碰到了！");
         //console.log(bodyElement.style);
-         var str = "url('img/war02.png')";
+         var str = "url('img/war04.png')";
          bodyElement.style.backgroundImage = str;
         //console.log(bodyElement.style.background-image.url);
         //console.log(event.target.parentNode.parentNode.style.backgroundImage);
         /*boyElement.setAttribute("class","hideRole");
         girlElement.setAttribute("class","hideRole");
         monsterlElement.setAttribute("class","hideRole");*/
-        bodyElement.setAttribute("class","show");
+        bodyElement.setAttribute("class","war");
         bloodMonsterElement.style.width = "100%";
         bloodBoyElement.style.width = "100%";
         bloodGirlElement.style.width = "100%";

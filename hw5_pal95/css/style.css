@@ -65,6 +65,16 @@ body{
     
 }
 
+.war .imgRole{
+    display: none;
+}
+
+.war .imgRole.imgMonster{
+    display: block;
+    z-index: 999;
+}
+
+
 .imgBoy{
     top: 300px;
     left: 100px;
@@ -109,7 +119,7 @@ body{
     font-size: 44px;
 }
 
-.show .message{
+.war .message{
     display: block;
 }
 
@@ -129,12 +139,59 @@ body{
     width: 80%;
 }
 
-.show .bloodLine{
+.war .bloodLine{
     display: block;
 }
 
+.warStatus{
+    /*background-image: url("../img/war_status.png");*/
+    width: 569px;
+    height: 151px;
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
+.war .warStatus{
+    display: block;
+}
 
+.bloodStatusBoy{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bloodStatusGirl{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.bloodNum{
+    position: absolute;
+    top: 40px;
+    left: 120px;
+    color: #fff;
+    font-size: 44px;
+}
+
+.magicNum{
+    position: absolute;
+    top: 90px;
+    left: 120px;
+    color: #fff;
+    font-size: 44px;
+}
+
+.roleName{
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    color: #fff;
+    font-size: 44px;
+}
 
 @keyframes walk_boy{
     99%{
