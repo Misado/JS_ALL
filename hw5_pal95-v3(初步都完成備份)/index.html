@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="imgRole imgBoy">
+            <img src="img/boy.png" alt="">
+        </div>
+        <div class="imgRole imgGirl">
+            <img src="img/girl.png" alt="">
+        </div>
+        <div class="imgRole imgMonster">
+            <div class="bloodLine bloodMonster">
+                <span class="bloodActionNum" id="bloodActionNumMonster"></span>
+                <span id="bloodNumMonster" style="display: none;">40/50</span>
+            </div>
+            <img src="img/monster.png" alt="">
+        </div>
+        <div class="warStatus">
+            <div class="bloodStatusBoy">
+                <span class="roleName">李逍遙</span>
+                <span class="bloodActionNum" id="bloodActionNumBoy"></span>
+                <span class="bloodNum" id="bloodNumBoy">100/100</span>
+                <span class="magicNum" id="magicNumBoy">50/50</span>
+                <img src="img/status_boy.png" alt="">
+                
+            </div>
+            <div class="bloodStatusGirl">
+                <span class="roleName">趙靈兒</span>
+                <span class="bloodActionNum" id="bloodActionNumGirl"></span>
+                <span class="bloodNum" id="bloodNumGirl">80/80</span>
+                <span class="magicNum" id="magicNumGirl">100/100</span>
+                <img src="img/status_girl.png" alt="">
+            </div>
+        </div>
+        <div class="warMenu" id="warMenuId">
+            <ol>
+                <li>攻擊</li>
+                <li>補血</li>
+            </ol>
+        </div>
+        <div class="message" style="display: none">勝敗乃兵家常事也<br>大俠請重新來過吧</div>
+        <div class="messageSuccess1" style="display:none;"><img src="img/success1.png" alt=""></div>
+        <div class="messageSuccess2" style="display:none;"><img src="img/success2.png" alt=""></div>
+        <!--<embed id="bgmPlay" src="mp3/battle.mp3" autostart=false hidden=true loop=true>-->
+    </div>
+    <script src="js/all.js"></script>
+</body>
+</html>

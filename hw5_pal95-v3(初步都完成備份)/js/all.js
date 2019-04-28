@@ -185,7 +185,6 @@ function battleRound(event){
             }, 4000);
         } else{
             document.removeEventListener("keydown",battleRound);
-            warMenuElement.style.display = "none";
             setTimeout(function() {var messageSuccess1EL1 = document.querySelector(".messageSuccess1");
             var messageSuccess1EL2 = document.querySelector(".messageSuccess2");
             messageSuccess1EL1.style.display = "block";
