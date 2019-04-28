@@ -1,3 +1,5 @@
+var battleIngCheck = 0;
+
 
 var boyElement = document.querySelector(".imgBoy");
 //var boyElement = document.getElementById("imgBoy");
@@ -5,6 +7,9 @@ var girlElement = document.querySelector(".imgGirl");
 var monsterlElement = document.querySelector(".imgMonster");
 var bodyElement = document.body;
 console.log(bodyElement.style.backgroundImage);
+
+var warMenuElement = document.querySelector("#warMenuId");
+var messageElement = document.querySelector(".message");
 
 /*var bloodBoyElement = document.querySelector(".bloodBoy");
 var bloodGirlElement = document.querySelector(".bloodGirl");*/
@@ -37,6 +42,7 @@ function positionCheck(event){
         bloodMonsterElement.style.width = "100%";
         /*bloodBoyElement.style.width = "100%";
         bloodGirlElement.style.width = "100%";*/
+        warMenuElement.setAttribute("class","warMenu battleIng");
     }
 }
 
@@ -115,24 +121,20 @@ function deathCheck(bloodNumElement){
     if ( bloodStatus <=0 ){
         console.log("掛了");
         console.log(bloodNumElement);
+        messageElement.style.display = "block";
     }
 }
 
 //一場戰鬥
 function battleRound(event){
+    
     if ( event.keyCode == 49 ){
         // attackAction(bloodNumElementMonster,20);
         // attackAction(bloodNumElementMonster,20);
         attackAction(bloodNumElementMonster,20);
         attackActionBloodShow(bloodActionElementMonster,-20);
-        setTimeout(function() {
-            attackAction(bloodNumElementGirl,60);
-            attackActionBloodShow(bloodActionElementGirl,-60);
 
-            attackAction(bloodNumElementBoy,15);
-            attackActionBloodShow(bloodActionElementBoy,-15);
-            
-          }, 5000);
+        
         
 
         
@@ -141,15 +143,46 @@ function battleRound(event){
         protectAction(bloodNumElementGirl,70);
         attackActionBloodShow(bloodActionElementGirl,"+70");
     }
-    deathCheck(bloodNumElementMonster);
-    deathCheck(bloodNumElementGirl);
+    warMenuElement.style.display = "none";
     document.removeEventListener("keydown",battleRound);
+    console.log("removeEventListener");
+    //攻擊/補血後換怪攻擊要晚點觸發
+    setTimeout(function() {
+        attackAction(bloodNumElementGirl,60);
+        attackActionBloodShow(bloodActionElementGirl,-60);
+
+        attackAction(bloodNumElementBoy,15);
+        attackActionBloodShow(bloodActionElementBoy,-15);
+        deathCheck(bloodNumElementMonster);
+        deathCheck(bloodNumElementGirl);
+      }, 4000);
+    
+    // setTimeout(function() {
+    //     warMenuElement.setAttribute("class","warMenu");
+    //     console.log("HI");
+    //     console.log("warMenuElement class:" +warMenuElement.getAttribute("class"));
+    // }, 6000);
+    
+    battleIngCheck = 1;
 }
 
 //battleRound();
-
+console.log("第一回合");
 document.addEventListener("keydown",battleRound);
 
+setTimeout(function() {
+    console.log("第二回合");
+    console.log("addEventListener");
+    warMenuElement.style.display = "block";
+    document.addEventListener("keydown",battleRound);
+}, 10000);
+
+setTimeout(function() {
+    console.log("第三回合");
+    console.log("addEventListener");
+    warMenuElement.style.display = "block";
+    document.addEventListener("keydown",battleRound);
+}, 20000);
 
 
 function attackActionBloodShow(bloodActionElement,bloodDecreaseNum){
@@ -163,6 +196,8 @@ function attackActionBloodShow(bloodActionElement,bloodDecreaseNum){
     //讓減少的血量晚點消失
       setTimeout(function() {
         bloodActionElement.textContent = "";
+        
+        bloodActionElement.setAttribute("class",bloodActionBoyClass);
       }, 3000);
       
     

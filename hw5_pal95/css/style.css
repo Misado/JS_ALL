@@ -61,6 +61,17 @@ body{
     font-family: 新細明體;
 }
 
+.message{
+    display: none;
+    height: 5000px;
+    background-color: rgba(120, 16, 13, 0.7);
+    z-index: 999;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 60px;
+    color: #fff;
+}
+
 .imgRole{
     position: absolute;
     
@@ -72,7 +83,7 @@ body{
 
 .war .imgRole.imgMonster{
     display: block;
-    z-index: 999;
+    z-index: 2;
 }
 
 
@@ -103,7 +114,7 @@ body{
 }
 
 .warMenu{
-    opacity: 0;
+    display: none;
     position: absolute;
     left: 10px;
     top: 10px;
@@ -120,8 +131,8 @@ body{
     font-size: 44px;
 }
 
-.war .warMenu{
-   opacity: 1;
+.warMenu.battleIng{
+   display: block;
 }
 
 
