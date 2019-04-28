@@ -125,15 +125,21 @@ function battleRound(event){
         // attackAction(bloodNumElementMonster,20);
         attackAction(bloodNumElementMonster,20);
         attackActionBloodShow(bloodActionElementMonster,-20);
+        setTimeout(function() {
+            attackAction(bloodNumElementGirl,60);
+            attackActionBloodShow(bloodActionElementGirl,-60);
 
-        attackAction(bloodNumElementGirl,60);
-        attackActionBloodShow(bloodActionElementGirl,-60);
+            attackAction(bloodNumElementBoy,15);
+            attackActionBloodShow(bloodActionElementBoy,-15);
+            
+          }, 5000);
+        
 
-        attackAction(bloodNumElementBoy,15);
-        attackActionBloodShow(bloodActionElementBoy,-15);
+        
     }
     if ( event.keyCode == 50 ){
         protectAction(bloodNumElementGirl,70);
+        attackActionBloodShow(bloodActionElementGirl,"+70");
     }
     deathCheck(bloodNumElementMonster);
     deathCheck(bloodNumElementGirl);
@@ -147,26 +153,18 @@ document.addEventListener("keydown",battleRound);
 
 
 function attackActionBloodShow(bloodActionElement,bloodDecreaseNum){
-    var bloodNum = bloodDecreaseNum;
+    //var bloodNum = bloodDecreaseNum;
     //var bloodActionBoy = document.getElementById("bloodActionNumBoy");
 
-    bloodActionElement.textContent = bloodNum;
+    bloodActionElement.textContent = bloodDecreaseNum;
 
     var bloodActionBoyClass = bloodActionElement.getAttribute("class");
-    bloodActionElement.setAttribute("class",bloodActionBoyClass+" flash animated");      
+    bloodActionElement.setAttribute("class",bloodActionBoyClass+" flash animated");
     //讓減少的血量晚點消失
-    setTimeout(function() {
-        //your code to be executed after 1 second
+      setTimeout(function() {
         bloodActionElement.textContent = "";
-      }, 4000);
+      }, 3000);
+      
     
 }
 
-var delayInMilliseconds = 4000; //1 second
-
-setTimeout(function() {
-  //your code to be executed after 1 second
-}, delayInMilliseconds);
-
-// var bloodActionElementBoy = document.getElementById("bloodActionNumBoy");
-// attackActionBloodShow(bloodActionElementBoy,50);
