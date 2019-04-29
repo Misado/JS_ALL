@@ -1,0 +1,116 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS RESET END */
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    background-image: url("../img/room.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+.mask{
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+.wrap{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    width: 70%;
+    
+    /* background-color: moccasin; */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.toDoList{
+    color: #fff;
+}
+
+.roleShow{
+    float: left;
+    padding: 20px;
+}
+
+.roleShow img{
+    background-color: #fff;
+    /* border-radius: 0 50px 0 50px; */
+    border-radius: 50%;
+    /* border-color: #fff; */
+    
+}
+
+.roleShow h1{
+    font-size: 44px;
+    
+}
+
+.board{
+    padding: 20px 40px;
+    float: left;
+}
+
+.resultShow{
+    margin-top: 40px;
+}
+
+.resultShow tr{
+    border-bottom: 1px solid #fff;
+}
+
+.resultShow td{
+    padding: 5px;
+}

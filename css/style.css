@@ -22,3 +22,15 @@
     display: block;
     padding: 10px;
 }
+
+.monster{
+    position: relative;
+    width: 100px;
+}
+
+.blood{
+    height: 10px;
+    position: absolute;
+    top: -10px;
+    background-color: red;
+}

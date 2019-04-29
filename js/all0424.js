@@ -96,3 +96,21 @@ var bodyElement = document.querySelector(".body");
 bodyElement.addEventListener("click",function(){
     alert("點到BODY囉~");
 },false);
+
+
+//-------------- 04/29
+
+var monsterElement = document.querySelector(".monster");
+
+var monsterBloodElement = document.querySelector(".blood");
+
+console.log(monsterElement.dataset.blood);
+
+monsterElement.addEventListener("click",setBlood);
+
+function setBlood(event){
+    console.log(event.target.parentNode.childNodes[0]);
+    console.log(event);
+    // event.target.parentNode.childNodes[1].style.width = event.target.parentNode.dataset.blood+"%";
+    monsterBloodElement.style.width = monsterElement.dataset.blood+"%";
+}
