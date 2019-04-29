@@ -1,0 +1,801 @@
+@charset "UTF-8";
+/* Overall setting */
+/* z-index */
+/* link color setting */
+/* cart color setting */
+/* favorite color setting */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* breakpoint */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 微軟正黑體; }
+
+p {
+  text-align: justify;
+  text-indent: 1em; }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* 統一字型大小 h2~h6,p {font-size} */
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  text-indent: 2em; }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background-color: #000;
+  border-bottom: 1px solid #fff; }
+
+.logo h1 a {
+  width: 120px;
+  height: 40px;
+  background-image: url("../img/logo_w(null).svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 10px 20px;
+  float: left; }
+
+.navbar {
+  float: right;
+  position: relative;
+  -webkit-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  transition: all 0.8s; }
+  .navbar li {
+    float: left; }
+    .navbar li a {
+      display: block;
+      padding: 20px;
+      text-decoration: none;
+      color: #fff;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; }
+      .navbar li a:hover, .navbar li a:focus {
+        background-color: orange; }
+
+.mainMenu {
+  position: relative; }
+  .mainMenu > a.active {
+    background-color: orange; }
+
+.subMenu {
+  display: none;
+  background-color: #000;
+  position: absolute;
+  top: 61px; }
+
+.showmenu {
+  display: none; }
+
+/* navbar RWD CSS setting */
+@media (max-width: 414px) {
+  .showmenu {
+    display: block;
+    float: right; }
+  .navbar {
+    float: none;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 63px;
+    background-color: #000; }
+    .navbar li {
+      float: none; }
+      .navbar li a {
+        margin: 0 0;
+        margin-right: 0;
+        padding-left: 20px;
+        margin-left: 20px;
+        border-bottom: 1px dashed #fff;
+        border-left: 5px solid orange; }
+  .mobile .navbar {
+    max-height: 500px; }
+  .mobile .subMenu {
+    display: none;
+    margin-left: 60px;
+    padding: 10px;
+    position: relative;
+    top: 0; }
+    .mobile .subMenu li a {
+      border-left: 5px solid blue; }
+      .mobile .subMenu li a:hover, .mobile .subMenu li a:focus {
+        background-color: blue; }
+      .mobile .subMenu li a.active {
+        background-color: blue; } }
+
+.banner {
+  background-color: #000;
+  position: relative;
+  z-index: 1;
+  margin-top: 60px; }
+
+.bannerMobile {
+  display: none;
+  background-color: #000;
+  position: relative;
+  z-index: 1;
+  margin-top: 60px; }
+
+.bannerMask {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  color: #fff;
+  position: absolute;
+  z-index: 997;
+  bottom: 20%;
+  width: 96%;
+  margin: 0 2%;
+  text-align: center; }
+  .bannerMask h2 {
+    margin-bottom: 10px; }
+  .bannerMask h5 {
+    line-height: 1.5; }
+  .bannerMask .symbol {
+    margin: 0 5px; }
+
+/* banner RWD CSS setting */
+@media (max-width: 414px) {
+  .banner {
+    display: none; }
+  .bannerMobile {
+    display: block; } }
+
+/* bottom of page setting */
+.footer {
+  padding: 30px 0;
+  color: #3d1101;
+  background-color: #efe9e7; }
+
+/* restaurant information */
+.restInfo {
+  float: left;
+  width: 27.33333%;
+  margin: 20px 3%; }
+  .restInfo h4 {
+    margin-bottom: 10px; }
+  .restInfo li {
+    list-style: disc;
+    list-style-position: inside;
+    font-size: 14px;
+    line-height: 1.5; }
+
+/* restaurant information RWD setting*/
+@media (max-width: 414px) {
+  .restInfo {
+    width: 94%; } }
+
+.restInfologo {
+  float: right;
+  width: 243px;
+  height: 48px;
+  background-image: url("../img/logo_l(null).svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 20px; }
+  .restInfologo ul {
+    float: right; }
+  .restInfologo li {
+    float: left; }
+  .restInfologo img {
+    width: 24px;
+    height: auto;
+    margin-top: 60px;
+    margin-left: 10px; }
+
+/* back to the top of page*/
+.backtotopBtn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 999; }
+  .backtotopBtn i {
+    font-size: 48px;
+    color: #ff5e45; }
+    .backtotopBtn i:hover, .backtotopBtn i:focus {
+      color: red; }
+
+/* -- 0. Overall page setting END -- */
+/* -- 1. INDEX.HTML CSS setting -- */
+.featureDesc {
+  margin: 0 auto;
+  background-color: #efe9e7; }
+  .featureDesc h5 {
+    text-align: center; }
+  .featureDesc img {
+    border-radius: 50%;
+    border: 5px solid #fff; }
+  .featureDesc li {
+    float: left;
+    width: 31.33333%;
+    margin: 1% 1%;
+    text-align: center; }
+    .featureDesc li h4 {
+      margin-top: 20px;
+      margin-bottom: 10px; }
+    .featureDesc li p {
+      text-align: justify;
+      padding: 5%; }
+
+.featureBlock {
+  width: 80%;
+  margin: 0 10%; }
+  .featureBlock hr {
+    width: 50%; }
+  .featureBlock li {
+    float: left;
+    width: 31.33333%;
+    margin: 30px 1%;
+    text-align: center; }
+
+.featureBlockHR {
+  width: 20%; }
+
+/* feature RWD setting */
+@media (max-width: 414px) {
+  .featureDesc li {
+    width: 98%; }
+  .featureBlock li {
+    width: 98%; }
+  .featureBlockHR {
+    display: none; } }
+
+/* chef information */
+.chefInfo {
+  margin: 0 auto;
+  background-color: #3d1101;
+  color: #efe9e7; }
+  .chefInfo li {
+    float: left;
+    width: 46%;
+    margin: 2% 2%;
+    padding: 2%;
+    text-align: center; }
+  .chefInfo p {
+    padding: 10px;
+    text-align: justify; }
+  .chefInfo h4 {
+    text-align: left; }
+  .chefInfo span {
+    font-size: 16px; }
+
+/* chef information RWD setting */
+@media (max-width: 414px) {
+  .chefInfo li {
+    width: 96%; } }
+
+/* customer's feed back */
+.feedbackMsg {
+  padding: 20px 0;
+  color: #3d1101;
+  background-color: #efe9e7; }
+  .feedbackMsg h5 {
+    text-align: center; }
+
+.feedbackMsgBlock img {
+  border-radius: 50%;
+  border: 2px solid #fff; }
+
+.feedbackMsgBlock p {
+  text-indent: 0;
+  margin-top: 10px;
+  padding-left: 5.5em; }
+
+.feedbackTitle {
+  font-size: 16px;
+  padding-left: 0.5em; }
+
+.feedbackSign {
+  display: block;
+  text-align: right;
+  font-size: 12px; }
+
+/* feedback swiper's setting */
+.swiper-container {
+  /*width: 100%;
+		height: 100%;*/
+  width: 96%;
+  height: 96%;
+  margin: 2% 2%; }
+
+.swiper-slide {
+  text-align: center;
+  /*font-size: 18px;
+      background: #fff;*/
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+/* order form & map */
+.orderForm {
+  margin-top: 20px;
+  color: #3d1101; }
+  .orderForm h5 {
+    text-align: center; }
+  .orderForm li {
+    float: left;
+    width: 48%;
+    margin: 20px 1%; }
+  .orderForm .inputSetting {
+    width: 98%;
+    margin: 1% 1%;
+    font-size: 14px;
+    font-family: 微軟正黑體; }
+  .orderForm .radioItem label {
+    margin-left: 5px; }
+  .orderForm .radioItem input[type='radio']:after {
+    width: 17px;
+    height: 17px;
+    border-radius: 17px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white; }
+  .orderForm .radioItem input[type='radio']:checked:after {
+    border-radius: 11px;
+    background-color: #4a90e2;
+    border: 5px solid #fff; }
+  .orderForm .pure-button-cancel {
+    background-color: #a09e9e;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px; }
+  .orderForm .pure-button-submit {
+    background-color: #f56c23;
+    padding-left: 20px;
+    padding-right: 20px; }
+
+@media (max-width: 414px) {
+  .orderForm li {
+    width: 98%; } }
+
+.mapwrapper {
+  position: relative;
+  padding-bottom: 70%;
+  overflow: hidden; }
+  .mapwrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.orderformBtn {
+  float: right; }
+
+/* -- 1. INDEX.HTML CSS setting END -- */
+/* INDEX.HTML */
+/* -- 2. ORDER.HTML CSS setting */
+.cartMain {
+  background-color: #main_bg_color; }
+
+/* left food menu */
+.foodMenu {
+  float: left;
+  width: 21%;
+  margin: 30px 2%; }
+  .foodMenu span {
+    color: #3d1101;
+    font-size: 20px;
+    margin-left: 10px; }
+  .foodMenu i {
+    font-size: 20px;
+    color: #3d1101; }
+
+/* left food menu RWD setting */
+@media (max-width: 414px) {
+  .foodMenu {
+    float: none;
+    width: 96%;
+    padding: 30px; } }
+
+/* left food menu list*/
+.foodList {
+  margin-top: 20px; }
+  .foodList li {
+    border-bottom: 1px solid #3d1101; }
+    .foodList li a {
+      display: block;
+      padding: 10px;
+      color: #3d1101;
+      text-decoration: none; }
+      .foodList li a:hover {
+        background-color: #3d1101;
+        color: #fff; }
+
+/* right food content */
+.content {
+  float: left;
+  width: 71%;
+  margin: 20px 2%; }
+
+/* right food content RWD settomg */
+@media (max-width: 414px) {
+  .content {
+    float: none;
+    width: 96%; } }
+
+.searchInput {
+  float: left;
+  margin-top: 10px; }
+  .searchInput .pure-form input {
+    float: left;
+    width: 250px;
+    font-size: 16px;
+    font-family: 微軟正黑體;
+    border: 1px solid #3d1101; }
+  .searchInput .pure-button-submit {
+    float: left;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3d1101; }
+
+@media (max-width: 480px) {
+  /* 改掉原本pure.css有的設定 */
+  .searchInput .pure-button-submit[type="submit"] {
+    margin: 0; } }
+
+@media (max-width: 414px) {
+  .searchInput {
+    float: none;
+    width: 96%;
+    margin: 0 2%; }
+    .searchInput .pure-form input {
+      float: left;
+      width: 80%; } }
+
+/* shopping cart section */
+.paycartSection ul {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px; }
+
+.paycartSection li {
+  float: left;
+  margin-bottom: 5px; }
+
+.gopayText {
+  padding-right: 10px;
+  border-right: 1px solid #3d1101; }
+  .gopayText a {
+    display: block;
+    color: #3d1101;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold; }
+
+.gopayImg {
+  position: relative;
+  margin-left: 10px; }
+  .gopayImg i {
+    font-size: 24px;
+    color: #3d1101; }
+
+.orderQuantity {
+  font-family: Arial;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #ff5e45;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px; }
+
+/* cuisine block setting */
+.cuisineShow {
+  margin: 20px auto;
+  text-align: center; }
+  .cuisineShow li {
+    float: left;
+    width: 31.33333%;
+    margin: 20px 1%;
+    padding-bottom: 10px;
+    position: relative;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 1px 5px gray;
+    box-shadow: 1px 1px 5px gray; }
+  .cuisineShow img {
+    height: 120px;
+    width: auto; }
+  .cuisineShow h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    white-space: nowrap; }
+  .cuisineShow hr {
+    width: 50%;
+    margin-bottom: 40px; }
+
+/* cuisine block RWD setting */
+@media (max-width: 768px) {
+  .cuisineShow li {
+    width: 48%; } }
+
+@media (max-width: 414px) {
+  .cuisineShow li {
+    float: none;
+    width: 98%; } }
+
+.cuisineName {
+  font-size: 12px;
+  white-space: nowrap; }
+
+.cuisinePrice {
+  font-size: 20px;
+  font-weight: bold; }
+
+.cuisineHeart {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  cursor: pointer;
+  font-size: 20px; }
+  .cuisineHeart:hover, .cuisineHeart:focus {
+    color: red; }
+  .cuisineHeart .fas {
+    color: red; }
+
+/* 熱銷美食 mark*/
+.cuisineMark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background-color: #00cc99;
+  color: #fff;
+  font-weight: bold; }
+
+/* 加入購物車按鈕設定 */
+.addcartBtn a {
+  display: block;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  margin: 10px;
+  color: #ff5e45;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid #ff5e45; }
+  .addcartBtn a:hover, .addcartBtn a:focus {
+    background-color: #ff5e45;
+    color: #fff; }
+
+.addcartBtn .fa-shopping-cart {
+  margin-right: 5px; }
+
+/* -- 2. ORDER.HTML CSS setting END */
+/* ORDER.HTML */
+/* -- 3.LOGIN.HTML & REGISTER.HTML 
+	  common CSS setting -- */
+.formMain {
+  margin: 40px auto; }
+  .formMain h4 {
+    text-align: center;
+    font-weight: bold;
+    color: #3d1101; }
+
+.formMainlogo {
+  width: 80%;
+  height: 48px;
+  background-image: url("../img/logo_l(null).svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 10px 10%; }
+
+.formInput {
+  position: relative;
+  padding-left: 1em; }
+
+.formIcon {
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 5px auto; }
+
+.formSpecMsg {
+  color: #ff5e45;
+  font-size: 14px; }
+
+.loginForm, .registerForm {
+  width: 50%;
+  margin: 40px 25%;
+  padding: 10px;
+  -webkit-box-shadow: 1px 1px 5px gray;
+  box-shadow: 1px 1px 5px gray;
+  border-top: 5px solid #ff5e45; }
+  .loginForm h5, .registerForm h5 {
+    color: #3d1101;
+    font-weight: bold;
+    font-family: Arial Black;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px; }
+  .loginForm label, .registerForm label {
+    color: #3d1101; }
+
+/* -- 3.LOGIN.HTML & REGISTER.HTML 
+	  common CSS setting END-- */
+/* LOGIN.HTML & REGISTER.HTML commin setting */
+/* -- 4.LOGIN.HTML Special CSS setting -- */
+/* login button */
+.loginFormBtn {
+  margin: 20px 2%; }
+  .loginFormBtn .pure-button-register {
+    width: 48%;
+    background-color: #a09e9e;
+    color: #fff; }
+  .loginFormBtn .pure-button-login {
+    width: 48%;
+    background-color: #f56c23; }
+
+@media (max-width: 480px) {
+  /* 改掉原本pure.css有的設定 */
+  .loginForm {
+    width: 90%;
+    margin: 40px 5%; }
+  .loginFormBtn .pure-button-login[type="submit"] {
+    margin: 0; } }
+
+/* -- 4.LOGIN.HTML Special CSS setting END　-- */
+/* LOGIN.HTML */
+/* -- 5.REGISTER.HTML Special CSS setting -- */
+.registerForm {
+  width: 90%;
+  margin: 40px 5%; }
+  .registerForm li {
+    width: 50%;
+    float: left; }
+
+.registerRuleMobile {
+  display: none; }
+
+.registerRule h6, .registerRuleMobile h6 {
+  margin-bottom: 10px; }
+
+.registerRule p, .registerRuleMobile p {
+  width: 90%;
+  margin: 10px 5%;
+  font-size: 12px; }
+
+.registerFormBtn {
+  margin: 20px 2%; }
+  .registerFormBtn .pure-button-register {
+    width: 48%;
+    background-color: #f56c23;
+    float: right; }
+
+@media (max-width: 480px) {
+  /* 改掉原本pure.css有的設定 */
+  .registerFormBtn .pure-button-login[type="submit"] {
+    margin: 0; } }
+
+@media (max-width: 414px) {
+  .registerForm li {
+    width: 98%;
+    float: none; }
+  .registerRule {
+    display: none; }
+  .registerRuleMobile {
+    display: block; }
+    .registerRuleMobile p {
+      display: none; }
+    .registerRuleMobile a {
+      display: block;
+      padding: 10px 0;
+      background-color: #fff;
+      color: blue; }
+      .registerRuleMobile a:hover, .registerRuleMobile a:focus {
+        background-color: yellow; } }
+
+/* REGISTER.HTML */

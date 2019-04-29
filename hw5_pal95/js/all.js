@@ -17,10 +17,12 @@ var bloodMonsterElement = document.querySelector(".bloodMonster");
 
 var snd = new Audio("mp3/battle02.mp3");
 snd.volume = 0.7;
-snd.loop = false; //設定循環播放
-snd.autoplay = true;
+ snd.loop = true; //設定循環播放
+ snd.autoplay = true;
+snd.pause();
 
-
+var bgmPlayElement = document.getElementById("bgmPlay");
+// bgmPlayElement.onpause;
 
 
 document.addEventListener("animationend",positionCheck);
@@ -63,7 +65,7 @@ function positionCheck(event){
 
         //var body = document.querySelector("body");
         // bodyElement.appendChild(snd);
-
+        snd.play();
         console.log("snd.src:" +snd.src);
     }
 }
@@ -202,6 +204,7 @@ function battleRound(event){
             
             snd.src = "mp3/victory.mp3";
             snd.volume = 1;
+            snd.loop = false; //設定循環播放
             return;
             }, 4000);
         }
@@ -214,6 +217,7 @@ function battleRound(event){
         
         // battleIngCheck = 1;
         battleFinishCheck = true;
+        //snd.pause();
     }
 }
 
