@@ -217,7 +217,6 @@ function battleRound(event){
         
         // battleIngCheck = 1;
         battleFinishCheck = true;
-        //snd.pause();
     }
 }
 
