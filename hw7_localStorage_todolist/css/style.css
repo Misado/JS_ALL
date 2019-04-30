@@ -47,7 +47,21 @@ table {
 	border-spacing: 0;
 }
 
+*,*:before,*:after{
+	box-sizing: border-box;
+}
+img{
+	max-width: 100%;
+	height: auto ;
+}
+
 /* CSS RESET END */
+
+.clearfix:after{
+    content:'';
+    display:table;
+    clear:both;
+}
 
 html{
     height: 100%;
@@ -58,21 +72,18 @@ body{
     background-image: url("../img/room.jpg");
     background-repeat: no-repeat;
     background-position: bottom center;
-}
-
-.mask{
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    font-family: 微軟正黑體;
+    background-attachment: fixed;
+    background-size: cover;
 
 }
 
 .wrap{
     position: absolute;
-    top: 25%;
+    top: 10%;
     left: 15%;
     width: 70%;
-    
-    /* background-color: moccasin; */
+    margin: 20px auto;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -83,14 +94,12 @@ body{
 .roleShow{
     float: left;
     padding: 20px;
+    text-align: center;
 }
 
 .roleShow img{
     background-color: #fff;
-    /* border-radius: 0 50px 0 50px; */
-    border-radius: 50%;
-    /* border-color: #fff; */
-    
+    border-radius: 50%;   
 }
 
 .roleShow h1{
@@ -101,10 +110,13 @@ body{
 .board{
     padding: 20px 40px;
     float: left;
+    width: 70%;
 }
 
 .resultShow{
-    margin-top: 40px;
+    margin: 40px 0;
+    text-align: center;
+    width: 100%;
 }
 
 .resultShow tr{
@@ -112,5 +124,48 @@ body{
 }
 
 .resultShow td{
-    padding: 5px;
+    padding: 10px;
+}
+
+.categoryAll{
+    background-color: #f00078;
+    color: #000;
+}
+
+.categoryFun{
+    background-color: cornflowerblue;
+}
+
+.categoryStudy{
+    background-color: #ff8000;
+}
+
+.categoryOutdoor{
+    background-color: cadetblue;
+}
+
+.categorySth{
+    background-color: navy;
+}
+
+.categoryOther{
+    background-color: gray;
+}
+
+.filterMsg{
+    margin-top: 20px;
+}
+
+.filter{
+    margin-top: 20px;
+}
+
+.filter li{
+    float: left;
+}
+
+.filter a{
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
 }

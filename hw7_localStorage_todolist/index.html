@@ -5,33 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>宅男備忘</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="mask"></div>
     <div class="wrap">
         <div class="toDoList">
-            <div class="roleShow">
+            <div class="roleShow clearfix">
                 <img src="img/otakuboy.png" alt="">
                 <h1>宅男備忘</h1>
             </div>
-            <div class="board">
+            <div class="board clearfix">
                 <select name="" id="boardCategory">
                     <option value="0">請選擇類別</option>
                 </select>
                 <input type="text" id="boardTaskInput">
                 <input type="button" id="addBtn" value="新增">
-
-                <!-- <ul class="resultShow" id="resultShowId">
-                    <li>1
-                        <div class="">
-                                <input type="button" value="刪除">
-                        </div>
-                        
+                <div class="filterMsg">點以下類別篩選器，可顯示要看的類別：</div>
+                <ul id="filter" class="filter clearfix">
+                    <li style="margin-right: 20px">
+                        <a class="categoryAll" href="#"><i class="fas fa-filter"></i>全部</a>
                     </li>
-                    <li>2</li>
-                    <li>3</li>
-                </ul> -->
+                </ul>
                 <table class="resultShow" id="resultShowId">
 
                 </table>
