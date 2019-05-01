@@ -164,6 +164,10 @@ function getInputData(){
     var dataInputHeight = parseFloat(dataInputHeightObj.value).toFixed(1); //取到小數點第1位
     var dataInputWeight = parseFloat(dataInputWeightObj.value).toFixed(1); //取到小數點第1位
 
+    // 如果小數點後面是0就去掉
+    if ( dataInputHeight.split(".")[1] == 0 ){ dataInputHeight = dataInputHeight.split(".")[0]; }
+    if ( dataInputWeight.split(".")[1] == 0 ){ dataInputWeight = dataInputWeight.split(".")[0]; }
+
     var BMICalculateResult = dataInputWeight / (dataInputHeight/100 * dataInputHeight/100);
     BMICalculateResult = BMICalculateResult.toFixed(2); //取到小數點第2位
 
