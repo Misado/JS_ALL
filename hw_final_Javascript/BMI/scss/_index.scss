@@ -108,4 +108,25 @@
     }
 }
 
+.showPage{
+    float: right;
+    li{
+        float: left;
+        a{
+            // width: 50px;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin: 0 5px;
+            color: #5f9ea0;
+        }
+    }
+}
+
+.showPageNum{
+        &:hover{
+            text-decoration: underline;
+        }
+}
+
 /* 1. INDEX.HTML CSS END */
