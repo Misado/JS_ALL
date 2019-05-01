@@ -202,6 +202,7 @@ p {
 
 .showPage {
   float: right;
+  margin-right: 10px;
   background-color: #424242; }
   .showPage li {
     float: left; }
