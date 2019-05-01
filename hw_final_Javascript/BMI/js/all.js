@@ -120,6 +120,7 @@ function showTotalPageMenu(){
     }
 
     for ( var i=1; i<=totalPageNum; i++){
+        // 如果 i 跟現在頁面一樣，就不要有連結，且套用樣式讓使用者知道目前在那一頁
         if ( i == currentPageNum ){
             showPageStr += "<li><a class='showCurrentPage' data-page='"+i+"'>"+i+"</a></li>";
         } else {
@@ -217,14 +218,17 @@ function removeData(event){
     localStorageDataStr = JSON.stringify(localStorageDataArray);
     localStorage.setItem("result",localStorageDataStr);
 
-    // 刪資料後導致資料減少的話，就要把現在頁碼設為最大頁碼
     var totalResultNum = localStorageDataArray.length;
     var totalPageNum = parseInt(totalResultNum/5);
     
     if ( totalResultNum%5 > 0 ){
         totalPageNum = totalPageNum+1;
     }
-    currentPageNum = totalPageNum;
+
+    // 當刪完後現在頁數比總頁數大時，就要把現在頁碼設為最大頁碼
+    if ( currentPageNum >= totalPageNum ){
+        currentPageNum = totalPageNum;
+    }
 
     showData();
 }
@@ -245,6 +249,7 @@ function showDataPage(event){
     var totalResultNum = localStorageDataArray.length;
     var totalPageNum = parseInt(totalResultNum/5);
     
+    // 除於5如果有餘數表示會跑到下一頁
     if ( totalResultNum%5 > 0 ){
         totalPageNum = totalPageNum+1;
     }
