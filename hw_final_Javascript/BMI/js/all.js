@@ -1,6 +1,5 @@
 /* ------ 主程式 ------ */
 
-
 // 按下看結果按鈕
 var sendBtnObj = document.querySelector(".sendBtn");
 sendBtnObj.addEventListener("click",getInputData);
@@ -16,6 +15,13 @@ showPage.addEventListener("click",showDataPage);
 // 輸入身高跟體重的Element
 var dataInputHeightObj = document.getElementById("dataInputHeight");
 var dataInputWeightObj = document.getElementById("dataInputWeight");
+
+// 點logo移掉原本event的事件
+var bmiLogoObj = document.querySelector(".bmiLogo");
+bmiLogoObj.addEventListener("click",function(){
+    event.preventDefault();
+});
+
 
 // 初始值先把現在頁碼設為1
 var currentPageNum = 1;
@@ -51,8 +57,6 @@ var bodyTypeArray = [{
 showData(); // 一開始要先顯示資料&頁碼
 
 
-
-
 /* ------ 函式宣告 ------ */
 
 // 顯示資料
@@ -69,7 +73,7 @@ function showData(){
     var fromResultNum = (currentPageNum-1)*5+1; //該頁的起始點
     var toResultNum = currentPageNum*5; //該頁的結束點
     if ( toResultNum >= totalResultNum){toResultNum = totalResultNum};
-    console.log("fromResultNum: "+fromResultNum+", toResultNum: "+toResultNum);
+    // console.log("fromResultNum: "+fromResultNum+", toResultNum: "+toResultNum);
 
     // 比對嚴重程度找到要套的class
     for ( var i=fromResultNum-1; i<toResultNum; i++){
@@ -104,7 +108,7 @@ function showTotalPageMenu(){
     if ( totalResultNum%5 > 0 ){
         totalPageNum = totalPageNum+1;
     }
-    console.log("totalPageNum: "+totalPageNum);
+    // console.log("totalPageNum: "+totalPageNum);
 
     var showPageStr = "";
 
@@ -117,7 +121,7 @@ function showTotalPageMenu(){
 
     for ( var i=1; i<=totalPageNum; i++){
         if ( i == currentPageNum ){
-            showPageStr += "<li><a data-page='"+i+"'>"+i+"</a></li>";
+            showPageStr += "<li><a class='showCurrentPage' data-page='"+i+"'>"+i+"</a></li>";
         } else {
             showPageStr += "<li><a href='#' class='showPageNum' data-page='"+i+"'>"+i+"</a></li>";
         }
@@ -230,7 +234,7 @@ function removeData(event){
 function showDataPage(event){
     event.preventDefault();
     if ( event.target.nodeName != "A" ){return;}
-    console.log(event.target.dataset.page);
+    // console.log(event.target.dataset.page);
 
     //如果點到的頁碼是現在的頁碼，後面就不做
     if ( event.target.dataset.page == currentPageNum ){return;}
@@ -244,7 +248,7 @@ function showDataPage(event){
     if ( totalResultNum%5 > 0 ){
         totalPageNum = totalPageNum+1;
     }
-    console.log("totalPageNum: "+totalPageNum);
+    // console.log("totalPageNum: "+totalPageNum);
 
     // 點第1頁點往上就不處理，點最後1頁點往下就不處理
     if ( currentPageNum == 1 && event.target.dataset.page == "prev" ){return;}
@@ -258,7 +262,7 @@ function showDataPage(event){
     } else {
         currentPageNum = parseInt(event.target.dataset.page);
     }
-    console.log("currentPageNum: "+currentPageNum);
+    // console.log("currentPageNum: "+currentPageNum);
     showData();
 }
 

@@ -195,18 +195,26 @@ p {
   .resultTable .pure-button-customized {
     font-size: 14px; }
 
+.currentPage {
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px; }
+
 .showPage {
-  float: right; }
+  float: right;
+  background-color: #424242; }
   .showPage li {
     float: left; }
     .showPage li a {
       text-decoration: none;
       display: block;
-      padding: 10px;
-      margin: 0 5px;
+      padding: 10px 20px;
       color: #5f9ea0; }
 
 .showPageNum:hover {
-  text-decoration: underline; }
+  background-color: #ffd366; }
+
+.showCurrentPage {
+  background-color: #ffd366; }
 
 /* 1. INDEX.HTML CSS END */
