@@ -1,11 +1,18 @@
 .banner{
-    background-color: #424242;
+    background-color: $sub_font_color;
 	/*height: 200px;*/
-	padding: 40px;
+    padding: 60px;
+    // margin-bottom: 40px;
+}
+
+.bannerInput{
+    width: 600px;
+    margin: 0 auto;
 }
 
 .bmiLogo{
-	// margin: 10px auto;
+    // margin: 10px auto;
+    float: left;
 	h1{
 		a{
 			@include logo-for-searchengine(117px,117px,"../img/BMICLogo.png");
@@ -15,9 +22,39 @@
 	}
 }
 
+.dataInput{
+    float: left;
+    margin-left: 40px;
+    margin: 20px;
+    label{
+        color: #fff;
+    }
+    input{
+        font-family: $font_type;
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+}
+
+.sendBtn{
+    float: left;
+    width: 100px;
+    height: 100px;
+    // padding: 50px;
+    margin: 20px;
+    background-color: $main_bg_color;
+    border-radius: 50%;
+    cursor: pointer;
+    span{
+        display: block;
+        text-align: center;
+        margin: 40px 0;
+    }
+}
+
 .resultShow{
 	background-color: #f5f5f5;
-    height: 500px;
     text-align: center;
     padding: 40px 0;
     
@@ -25,17 +62,28 @@
 
 .resultTable{
     margin: 40px auto;
-    // border: 1px solid #000;
-    border-spacing: 10px;
-    // border-collapse:separate;
+    /* 讓表格每行可以有間距 */
+    border-spacing: 0 20px; /* 左右 上下 */
+    border-collapse: separate; 
+    font-size: 20px;
+    font-weight: bold;
     tr{
-    //    border-style: solid;
-    //    border-width: 5px;
-    //    border-color: #000;
-        border: 1px solid #000;
+        background-color: #fff;
     }
     td{
-        // border: 1px solid #000;
-        padding: 10px;
+        padding: 20px;
+        
+    }
+    .typeClassFine{
+        border-left: 8px solid #86d73f;
+    }
+    .smallText{
+        font-size: 14px;
+        margin-right: 5px;
+        font-weight: normal;
+    }
+    .dateText{
+        font-size: 16px;
+        font-weight: normal;
     }
 }
