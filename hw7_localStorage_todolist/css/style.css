@@ -80,10 +80,10 @@ body{
 
 .wrap{
     position: absolute;
-    top: 10%;
-    left: 15%;
+    /* top: 10%; */
+    /* left: 5%; */
     width: 70%;
-    margin: 20px auto;
+    margin: 20px 15%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -110,13 +110,13 @@ body{
 .board{
     padding: 20px 40px;
     float: left;
-    width: 70%;
+    /* width: 70%; */
 }
 
 .resultShow{
-    margin: 40px 0;
+    margin: 40px 10%;
     text-align: center;
-    width: 100%;
+    width: 80%;
 }
 
 .resultShow tr{
@@ -157,6 +157,7 @@ body{
 }
 
 .filter{
+    width: 100%;
     margin-top: 20px;
 }
 

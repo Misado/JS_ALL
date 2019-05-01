@@ -82,7 +82,7 @@ function showAction(){
                 categoryClass = categoryObj[j].categoryClass;
             }
         }
-        resultShowHtml += "<tr data-num='"+i+"'><td style='width: 20%'>"+toDoListArray[i].time+"<td style='width: 10%' class='"+categoryClass+"'>"+toDoListArray[i].category+"</td><td style='width: 70%'>"+toDoListArray[i].task+"</td><td style='width: 10%'><input type='button' value='刪除'></td></tr>"
+        resultShowHtml += "<tr data-num='"+i+"'><td style='width: 20%'>"+toDoListArray[i].time+"<td style='width: 15%' class='"+categoryClass+"'>"+toDoListArray[i].category+"</td><td style='width: 65%'>"+toDoListArray[i].task+"</td><td style='width: 10%'><input type='button' value='刪除'></td></tr>"
     }
     resultShow.innerHTML = resultShowHtml;
 }
@@ -96,13 +96,13 @@ function addAction(event){
         alert("請選擇類別");
         return; //如果使用者沒有選擇類別就跳出警告視窗，並且後面不做
     }
-    var toDoListStr = localStorage.getItem("toDoList");
-    var toDoListArray = JSON.parse(toDoListStr);
-
-    //如果localStorage裡完全沒值就給它初始值
-    if ( toDoListArray == null ){
-        toDoListArray = [];
+    if ( boardTaskInput.value == ""){
+        alert("請輸入備忘內容");
+        return; //如果使用者沒有輸入內容就跳出警告視窗，並且後面不做
     }
+    var toDoListStr = localStorage.getItem("toDoList");
+    var toDoListArray = JSON.parse(toDoListStr) || []; // //如果localStorage裡完全沒值就給它初始值
+
     toDoListArray.push({
         time: currentDateTime,
         category: selectCategory,
@@ -110,6 +110,8 @@ function addAction(event){
     })
     toDoListStr = JSON.stringify(toDoListArray);
     localStorage.setItem("toDoList",toDoListStr);
+
+    boardTaskInput.value =""; //輸入的值清空
     showAction();
 }
 
@@ -155,11 +157,8 @@ function filterShowAction(event){
                     categoryClass = categoryObj[j].categoryClass;
                 }
             }
-            resultShowHtml += "<tr data-num='"+i+"'><td style='width: 20%'>"+toDoListArray[i].time+"<td style='width: 10%' class='"+categoryClass+"'>"+toDoListArray[i].category+"</td><td style='width: 70%'>"+toDoListArray[i].task+"</td><td style='width: 10%'><input type='button' value='刪除'></td></tr>"
+            resultShowHtml += "<tr data-num='"+i+"'><td style='width: 20%'>"+toDoListArray[i].time+"<td style='width: 15%' class='"+categoryClass+"'>"+toDoListArray[i].category+"</td><td style='width: 65%'>"+toDoListArray[i].task+"</td><td style='width: 10%'><input type='button' value='刪除'></td></tr>"
         }
     }
     resultShow.innerHTML = resultShowHtml;
 }
-
-
-

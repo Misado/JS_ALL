@@ -1,0 +1,101 @@
+@mixin clearfix{
+	.clearfix:after{
+	  content:'';
+	  display:table;
+	  clear:both;
+	}
+}
+
+@mixin wrap_setting($max_width){
+	.wrap{
+		max-width: $max_width;
+		margin: 0 auto;
+	}
+}
+
+@mixin logo($width,$height,$imgurl){
+	width: $width;
+	height: $height;
+	background-image: url($imgurl);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin logo-for-searchengine($width,$height,$imgurl){
+	width: $width;
+	height: $height;
+	background-image: url($imgurl);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: block;
+	text-indent: 101%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin mobile_hidden_menu{
+	float: none;
+	max-height: 0;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+@mixin mobile_hidden_menu_show($max-height){
+	max-height: $max-height;
+}
+
+@mixin banner_setting($margin-top){
+	background-color: #000;
+	position: relative;
+	z-index: $zindex_least;
+	margin-top: $margin-top;
+}
+
+@mixin display_columns($columns_num,$margin_vertical,$margin_horizontal){
+	float: left;
+	width: 100% / $columns_num - $margin_horizontal * 2 ;
+	margin: $margin_vertical $margin_horizontal;
+}
+
+@mixin iframe_RWD_display($percentage){
+	position: relative;
+    padding-bottom: $percentage; 
+    overflow: hidden;
+    iframe{
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+}
+
+@mixin swiper_setting{
+	.swiper-container {
+		/*width: 100%;
+		height: 100%;*/
+		width: 96%;
+		height: 96%;
+		margin: 2% 2%;
+    }
+    .swiper-slide {
+      text-align: center;
+      /*font-size: 18px;
+      background: #fff;*/
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+}

@@ -114,3 +114,13 @@ function setBlood(event){
     // event.target.parentNode.childNodes[1].style.width = event.target.parentNode.dataset.blood+"%";
     monsterBloodElement.style.width = monsterElement.dataset.blood+"%";
 }
+
+//-------------- 04/30
+
+var forwardBtnObj = document.getElementById("forwardBtn");
+forwardBtnObj.addEventListener("click",forwardNextPage);
+
+function forwardNextPage(event){
+    window.history.forward();
+}
+
