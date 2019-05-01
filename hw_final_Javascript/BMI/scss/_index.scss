@@ -1,8 +1,9 @@
+
+/* 1. INDEX.HTML CSS */
+
 .banner{
     background-color: $sub_font_color;
-	/*height: 200px;*/
     padding: 60px;
-    // margin-bottom: 40px;
 }
 
 .bannerInput{
@@ -11,7 +12,6 @@
 }
 
 .bmiLogo{
-    // margin: 10px auto;
     float: left;
 	h1{
 		a{
@@ -42,7 +42,6 @@
     float: left;
     width: 100px;
     height: 100px;
-    // padding: 50px;
     margin: 30px 10px;
     background-color: $main_bg_color;
     border-radius: 50%;
@@ -108,3 +107,5 @@
         font-size: 14px;
     }
 }
+
+/* 1. INDEX.HTML CSS END */
