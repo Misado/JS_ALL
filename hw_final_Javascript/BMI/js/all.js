@@ -91,13 +91,13 @@ function getInputData(){
 
     console.log(dataInputHeightObj.value);
     
-    var dataInputHeight = parseInt(dataInputHeightObj.value)/100;
+    var dataInputHeight = parseInt(dataInputHeightObj.value);
     var dataInputWeight = parseInt(dataInputWeightObj.value);
 
     console.log(dataInputHeight);
     console.log(dataInputWeight);
 
-    var BMICalculateResult = dataInputWeight / (dataInputHeight * dataInputHeight);
+    var BMICalculateResult = dataInputWeight / (dataInputHeight/100 * dataInputHeight/100);
     BMICalculateResult = BMICalculateResult.toFixed(2); //取到小數點第2位
     console.log("BMIValue: "+BMICalculateResult);
     var bodyType = "";
@@ -130,9 +130,11 @@ function addInputData(heightValue,weightValue,BMIValue,bodyTypeValue,currentDate
         height: heightValue,
         currentTime: currentDateTime,
     });
+    
 
     localStorageDataStr = JSON.stringify(localStorageDataArray);
     localStorage.setItem("result",localStorageDataStr);
+
     showData();
 }
 
