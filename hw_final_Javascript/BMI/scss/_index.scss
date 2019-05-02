@@ -53,6 +53,12 @@
         text-align: center;
         margin: 40px 0;
     }
+    &:hover,&:focus{
+        box-shadow: 5px 5px 15px yellow;
+    }
+    &:active{
+        background-color: $main_bg_color_dark;
+    }
 }
 
 .resultBtn{

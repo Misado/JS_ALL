@@ -157,6 +157,11 @@ p {
     display: block;
     text-align: center;
     margin: 40px 0; }
+  .sendBtn:hover, .sendBtn:focus {
+    -webkit-box-shadow: 5px 5px 15px yellow;
+    box-shadow: 5px 5px 15px yellow; }
+  .sendBtn:active {
+    background-color: #dea821; }
 
 .resultBtn {
   display: none;
