@@ -22,6 +22,8 @@ bmiLogoObj.addEventListener("click",function(){
     event.preventDefault();
 });
 
+//每頁要顯示的筆數
+var recordnumPerPage = 4;
 
 // 初始值先把現在頁碼設為1
 var currentPageNum = 1;
@@ -70,8 +72,8 @@ function showData(){
     var bodyTypeClass = "" ;
 
     var totalResultNum = localStorageDataArray.length;
-    var fromResultNum = (currentPageNum-1)*5+1; //該頁的起始點
-    var toResultNum = currentPageNum*5; //該頁的結束點
+    var fromResultNum = (currentPageNum-1)*recordnumPerPage+1; //該頁的起始點
+    var toResultNum = currentPageNum*recordnumPerPage; //該頁的結束點
     if ( toResultNum >= totalResultNum){toResultNum = totalResultNum};
     // console.log("fromResultNum: "+fromResultNum+", toResultNum: "+toResultNum);
 
@@ -103,9 +105,9 @@ function showTotalPageMenu(){
     var localStorageDataArray = JSON.parse(localStorageDataStr);
 
     var totalResultNum = localStorageDataArray.length;
-    var totalPageNum = parseInt(totalResultNum/5);
+    var totalPageNum = parseInt(totalResultNum/recordnumPerPage);
     
-    if ( totalResultNum%5 > 0 ){
+    if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
     }
     // console.log("totalPageNum: "+totalPageNum);
@@ -223,9 +225,9 @@ function removeData(event){
     localStorage.setItem("result",localStorageDataStr);
 
     var totalResultNum = localStorageDataArray.length;
-    var totalPageNum = parseInt(totalResultNum/5);
+    var totalPageNum = parseInt(totalResultNum/recordnumPerPage);
     
-    if ( totalResultNum%5 > 0 ){
+    if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
     }
 
@@ -251,10 +253,10 @@ function showDataPage(event){
     var localStorageDataArray = JSON.parse(localStorageDataStr);
 
     var totalResultNum = localStorageDataArray.length;
-    var totalPageNum = parseInt(totalResultNum/5);
+    var totalPageNum = parseInt(totalResultNum/recordnumPerPage);
     
-    // 除於5如果有餘數表示會跑到下一頁
-    if ( totalResultNum%5 > 0 ){
+    // 除於recordnumPerPage如果有餘數表示會跑到下一頁
+    if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
     }
     // console.log("totalPageNum: "+totalPageNum);
