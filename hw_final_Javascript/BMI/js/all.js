@@ -32,8 +32,6 @@ resultBtnObj.addEventListener("click",resetAction);
 var resultCircleBMIObj = document.getElementById("resultCircleBMI");
 var resultCircleTypeObj = document.getElementById("resultCircleType");
 
-
-
 //每頁要顯示的筆數
 var recordnumPerPage = 5;
 
@@ -89,7 +87,6 @@ function showData(){
     var fromResultNum = (currentPageNum-1)*recordnumPerPage+1; //該頁的起始點
     var toResultNum = currentPageNum*recordnumPerPage; //該頁的結束點
     if ( toResultNum >= totalResultNum){toResultNum = totalResultNum};
-    // console.log("fromResultNum: "+fromResultNum+", toResultNum: "+toResultNum);
 
     // 比對嚴重程度找到要套的class
     for ( var i=fromResultNum-1; i<toResultNum; i++){
@@ -124,8 +121,7 @@ function showTotalPageMenu(){
     if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
     }
-    // console.log("totalPageNum: "+totalPageNum);
-
+    
     var showPageStr = "";
 
     // 如果是第1頁，往上頁就不要有連結
@@ -274,7 +270,6 @@ function removeData(event){
 function showDataPage(event){
     event.preventDefault();
     if ( event.target.nodeName != "A" ){return;}
-    // console.log(event.target.dataset.page);
 
     //如果點到的頁碼是現在的頁碼，後面就不做
     if ( event.target.dataset.page == currentPageNum ){return;}
@@ -289,7 +284,6 @@ function showDataPage(event){
     if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
     }
-    // console.log("totalPageNum: "+totalPageNum);
 
     // 點第1頁點往上就不處理，點最後1頁點往下就不處理
     if ( currentPageNum == 1 && event.target.dataset.page == "prev" ){return;}
@@ -303,14 +297,11 @@ function showDataPage(event){
     } else {
         currentPageNum = parseInt(event.target.dataset.page);
     }
-    // console.log("currentPageNum: "+currentPageNum);
+
     showData();
 }
 
 function resetAction(event){
-    console.log(event.target.nodeName);
-    console.log(event.target.parentNode.getAttribute("class"));
-
     if ( event.target.nodeName != "IMG" ){return;}
 
     // 清空輸入資料

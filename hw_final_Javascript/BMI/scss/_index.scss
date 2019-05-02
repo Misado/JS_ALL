@@ -46,13 +46,6 @@
     background-color: $main_bg_color;
     border-radius: 50%;
     cursor: pointer;
-    // span{
-    //     font-size: 20px;
-    //     font-weight: bold;
-    //     display: block;
-    //     text-align: center;
-    //     margin: 40px 0;
-    // }
     .mediumText{
         font-size: 20px;
         font-weight: bold;
@@ -70,10 +63,9 @@
     height: 100px;
     margin: 30px 10px;
     padding: 10px;
-    // background-color: $main_bg_color;
     border: 5px solid;
     border-radius: 50%;
-    // color: #86d73f;
+    /* 隨著類別而要改變的顏色 */
     &.bodyTypeClassFine{
         border-color: $body_type_color_fine;
         color: $body_type_color_fine;
@@ -121,11 +113,14 @@
         width: 36px;
         height: 36px;
         padding: 5px 0;
-        // background-color: #86d73f;
         text-align: center;
         border-radius: 50%;
         border: 5px solid $sub_bg_color;
         cursor: pointer;
+        &:hover,&:focus{
+            box-shadow: 10px 5px 15px yellow;
+        }
+        /* 隨著類別而要改變的顏色 */
         &.bodyTypeClassFine{
             background-color: $body_type_color_fine;
         }
@@ -177,6 +172,7 @@
         padding: 20px;
         
     }
+    /* 隨著類別而要改變的顏色 */
     .bodyTypeClass{
         border-left: 8px solid;
         &.bodyTypeClassFine{
@@ -228,9 +224,9 @@
 }
 
 .showPageNum{
-        &:hover{
-            background-color: $main_bg_color;
-        }
+    &:hover,&:focus{
+        background-color: $main_bg_color;
+    }
 }
 
 .showCurrentPage{
