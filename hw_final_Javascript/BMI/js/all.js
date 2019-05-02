@@ -12,6 +12,8 @@ resultTableObj.addEventListener("click",removeData);
 var showPage = document.querySelector(".showPage");
 showPage.addEventListener("click",showDataPage);
 
+var totalRecordNumObj = document.querySelector(".totalRecordNum");
+
 // 輸入身高跟體重的Element
 var dataInputHeightObj = document.getElementById("dataInputHeight");
 var dataInputWeightObj = document.getElementById("dataInputWeight");
@@ -23,7 +25,7 @@ bmiLogoObj.addEventListener("click",function(){
 });
 
 //每頁要顯示的筆數
-var recordnumPerPage = 4;
+var recordnumPerPage = 5;
 
 // 初始值先把現在頁碼設為1
 var currentPageNum = 1;
@@ -72,6 +74,8 @@ function showData(){
     var bodyTypeClass = "" ;
 
     var totalResultNum = localStorageDataArray.length;
+    totalRecordNumObj.textContent = "總筆數："+totalResultNum;
+
     var fromResultNum = (currentPageNum-1)*recordnumPerPage+1; //該頁的起始點
     var toResultNum = currentPageNum*recordnumPerPage; //該頁的結束點
     if ( toResultNum >= totalResultNum){toResultNum = totalResultNum};
