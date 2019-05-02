@@ -17,7 +17,7 @@ resultTableObj.addEventListener("click",removeData);
 // 頁碼
 var showPage = document.querySelector(".showPage");
 showPage.addEventListener("click",showDataPage);
-
+// 顯示總筆數的元素
 var totalRecordNumObj = document.querySelector(".totalRecordNum");
 
 // 輸入身高跟體重的Element
@@ -156,9 +156,6 @@ function showTotalPageMenu(){
 
 // 輸入值按下按鈕後要做的事
 function getInputData(){
-    sendBtnObj.style.display = "none";
-    resultBtnObj.style.display = "block";
-    
     // 如果沒輸入值就跳警告視窗，後面不做
     if ( dataInputHeightObj.value == "" ){
         alert("請輸入身高！");
@@ -169,8 +166,9 @@ function getInputData(){
         return;
     }
 
-    // sendBtnObj.style.display = "none";
-    // sendBtnObj.style.display = "block";
+    // 看結果按鈕隱藏，顯示結果圓圈
+    sendBtnObj.style.display = "none";
+    resultBtnObj.style.display = "block";
 
     // 取得現在時間
     var today = new Date();
@@ -228,7 +226,7 @@ function addInputData(heightValue,weightValue,BMIValue,bodyTypeValue,currentDate
     localStorageDataStr = JSON.stringify(localStorageDataArray);
     localStorage.setItem("result",localStorageDataStr);
 
-    console.log(resultBtnObj.childNodes[5]);
+    // 結果圓圈的樣式套用
     var loopIconClass = resultBtnObj.childNodes[5].getAttribute("class");
     var resultBtnObjClass = resultBtnObj.getAttribute("class");
     for ( var i=0; i<bodyTypeArray.length; i++){
@@ -327,6 +325,7 @@ function resetAction(event){
     resultBtnObj.childNodes[5].setAttribute("class","loopIcon");
     resultBtnObj.setAttribute("class","resultBtn");
 
+    // 結果圓圈隱藏，顯示看結果按鈕
     sendBtnObj.style.display = "block";
     resultBtnObj.style.display = "none";
 }
