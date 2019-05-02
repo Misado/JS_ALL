@@ -158,8 +158,8 @@ p {
     text-align: center;
     margin: 40px 0; }
   .sendBtn:hover, .sendBtn:focus {
-    -webkit-box-shadow: 5px 5px 15px yellow;
-    box-shadow: 5px 5px 15px yellow; }
+    -webkit-box-shadow: 3px 3px 15px 2px #ffd366, -3px -3px 15px 2px #ffd366;
+    box-shadow: 3px 3px 15px 2px #ffd366, -3px -3px 15px 2px #ffd366; }
   .sendBtn:active {
     background-color: #dea821; }
 
@@ -218,8 +218,8 @@ p {
     cursor: pointer;
     /* 隨著類別而要改變的顏色 */ }
     .resultBtn .loopIcon:hover, .resultBtn .loopIcon:focus {
-      -webkit-box-shadow: 10px 5px 15px yellow;
-      box-shadow: 10px 5px 15px yellow; }
+      -webkit-box-shadow: 5px 5px 10px #ffd366, -5px -5px 10px #ffd366;
+      box-shadow: 5px 5px 10px #ffd366, -5px -5px 10px #ffd366; }
     .resultBtn .loopIcon.bodyTypeClassFine {
       background-color: #86d73f; }
     .resultBtn .loopIcon.bodyTypeClassSerious {

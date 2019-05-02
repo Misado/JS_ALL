@@ -54,7 +54,7 @@
         margin: 40px 0;
     }
     &:hover,&:focus{
-        box-shadow: 5px 5px 15px yellow;
+        box-shadow: 3px 3px 15px 2px $main_bg_color,-3px -3px 15px 2px $main_bg_color;
     }
     &:active{
         background-color: $main_bg_color_dark;
@@ -124,7 +124,7 @@
         border: 5px solid $sub_bg_color;
         cursor: pointer;
         &:hover,&:focus{
-            box-shadow: 10px 5px 15px yellow;
+            box-shadow: 5px 5px 10px $main_bg_color,-5px -5px 10px $main_bg_color;
         }
         /* 隨著類別而要改變的顏色 */
         &.bodyTypeClassFine{
