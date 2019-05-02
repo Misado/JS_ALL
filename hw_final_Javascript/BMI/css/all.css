@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* Overall setting */
+/* 各種類型所代表的顏色 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -149,12 +150,77 @@ p {
   background-color: #ffd366;
   border-radius: 50%;
   cursor: pointer; }
-  .sendBtn span {
+  .sendBtn .mediumText {
     font-size: 20px;
     font-weight: bold;
     display: block;
     text-align: center;
     margin: 40px 0; }
+
+.resultBtn {
+  display: none;
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  padding: 10px;
+  border: 5px solid;
+  border-radius: 50%; }
+  .resultBtn.bodyTypeClassFine {
+    border-color: #86d73f;
+    color: #86d73f; }
+  .resultBtn.bodyTypeClassSerious {
+    border-color: red;
+    color: red; }
+  .resultBtn.bodyTypeClassHeavy {
+    border-color: #ff1200;
+    color: #ff1200; }
+  .resultBtn.bodyTypeClassMedium {
+    border-color: #ff6c03;
+    color: #ff6c03; }
+  .resultBtn.bodyTypeClassLittle {
+    border-color: #ff982d;
+    color: #ff982d; }
+  .resultBtn.bodyTypeClassLight {
+    border-color: #31baf9;
+    color: #31baf9; }
+  .resultBtn .mediumText {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 20px 0; }
+  .resultBtn .smallText {
+    font-size: 12px;
+    font-weight: normal; }
+  .resultBtn h3 {
+    position: absolute;
+    right: -120px;
+    top: 36px; }
+  .resultBtn .loopIcon {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 36px;
+    height: 36px;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 50%;
+    border: 5px solid #424242;
+    cursor: pointer; }
+    .resultBtn .loopIcon.bodyTypeClassFine {
+      background-color: #86d73f; }
+    .resultBtn .loopIcon.bodyTypeClassSerious {
+      background-color: red; }
+    .resultBtn .loopIcon.bodyTypeClassHeavy {
+      background-color: #ff1200; }
+    .resultBtn .loopIcon.bodyTypeClassMedium {
+      background-color: #ff6c03; }
+    .resultBtn .loopIcon.bodyTypeClassLittle {
+      background-color: #ff982d; }
+    .resultBtn .loopIcon.bodyTypeClassLight {
+      background-color: #31baf9; }
 
 .resultShow {
   background-color: #f5f5f5;
@@ -169,10 +235,6 @@ p {
   border-collapse: separate;
   font-size: 20px;
   font-weight: bold; }
-  .resultTable tr {
-    background-color: #fff; }
-  .resultTable td {
-    padding: 20px; }
   .resultTable .smallText {
     font-size: 14px;
     margin-right: 5px;
@@ -180,18 +242,24 @@ p {
   .resultTable .dateText {
     font-size: 16px;
     font-weight: normal; }
-  .resultTable .bodyTypeClassFine {
-    border-left: 8px solid #86d73f; }
-  .resultTable .bodyTypeClassSerious {
-    border-left: 8px solid red; }
-  .resultTable .bodyTypeClassHeavy {
-    border-left: 8px solid #ff1200; }
-  .resultTable .bodyTypeClassMedium {
-    border-left: 8px solid #ff6c03; }
-  .resultTable .bodyTypeClassLittle {
-    border-left: 8px solid #ff982d; }
-  .resultTable .bodyTypeClassLight {
-    border-left: 8px solid #31baf9; }
+  .resultTable tr {
+    background-color: #fff; }
+  .resultTable td {
+    padding: 20px; }
+  .resultTable .bodyTypeClass {
+    border-left: 8px solid; }
+    .resultTable .bodyTypeClass.bodyTypeClassFine {
+      border-color: #86d73f; }
+    .resultTable .bodyTypeClass.bodyTypeClassSerious {
+      border-color: red; }
+    .resultTable .bodyTypeClass.bodyTypeClassHeavy {
+      border-color: #ff1200; }
+    .resultTable .bodyTypeClass.bodyTypeClassMedium {
+      border-color: #ff6c03; }
+    .resultTable .bodyTypeClass.bodyTypeClassLittle {
+      border-color: #ff982d; }
+    .resultTable .bodyTypeClass.bodyTypeClassLight {
+      border-color: #31baf9; }
   .resultTable .pure-button-customized {
     font-size: 14px; }
 

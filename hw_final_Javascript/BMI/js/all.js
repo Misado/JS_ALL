@@ -1,5 +1,11 @@
 /* ------ 主程式 ------ */
 
+// logo移掉原本event的事件
+var bmiLogoObj = document.querySelector(".bmiLogo");
+bmiLogoObj.addEventListener("click",function(){
+    event.preventDefault();
+});
+
 // 按下看結果按鈕
 var sendBtnObj = document.querySelector(".sendBtn");
 sendBtnObj.addEventListener("click",getInputData);
@@ -18,11 +24,15 @@ var totalRecordNumObj = document.querySelector(".totalRecordNum");
 var dataInputHeightObj = document.getElementById("dataInputHeight");
 var dataInputWeightObj = document.getElementById("dataInputWeight");
 
-// 點logo移掉原本event的事件
-var bmiLogoObj = document.querySelector(".bmiLogo");
-bmiLogoObj.addEventListener("click",function(){
-    event.preventDefault();
-});
+// 上面看結果按鈕跟點下去之後的結果元件
+var sendBtnObj = document.querySelector(".sendBtn");
+var resultBtnObj = document.querySelector(".resultBtn");
+resultBtnObj.addEventListener("click",resetAction);
+
+var resultCircleBMIObj = document.getElementById("resultCircleBMI");
+var resultCircleTypeObj = document.getElementById("resultCircleType");
+
+
 
 //每頁要顯示的筆數
 var recordnumPerPage = 5;
@@ -89,7 +99,7 @@ function showData(){
             }
         }
         resultTableStr += "<tr>";
-        resultTableStr += "<td class='"+bodyTypeClass+"'>"+localStorageDataArray[i].bodyType+"</td>";
+        resultTableStr += "<td class='bodyTypeClass "+bodyTypeClass+"'>"+localStorageDataArray[i].bodyType+"</td>";
         resultTableStr += "<td><span class='smallText'>BMI</span>"+localStorageDataArray[i].BMI+"</td>";
         resultTableStr += "<td><span class='smallText'>weight</span>"+localStorageDataArray[i].weight+"kg</td>";
         resultTableStr += "<td><span class='smallText'>height</span>"+localStorageDataArray[i].height+"cm</td>";
@@ -146,6 +156,22 @@ function showTotalPageMenu(){
 
 // 輸入值按下按鈕後要做的事
 function getInputData(){
+    sendBtnObj.style.display = "none";
+    resultBtnObj.style.display = "block";
+    
+    // 如果沒輸入值就跳警告視窗，後面不做
+    if ( dataInputHeightObj.value == "" ){
+        alert("請輸入身高！");
+        return;
+    }
+    if ( dataInputWeightObj.value == "" ){
+        alert("請輸入體重！");
+        return;
+    }
+
+    // sendBtnObj.style.display = "none";
+    // sendBtnObj.style.display = "block";
+
     // 取得現在時間
     var today = new Date();
     var todayMonth = today.getMonth()+1;
@@ -156,16 +182,6 @@ function getInputData(){
     if ( todayMonth.length == 1 ){ todayMonth = "0"+todayMonth; }
     if ( todayDay.length == 1 ){ todayDay = "0"+todayDay; }
     var currentDateTime =(todayMonth)+"-"+todayDay+"-"+today.getFullYear();
-
-    // 如果沒輸入值就跳警告視窗，後面不做
-    if ( dataInputHeightObj.value == "" ){
-        alert("請輸入身高！");
-        return;
-    }
-    if ( dataInputWeightObj.value == "" ){
-        alert("請輸入體重！");
-        return;
-    }
     
     var dataInputHeight = parseFloat(dataInputHeightObj.value).toFixed(1); //取到小數點第1位
     var dataInputWeight = parseFloat(dataInputWeightObj.value).toFixed(1); //取到小數點第1位
@@ -187,12 +203,12 @@ function getInputData(){
     else if ( BMICalculateResult < 16 && BMICalculateResult >= 15 ){ bodyType="中度過輕"; }
     else { bodyType="嚴重過輕"; }
 
+    resultCircleBMIObj.innerHTML = BMICalculateResult+"<br><span class='smallText'>BMI</span>";
+    resultCircleTypeObj.textContent = bodyType;
+
+
     //把取到的資料傳給增加資料的函數
     addInputData(dataInputHeight,dataInputWeight,BMICalculateResult,bodyType,currentDateTime);
-
-    // 清空輸入資料
-    dataInputHeightObj.value = "";
-    dataInputWeightObj.value = ""
 }
 
 
@@ -211,6 +227,18 @@ function addInputData(heightValue,weightValue,BMIValue,bodyTypeValue,currentDate
     
     localStorageDataStr = JSON.stringify(localStorageDataArray);
     localStorage.setItem("result",localStorageDataStr);
+
+    console.log(resultBtnObj.childNodes[5]);
+    var loopIconClass = resultBtnObj.childNodes[5].getAttribute("class");
+    var resultBtnObjClass = resultBtnObj.getAttribute("class");
+    for ( var i=0; i<bodyTypeArray.length; i++){
+        if ( bodyTypeValue == bodyTypeArray[i].bodyType ){
+            loopIconClass = loopIconClass +" "+bodyTypeArray[i].bodyTypeClass;
+            resultBtnObjClass = resultBtnObjClass+" "+bodyTypeArray[i].bodyTypeClass;
+        }
+    }
+    resultBtnObj.childNodes[5].setAttribute("class",loopIconClass);
+    resultBtnObj.setAttribute("class",resultBtnObjClass);
 
     showData();
 }
@@ -281,3 +309,24 @@ function showDataPage(event){
     showData();
 }
 
+function resetAction(event){
+    console.log(event.target.nodeName);
+    console.log(event.target.parentNode.getAttribute("class"));
+
+    if ( event.target.nodeName != "IMG" ){return;}
+
+    // 清空輸入資料
+    dataInputHeightObj.value = "";
+    dataInputWeightObj.value = "";
+
+    // 清空結果圓圈的內容
+    resultCircleBMIObj.innerHTML = "";
+    resultCircleTypeObj.textContent = "";
+
+    // 清空結果圓圈的class(不然會疊加)
+    resultBtnObj.childNodes[5].setAttribute("class","loopIcon");
+    resultBtnObj.setAttribute("class","resultBtn");
+
+    sendBtnObj.style.display = "block";
+    resultBtnObj.style.display = "none";
+}
