@@ -97,8 +97,11 @@ p {
 .footer {
   background-color: #559ac8;
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
   text-align: center; }
+  .footer p {
+    color: #f5d005;
+    margin-top: 10px; }
 
 /* -- 0. Overall page setting END -- */
 .banner {
@@ -110,8 +113,9 @@ p {
   .banner h1 {
     position: absolute;
     top: 80px;
-    left: 360px; }
-  .banner .districtOption {
+    left: 360px;
+    color: #fff; }
+  .banner .pure-form-districtOption {
     position: absolute;
     top: 140px;
     left: 320px;
@@ -159,8 +163,7 @@ p {
         position: relative;
         height: 150px;
         background-size: cover;
-        background-position: bottom center;
-        background-image: url(../img/FileArtPic.jpg); }
+        background-position: bottom center; }
         .showContent .siteBlock li .sitePic .sitePicMask {
           position: absolute;
           width: 100%;

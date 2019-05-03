@@ -26,8 +26,12 @@ p{	font-size: 14px;
 .footer{
 	background-color: $main_bg_color;
 	margin: 0 auto;
-	padding: 10px;
+	padding: 20px;
 	text-align: center;
+	p{
+		color: #f5d005;
+		margin-top: 10px;
+	}
 }
 
 /* -- 0. Overall page setting END -- */

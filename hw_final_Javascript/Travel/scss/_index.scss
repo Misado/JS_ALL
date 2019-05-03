@@ -8,8 +8,9 @@
         position: absolute;
         top: 80px;
         left: 360px;
+        color: #fff;
     }
-    .districtOption{
+    .pure-form-districtOption{
         position: absolute;
         top: 140px;
         left: 320px;
@@ -67,7 +68,7 @@
                 height: 150px;
                 background-size: cover;
                 background-position: bottom center;
-                background-image: url(../img/FileArtPic.jpg);
+                // background-image: url(../img/FileArtPic.jpg);
                 .sitePicMask{
                     position: absolute;
                     width: 100%;
