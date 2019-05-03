@@ -64,5 +64,5 @@ console.log(siteBlockObj.innerHTML);
 for ( var i=0; i<siteBlockObj.childNodes.length; i++){
     console.log(siteBlockObj.childNodes[i]);
     console.log(siteBlockObj.childNodes[i].childNodes[0].getAttribute("class"));
-    siteBlockObj.childNodes[i].childNodes[0].style = "background-image:url('img/FileArtPic.jpg')";
+    siteBlockObj.childNodes[i].childNodes[0].style = "background-image:url('img/Hero.png')";
 }
