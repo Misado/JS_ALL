@@ -1,0 +1,196 @@
+@charset "UTF-8";
+/* Overall setting */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 微軟正黑體; }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* 統一字型大小 h1~h6,p {font-size} */
+h1 {
+  font-size: 36px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  font-size: 14px;
+  line-height: 1.5; }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.footer {
+  background-color: #559ac8;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center; }
+
+/* -- 0. Overall page setting END -- */
+.banner {
+  height: 320px;
+  background-image: url("../img/Hero.png");
+  background-size: cover;
+  background-position: top center;
+  position: relative; }
+  .banner h1 {
+    position: absolute;
+    top: 80px;
+    left: 360px; }
+  .banner .districtOption {
+    position: absolute;
+    top: 140px;
+    left: 320px;
+    width: 600px; }
+  .banner .districtMenu {
+    position: absolute;
+    bottom: -50px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 10%;
+    background-color: #fff;
+    border: 1px solid #000; }
+  .banner .districtMenuOption {
+    margin-top: 10px; }
+    .banner .districtMenuOption li {
+      float: left;
+      margin: 0 10px; }
+      .banner .districtMenuOption li a {
+        display: block;
+        padding: 10px 30px;
+        text-decoration: none;
+        background-color: #559ac8;
+        color: #fff; }
+
+.line {
+  height: 100px;
+  background-color: #559ac8; }
+
+.showContent {
+  width: 80%;
+  margin: 20px auto; }
+  .showContent h2 {
+    margin-top: 40px;
+    text-align: center; }
+  .showContent .siteBlock {
+    width: 100%; }
+    .showContent .siteBlock li {
+      float: left;
+      width: 48%;
+      margin: 2% 1%;
+      position: relative; }
+      .showContent .siteBlock li .sitePic {
+        position: relative;
+        height: 150px;
+        background-size: cover;
+        background-position: bottom center;
+        background-image: url(../img/FileArtPic.jpg); }
+        .showContent .siteBlock li .sitePic .sitePicMask {
+          position: absolute;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
+          bottom: 0;
+          padding: 10px;
+          color: #fff; }
+          .showContent .siteBlock li .sitePic .sitePicMask p {
+            position: absolute;
+            bottom: 5px;
+            right: 5px; }
+      .showContent .siteBlock li .siteInfo {
+        /* 讓表格每行可以有間距 */
+        border-spacing: 0 10px;
+        /* 左右 上下 */
+        border-collapse: separate;
+        margin-top: 10px; }
+        .showContent .siteBlock li .siteInfo td {
+          font-size: 16px;
+          font-weight: bold; }
+        .showContent .siteBlock li .siteInfo img {
+          margin: 0 5px; }
+      .showContent .siteBlock li .tagInfo {
+        position: absolute;
+        right: 0;
+        bottom: 0; }
+        .showContent .siteBlock li .tagInfo span {
+          margin-left: 5px; }
+
+.pageMenu {
+  margin-bottom: 40px; }
+  .pageMenu li {
+    float: left; }
+    .pageMenu li a {
+      padding: 20px; }

@@ -1,0 +1,122 @@
+.banner{
+    height: 320px;
+    background-image: url("../img/Hero.png");
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    h1{
+        position: absolute;
+        top: 80px;
+        left: 360px;
+    }
+    .districtOption{
+        position: absolute;
+        top: 140px;
+        left: 320px;
+        width: 600px;
+    }
+    .districtMenu{
+        position: absolute;
+        bottom: -50px;
+        padding: 20px;
+        width: 80%;
+        margin: 0 10%;
+        background-color: #fff;
+        border: 1px solid #000;
+    }
+    .districtMenuOption{
+        margin-top: 10px;
+        li{
+            float: left;
+            margin: 0 10px;
+            a{
+                display: block;
+                padding: 10px 30px;
+                text-decoration: none;
+                background-color: #559ac8;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.line{
+    height: 100px;
+    background-color: $main_bg_color;
+}
+
+.showContent{
+    width: 80%;
+    margin: 20px auto;
+    h2{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .siteBlock{
+        width: 100%;
+        li{
+            float: left;
+            width: 48%;
+            margin: 2% 1%;
+            position: relative;
+            .sitePic{
+                position: relative;
+                height: 150px;
+                background-size: cover;
+                background-position: bottom center;
+                background-image: url(../img/FileArtPic.jpg);
+                .sitePicMask{
+                    position: absolute;
+                    width: 100%;
+                    // height: 30px;
+                    background-color: rgba(0,0,0,0.3);
+                    bottom: 0;
+                    padding: 10px;
+                    color: #fff;
+                    p{
+                        position: absolute;
+                        bottom: 5px;
+                        right: 5px;
+                    }
+                }
+            }
+            .siteInfo{
+                /* 讓表格每行可以有間距 */
+                border-spacing: 0 10px; /* 左右 上下 */
+                border-collapse: separate; 
+                margin-top: 10px;
+                td{
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                // td{
+                //     align: center;
+                // }
+                // span{
+                //     margin-left: 5px;
+                // }
+                img{
+                    margin: 0 5px;
+                }
+            }
+            .tagInfo{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                span{
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+.pageMenu{
+    margin-bottom: 40px;
+    li{
+        float: left;
+        a{
+            padding: 20px;
+        }
+    }
+}
