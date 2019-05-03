@@ -41,8 +41,11 @@
 }
 
 .line{
+    width: 80%;
+    margin: 0 10%;
     height: 100px;
-    background-color: $main_bg_color;
+    // background-color: $main_bg_color;
+    border-bottom: 1px dashed $main_bg_color;
 }
 
 .showContent{

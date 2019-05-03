@@ -137,8 +137,10 @@ p {
         color: #fff; }
 
 .line {
+  width: 80%;
+  margin: 0 10%;
   height: 100px;
-  background-color: #559ac8; }
+  border-bottom: 1px dashed #559ac8; }
 
 .showContent {
   width: 80%;
