@@ -11,7 +11,7 @@ var siteBlockObj = document.querySelector(".siteBlock");
 var distrctTitleObj = document.getElementById("distrctTitle");
 
 //每頁要顯示的筆數
-var recordnumPerPage = 5;
+var recordnumPerPage = 8;
 var currentPageNum = 1; //現在所在頁數
 var pageMenuObj = document.querySelector(".pageMenu");
 pageMenuObj.addEventListener("click",showDataPage);
@@ -155,12 +155,19 @@ function showDistrictSite(){
                 
                 siteBlockObjStr += "<li>";
                 siteBlockObjStr += "<div class='sitePic' "+sitePicUrl+"<div class='sitePicMask'><h3>"+kaoTravelSite[i].Name+"</h3><p>"+kaoTravelSite[i].Zone+"</p></div></div>";
-                siteBlockObjStr += "<table class='siteInfo'>";
-                siteBlockObjStr += "<tr><td><img src='img/icons_clock.png'></td><td><span>"+kaoTravelSite[i].Opentime+"</span></td></tr>";
-                siteBlockObjStr += "<tr><td><img src='img/icons_pin.png'></td><td><span>"+kaoTravelSite[i].Add+"</span></td></tr>";
-                siteBlockObjStr += "<tr><td><img src='img/icons_phone.png'></td><td><span>"+kaoTravelSite[i].Tel+"</span></td></tr>";
-                siteBlockObjStr += "</table>";
-                siteBlockObjStr += "<div class='tagInfo'><img src='img/icons_tag.png'><span>"+kaoTravelSite[i].Ticketinfo+"</span></div>";
+                // siteBlockObjStr += "<table class='siteInfo'>";
+                // siteBlockObjStr += "<tr><td><img src='img/icons_clock.png'></td><td><span>"+kaoTravelSite[i].Opentime+"</span></td></tr>";
+                // siteBlockObjStr += "<tr><td><img src='img/icons_pin.png'></td><td><span>"+kaoTravelSite[i].Add+"</span></td></tr>";
+                // siteBlockObjStr += "<tr><td><img src='img/icons_phone.png'></td><td><span>"+kaoTravelSite[i].Tel+"</span></td></tr>";
+                // siteBlockObjStr += "</table>";
+                siteBlockObjStr += "<div class='siteInfo'>";
+                siteBlockObjStr += "<img src='img/icons_clock.png'><span>"+kaoTravelSite[i].Opentime+"</span><br>";
+                siteBlockObjStr += "<img src='img/icons_pin.png'><span>"+kaoTravelSite[i].Add+"</span><br>";
+                siteBlockObjStr += "<img src='img/icons_phone.png'><span>"+kaoTravelSite[i].Tel+"</span><br>";
+                siteBlockObjStr += "</div>";
+                if ( kaoTravelSite[i].Ticketinfo != ""){
+                    siteBlockObjStr += "<div class='tagInfo'><img src='img/icons_tag.png'><span>"+kaoTravelSite[i].Ticketinfo+"</span></div>";
+                }
                 siteBlockObjStr += "</li>";
                 
                 } 

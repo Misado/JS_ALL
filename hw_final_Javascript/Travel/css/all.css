@@ -167,6 +167,7 @@ p {
     .showContent .siteBlock li {
       float: left;
       width: 48%;
+      height: 280px;
       margin: 2% 1%;
       position: relative; }
       .showContent .siteBlock li .sitePic {
@@ -190,8 +191,13 @@ p {
         border-spacing: 0 10px;
         /* 左右 上下 */
         border-collapse: separate;
-        margin-top: 10px; }
+        margin-top: 10px;
+        line-height: 2em; }
         .showContent .siteBlock li .siteInfo td {
+          font-size: 16px;
+          font-weight: bold; }
+        .showContent .siteBlock li .siteInfo span {
+          margin-left: 5px;
           font-size: 16px;
           font-weight: bold; }
       .showContent .siteBlock li .tagInfo {

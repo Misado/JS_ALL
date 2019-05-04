@@ -66,6 +66,7 @@
         li{
             float: left;
             width: 48%;
+            height: 280px;
             margin: 2% 1%;
             position: relative;
             .sitePic{
@@ -94,6 +95,7 @@
                 border-spacing: 0 10px; /* 左右 上下 */
                 border-collapse: separate; 
                 margin-top: 10px;
+                line-height: 2em;
                 td{
                     font-size: 16px;
                     font-weight: bold;
@@ -101,9 +103,11 @@
                 // td{
                 //     align: center;
                 // }
-                // span{
-                //     margin-left: 5px;
-                // }
+                span{
+                    margin-left: 5px;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
                 // img{
                 //     margin: 0 5px;
                 // }
