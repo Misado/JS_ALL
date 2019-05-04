@@ -197,9 +197,10 @@ p {
       .showContent .siteBlock li .tagInfo {
         position: absolute;
         right: 0;
-        bottom: 0; }
+        bottom: -20px; }
         .showContent .siteBlock li .tagInfo span {
-          margin-left: 5px; }
+          margin-left: 5px;
+          font-size: 14px; }
 
 .pageMenu {
   margin-bottom: 40px; }

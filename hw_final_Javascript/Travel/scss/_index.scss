@@ -111,9 +111,10 @@
             .tagInfo{
                 position: absolute;
                 right: 0;
-                bottom: 0;
+                bottom: -20px;
                 span{
                     margin-left: 5px;
+                    font-size: 14px;
                 }
             }
         }
