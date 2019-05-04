@@ -44,8 +44,14 @@ for ( var i=0; i<kaoTravelSite.length; i++){
 
     if ( kaoTravelSite[i].Zone == "三民區" ){
         console.log(kaoTravelSite[i].Name);
+        console.log(kaoTravelSite[i].Picture1);
+
+        //圖片網址這部份設定要用跳脫字元
+        var sitePicUrl = "style='background-image:url(&quot;"+kaoTravelSite[i].Picture1+"&quot;)'>";
+        console.log("sitePicUrl: "+sitePicUrl);
+        
         siteBlockObjStr += "<li>";
-        siteBlockObjStr += "<div class='sitePic'><div class='sitePicMask'><h3>"+kaoTravelSite[i].Name+"</h3><p>"+kaoTravelSite[i].Zone+"</p></div></div>";
+        siteBlockObjStr += "<div class='sitePic' "+sitePicUrl+"<div class='sitePicMask'><h3>"+kaoTravelSite[i].Name+"</h3><p>"+kaoTravelSite[i].Zone+"</p></div></div>";
         siteBlockObjStr += "<table class='siteInfo'>";
         siteBlockObjStr += "<tr><td><img src='img/icons_clock.png'></td><td><span>"+kaoTravelSite[i].Opentime+"</span></td></tr>";
         siteBlockObjStr += "<tr><td><img src='img/icons_pin.png'></td><td><span>"+kaoTravelSite[i].Add+"</span></td></tr>";
@@ -56,13 +62,4 @@ for ( var i=0; i<kaoTravelSite.length; i++){
     }
     
 }
-
-// var siteBlockObj = document.querySelector(".siteBlock");
 siteBlockObj.innerHTML = siteBlockObjStr;
-console.log(siteBlockObj.innerHTML);
-
-for ( var i=0; i<siteBlockObj.childNodes.length; i++){
-    console.log(siteBlockObj.childNodes[i]);
-    console.log(siteBlockObj.childNodes[i].childNodes[0].getAttribute("class"));
-    siteBlockObj.childNodes[i].childNodes[0].style = "background-image:url('img/Hero.png')";
-}
