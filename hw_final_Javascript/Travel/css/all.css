@@ -208,3 +208,22 @@ p {
     float: left; }
     .pageMenu li a {
       padding: 20px; }
+
+.pageMenu {
+  float: right;
+  margin-right: 10px;
+  background-color: #424242; }
+  .pageMenu li {
+    float: left; }
+    .pageMenu li a {
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      color: #5f9ea0; }
+
+.pageMenuNum:hover, .pageMenuNum:focus {
+  background-color: #559ac8; }
+
+.showCurrentPage {
+  background-color: #559ac8;
+  color: #fff; }
