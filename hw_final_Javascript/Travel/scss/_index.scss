@@ -38,6 +38,11 @@
                 color: #fff;
             }
         }
+        .firstHotClass{ a{ background-color: $first_hot_color; } }
+        .secondHotClass{ a{ background-color: $second_hot_color; } }
+        .thirdHotClass{ a{ background-color: $third_hot_color; } }
+        .fourthHotClass{ a{ background-color: $fourth_hot_color; } }
+        .fifthHotClass{ a{ background-color: $fifth_hot_color; } }
     }
 }
 

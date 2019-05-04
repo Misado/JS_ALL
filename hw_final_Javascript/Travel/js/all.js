@@ -6,9 +6,13 @@ console.log(kaoTravelSite.length);
 
 var siteBlockObj = document.querySelector(".siteBlock");
 // console.log(siteBlockObj.innerHTML);
+var distrctTitleObj = document.getElementById("distrctTitle");
+var districtMenuOptionObj = document.querySelector(".districtMenuOption");
 
 var districtSelected = "三民區"; //先給它一個預設值顯示結果
 showDistrictSite();
+
+var hotClass =["firstHotClass","secondHotClass","thirdHotClass","fourthHotClass","fifthHotClass"];
 
 function findDistrict(inputArray){
     var outputArray = [];
@@ -98,6 +102,7 @@ function changeDistrictSite(event){
 function showDistrictSite(){
     // console.log(event.target.value);
     console.log("districtSelected: "+districtSelected);
+    distrctTitleObj.textContent = districtSelected;
     var siteBlockObjStr = "";
     for ( var i=0; i<kaoTravelSite.length; i++){
 
@@ -122,4 +127,27 @@ function showDistrictSite(){
         
     }
     siteBlockObj.innerHTML = siteBlockObjStr;
+}
+
+console.log("----- before -----");
+console.log(districtRecords);
+// 要做熱門TOP5，所以把陣列照數量順序排序
+districtRecords = districtRecords.sort(function (a, b) {
+    return a.Count < b.Count ? 1 : -1;
+   });
+console.log("----- after -----");
+console.log(districtRecords);
+
+
+//動態產生熱門行政區
+var districtList = document.getElementById("districtOption");
+
+for ( var i=0; i<5; i++){
+    var districtNode = document.createElement("li");
+    var districtNodeLink = document.createElement("a");
+    districtNode.setAttribute("class",hotClass[i]);
+    districtNodeLink.setAttribute("href","#");
+    districtNodeLink.textContent = districtRecords[i].District;
+    districtNode.appendChild(districtNodeLink);
+    districtMenuOptionObj.appendChild(districtNode);
 }

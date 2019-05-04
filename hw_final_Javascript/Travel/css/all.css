@@ -139,6 +139,16 @@ p {
         text-decoration: none;
         background-color: #559ac8;
         color: #fff; }
+    .banner .districtMenuOption .firstHotClass a {
+      background-color: #8a82cc; }
+    .banner .districtMenuOption .secondHotClass a {
+      background-color: #ffa782; }
+    .banner .districtMenuOption .thirdHotClass a {
+      background-color: #f5d005; }
+    .banner .districtMenuOption .fourthHotClass a {
+      background-color: #559ac8; }
+    .banner .districtMenuOption .fifthHotClass a {
+      background-color: #01b468; }
 
 .line {
   width: 80%;
