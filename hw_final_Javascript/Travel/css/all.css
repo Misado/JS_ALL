@@ -184,8 +184,6 @@ p {
         .showContent .siteBlock li .siteInfo td {
           font-size: 16px;
           font-weight: bold; }
-        .showContent .siteBlock li .siteInfo img {
-          margin: 0 5px; }
       .showContent .siteBlock li .tagInfo {
         position: absolute;
         right: 0;
