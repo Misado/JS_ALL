@@ -165,9 +165,7 @@ function showDistrictSite(){
                 siteBlockObjStr += "<img src='img/icons_pin.png'><span>"+kaoTravelSite[i].Add+"</span><br>";
                 siteBlockObjStr += "<img src='img/icons_phone.png'><span>"+kaoTravelSite[i].Tel+"</span><br>";
                 siteBlockObjStr += "</div>";
-                if ( kaoTravelSite[i].Ticketinfo != ""){
-                    siteBlockObjStr += "<div class='tagInfo'><img src='img/icons_tag.png'><span>"+kaoTravelSite[i].Ticketinfo+"</span></div>";
-                }
+                siteBlockObjStr += "<div class='tagInfo'><img src='img/icons_tag.png'><span>"+kaoTravelSite[i].Ticketinfo+"</span></div>";
                 siteBlockObjStr += "</li>";
                 
                 } 
