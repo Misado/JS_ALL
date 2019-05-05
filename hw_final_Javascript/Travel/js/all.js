@@ -55,34 +55,6 @@ for ( var i=0; i<districtRecords.length; i++){
     console.log(districtRecords[i].District,districtRecords[i].Count);
 }
 
-
-
-// var siteBlockObjStr = "";
-// for ( var i=0; i<kaoTravelSite.length; i++){
-
-//     if ( kaoTravelSite[i].Zone == "甲仙區" ){
-//         console.log(kaoTravelSite[i].Name);
-//         console.log(kaoTravelSite[i].Picture1);
-
-//         //圖片網址這部份設定要用跳脫字元
-//         var sitePicUrl = "style='background-image:url(&quot;"+kaoTravelSite[i].Picture1+"&quot;)'>";
-//         console.log("sitePicUrl: "+sitePicUrl);
-        
-//         siteBlockObjStr += "<li>";
-//         siteBlockObjStr += "<div class='sitePic' "+sitePicUrl+"<div class='sitePicMask'><h3>"+kaoTravelSite[i].Name+"</h3><p>"+kaoTravelSite[i].Zone+"</p></div></div>";
-//         siteBlockObjStr += "<table class='siteInfo'>";
-//         siteBlockObjStr += "<tr><td><img src='img/icons_clock.png'></td><td><span>"+kaoTravelSite[i].Opentime+"</span></td></tr>";
-//         siteBlockObjStr += "<tr><td><img src='img/icons_pin.png'></td><td><span>"+kaoTravelSite[i].Add+"</span></td></tr>";
-//         siteBlockObjStr += "<tr><td><img src='img/icons_phone.png'></td><td><span>"+kaoTravelSite[i].Tel+"</span></td></tr>";
-//         siteBlockObjStr += "</table>";
-//         siteBlockObjStr += "<div class='tagInfo'><img src='img/icons_tag.png'><span>"+kaoTravelSite[i].Ticketinfo+"</span></div>";
-//         siteBlockObjStr += "</li>";
-//     }
-    
-// }
-// siteBlockObj.innerHTML = siteBlockObjStr;
-
-
 //顯示類別跟數量，並動態產生下拉式選單
 // var tainandistrict = finddistrict(foodTainan);
 // var districtFoodNumStr = "";
@@ -136,12 +108,6 @@ function showDistrictSite(){
     distrctTitleObj.textContent = districtSelected;
     var siteBlockObjStr = "";
     for ( var i=0; i<kaoTravelSite.length; i++){
-        // console.log(i);
-        // console.log("recordCount: "+recordCount,"fromResultNum: "+fromResultNum,"toResultNum: ",toResultNum);
-        
-        
-        //     console.log("kaoTravelSite[i].Zone: "+kaoTravelSite[i].Zone);
-        //     console.log("districtSelected: "+districtSelected);
             if ( kaoTravelSite[i].Zone == districtSelected ){
                 console.log("recordCount: "+recordCount);
                 // recordCount如果大於等於起始點 且 小於等於結束點才真的產生html
@@ -155,11 +121,6 @@ function showDistrictSite(){
                 
                 siteBlockObjStr += "<li>";
                 siteBlockObjStr += "<div class='sitePic' "+sitePicUrl+"<div class='sitePicMask'><h3>"+kaoTravelSite[i].Name+"</h3><p>"+kaoTravelSite[i].Zone+"</p></div></div>";
-                // siteBlockObjStr += "<table class='siteInfo'>";
-                // siteBlockObjStr += "<tr><td><img src='img/icons_clock.png'></td><td><span>"+kaoTravelSite[i].Opentime+"</span></td></tr>";
-                // siteBlockObjStr += "<tr><td><img src='img/icons_pin.png'></td><td><span>"+kaoTravelSite[i].Add+"</span></td></tr>";
-                // siteBlockObjStr += "<tr><td><img src='img/icons_phone.png'></td><td><span>"+kaoTravelSite[i].Tel+"</span></td></tr>";
-                // siteBlockObjStr += "</table>";
                 siteBlockObjStr += "<div class='siteInfo'>";
                 siteBlockObjStr += "<img src='img/icons_clock.png'><span>"+kaoTravelSite[i].Opentime+"</span><br>";
                 siteBlockObjStr += "<img src='img/icons_pin.png'><span>"+kaoTravelSite[i].Add+"</span><br>";
@@ -170,12 +131,7 @@ function showDistrictSite(){
                 
                 } 
                 recordCount += 1; //只要有符合區域 recordCount+1
-                // console.log("recordCount: "+recordCount);
-            }
-        
-        // console.log("siteBlockObjStr: "+siteBlockObjStr);
-        
-        
+            }  
     }
     siteBlockObj.innerHTML = siteBlockObjStr;
     showTotalPageMenu();

@@ -2,7 +2,7 @@
     height: 320px;
     background-image: url("../img/Hero.png");
     background-size: cover;
-    background-position: top center;
+    background-position: 20% center;
     position: relative;
     h1{
         position: absolute;
@@ -11,10 +11,13 @@
         color: #fff;
     }
     .pure-form-districtOption{
+        opacity: 0.7;
         position: absolute;
         top: 140px;
         left: 320px;
         width: 600px;
+        transition: all 0.5s;
+        &:hover,&:active{ opacity: 1; }
     }
     .districtMenu{
         position: absolute;
@@ -47,18 +50,38 @@
 }
 
 .line{
+    position: relative;
     width: 80%;
     margin: 0 10%;
-    height: 100px;
-    // background-color: $main_bg_color;
-    border-bottom: 1px dashed $main_bg_color;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    hr{
+        position: absolute;
+        border-top: 1px dashed $main_bg_color;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .arrowOnLine{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 0 50%;
+
+        i{
+
+            color: $main_bg_color;
+            
+            
+        }
+    }
 }
 
 .showContent{
     width: 80%;
-    margin: 20px auto;
+    margin: 60px auto;
     h2{
-        margin-top: 40px;
+        margin-top: 60px;
         text-align: center;
     }
     .siteBlock{

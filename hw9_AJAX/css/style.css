@@ -1,0 +1,92 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS RESET END */
+
+body{
+    height: 100%;
+    background-image: url("https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20% center;
+}
+
+body.register{
+    background-image: url("https://images.unsplash.com/photo-1498354136128-58f790194fa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80");
+}
+
+.wrap{
+    max-width: 960px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.pure-form-change{
+    width: 50%;
+    margin: 40px 25%;
+    color: #fff;
+}
+
+.pure-form-change h1{
+    text-align: center;
+}
+
+.pure-form-change a{
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.pure-form-change a:hover{
+    background-color: yellow;
+}
+
+.pure-form-message{
+    color: red;
+}
