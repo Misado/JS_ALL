@@ -8,6 +8,7 @@ var submitBtnObj = document.getElementById("submitBtn");
 submitBtnObj.addEventListener("click",sendLoginData);
 
 function sendLoginData(){
+    feedbackMsgObj.innerHTML =""; //一開始先清空訊息
     var hrefAll = window.location.href; // 取得現在的連結網址
     var hrefFile = hrefAll.split("/").pop(); // 取得以"/"分開最後的字串(檔案名稱) 要取第1個的話是shift()
 
