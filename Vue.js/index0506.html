@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index0506.css">
+</head>
+<body>
+    
+    <div class="toDoList">
+        <h1>待辦事項</h1>
+        <input type="text" v-model="thingInput" @keyup.enter="addTask">
+        {{thingInput}}
+        <input type="button" value="全部顯示" @click="showMode='ALL'">
+        <input type="button" value="已完成"  @click="showMode='COMP'">
+        <div v-if="showMode=='ALL'">
+            <ul>
+                    <li v-for="(item,index) in thingArray" :class="classChange(item.completed)">
+                    <input type="checkbox" @click="completeTask(item,index)" :checked="item.completed">
+                    {{index}} -- {{item.index}}{{item.completed}}{{item.content}}--{{item.completed}}
+                    <input type="button" @click="removeTask(item,index)" value="刪除">
+                </li>
+            </ul>
+        </div>
+        <div v-if="showMode=='COMP'">
+                <ul>
+                        <li v-for="(item,index) in thingArray" v-if="item.completed" :class="classChange(item.completed)">
+                        <input type="checkbox" @click="completeTask(item,index)" :checked="item.completed">
+                        {{index}} -- {{item.index}}{{item.completed}}{{item.content}}
+                        <input type="button" @click="removeTask(item,index)" value="刪除">
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/index0506.js"></script>
+</body>
+</html>

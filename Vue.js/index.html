@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="app">
+        {{content}}
+        {{content}}
+        {{content}}
+        <div class="box">
+            {{link}}{{score*0.8}}
+            {{link}}{{score*0.9}}
+            <input type="number" v-model="score">
+            {{score}}
+            <!-- <div v-if="score>=60">很棒你及格了！</div>
+            <div v-else="">不及格！</div> -->
+            <div v-show="score>=60">很棒你及格了！</div>
+            <div v-show="score<60">不及格！</div>
+            <br>
+            <ul>
+                <li v-for="item in school" @click.prevent="showName(item.name)">
+                    <a href="#">{{item.name}}</a>
+                </li>
+            </ul>
+            <ul>
+                <li v-for="item in site" @click="showAddr(item.Add)">
+                    {{item.Name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="data/datastore_search.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>
