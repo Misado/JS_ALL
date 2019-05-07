@@ -87,6 +87,8 @@ body.register{
     background-color: yellow;
 }
 
-.pure-form-message{
-    color: red;
+.warningMsg{
+    display: none;
+    color: brown;
+    font-weight: bold;
 }
