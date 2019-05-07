@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>宅男備忘</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="mask"></div>
+    <div class="wrap">
+        <div class="toDoListBoard">
+            <div class="roleShow clearfix">
+                <img src="img/otakuboy.png" alt="">
+                <h1>宅男備忘</h1>
+            </div>
+        </div>
+        <div class="toDoList">
+            <input type="text" v-model="thingInput" @keyup.enter="addTask">
+            <input type="button" value="全部顯示" @click="showMode='ALL'">
+            <input type="button" value="已完成"  @click="showMode='COMP'">
+            <input type="button" value="清除全部已完成事項">
+            <ul>
+                <li v-for="(item,index) in thingArray" v-if="modeCheck(showMode,item)" :class="classChange(item.completed)">
+                    <input type="checkbox" @click="completeTask(item,index)" :checked="item.completed">
+                    {{item.date}} -- {{index}} -- {{item.index}}{{item.completed}}{{item.content}}
+                    <input type="button" @click="removeTask(item,index)" value="刪除">
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>

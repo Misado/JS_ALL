@@ -15,24 +15,13 @@
         {{thingInput}}
         <input type="button" value="全部顯示" @click="showMode='ALL'">
         <input type="button" value="已完成"  @click="showMode='COMP'">
-        <div v-if="showMode=='ALL'">
-            <ul>
-                    <li v-for="(item,index) in thingArray" :class="classChange(item.completed)">
-                    <input type="checkbox" @click="completeTask(item,index)" :checked="item.completed">
-                    {{index}} -- {{item.index}}{{item.completed}}{{item.content}}--{{item.completed}}
-                    <input type="button" @click="removeTask(item,index)" value="刪除">
-                </li>
-            </ul>
-        </div>
-        <div v-if="showMode=='COMP'">
-                <ul>
-                        <li v-for="(item,index) in thingArray" v-if="item.completed" :class="classChange(item.completed)">
-                        <input type="checkbox" @click="completeTask(item,index)" :checked="item.completed">
-                        {{index}} -- {{item.index}}{{item.completed}}{{item.content}}
-                        <input type="button" @click="removeTask(item,index)" value="刪除">
-                    </li>
-                </ul>
-            </div>
+        <ul>
+                <li v-for="(item,index) in thingArray" v-if="modeCheck(showMode,item)" :class="classChange(item.completed)">
+                <input type="checkbox" @click="completeTask(item,index)" :checked="item.completed">
+                {{index}} -- {{item.index}}{{item.completed}}{{item.content}}
+                <input type="button" @click="removeTask(item,index)" value="刪除">
+            </li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script src="js/index0506.js"></script>

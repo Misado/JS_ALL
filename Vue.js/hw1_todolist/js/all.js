@@ -1,4 +1,4 @@
-
+console.log("HI");
 var toDoList = new Vue({
     el: ".toDoList",
     data: {
@@ -12,7 +12,9 @@ var toDoList = new Vue({
             console.log(event.target.parentNode);
             console.log("this.thingArray.length: "+this.thingArray.length);
             // let recordNum = this.thingArray.length;
-            this.thingArray.push({completed: false,content:this.thingInput});
+            let today=new Date();
+            let currentDateTime =today.getFullYear()+"/"+(today.getMonth()+1)+"/"+today.getDate();
+            this.thingArray.push({date: currentDateTime,completed: false,content:this.thingInput});
             this.addLocalStorage();
         },
         completeTask: function(item,index){
