@@ -92,3 +92,7 @@ body.register{
     color: brown;
     font-weight: bold;
 }
+
+#submitBtn{
+    cursor: pointer;
+}
