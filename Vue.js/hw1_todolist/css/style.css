@@ -113,10 +113,15 @@ body{
     opacity: 1;
 }
 
+.toDoList input{
+    cursor: pointer;
+}
+
+/* 任務已完成的樣式，透明度要變為0.3，要有刪除線 */
 .toDoList .active{
     text-decoration: line-through;
     opacity: 0.3;
-    transition: all 1s;
+    transition: all 0.8s;
 }
 
 .toDoList ul{
@@ -127,4 +132,18 @@ body{
     font-size: 20px;
     padding: 20px;
     border-bottom: 1px solid #fff;
+    
+}
+
+.toDoList li span{
+    margin-left: 10px;
+}
+
+.removeBtn{
+    float: right;
+}
+
+.checkboxBtn{
+    width: 20px;
+    height: 20px;
 }
