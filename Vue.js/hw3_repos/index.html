@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>擁有的Github資訊</title>
+</head>
+<body>
+    <div id="reposBranch">
+        <h2>Now @ {{currentRepo}} /repo</h2>
+        <br>
+        <h3>擁有的 Repository 列表</h3>
+        <template v-for="repo in repos">
+            <input type="radio" name="repo" :value="repo.name" v-model="currentRepo"><a :href="repos.html_url">{{repo.name}}</a> -- 最後push時間: {{repo.pushed_at}}
+            <br>
+        </template>
+        <br>
+        <h3>擁有的 branch 列表</h3>
+        <ul>
+            <li v-for="branch in branches">
+                <a :href="getBranchURL(branch)" target="_blank">{{branch.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>
