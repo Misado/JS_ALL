@@ -10,14 +10,26 @@
 <body>
     <div class="wrap">
         <h1>匯率計算機</h1>
-        <p>以下請輸入台幣</p>
+        <span>下方請輸入台幣金額</span>
         <div class="calculator" id="exchangeCalculator">
-            
+            <div class="currencyList clearfix">
+                <span>下方請選擇幣值</span>
+                <ul>
+                    <li v-for="item in exchangeRate">
+                        <!-- 要preventDefault事件 -->
+                        <a href="#" @click.prevent="getCurrentData(item)" :class="changeClass(item)">
+                            {{item.Country}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="mask">
                 <input type="number" v-model="inputMoney">
+                <span class="result"> -- 大約可兌換 {{calculateMoney}} {{currentCountry}} --</span>
             </div>
-            {{inputMoney}}
-            <!-- {{calculateTWD}} -->
+        </div>
+        <div class="footer">
+            <p>資料來源：<a href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank">臺灣銀行牌告匯率</a> (牌價最新掛牌時間：2019/05/08 11:04)</p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
