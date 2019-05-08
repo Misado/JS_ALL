@@ -42,7 +42,7 @@ var exchangeCalculatorObj = new Vue({
         },
         changeClass: function(item){
             // 將點到的class設為active
-            if ( item.Country == this.currentCountry ){
+            if ( item.Country === this.currentCountry ){
                 return "active";
             }
         }
