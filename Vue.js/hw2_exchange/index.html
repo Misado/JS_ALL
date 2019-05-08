@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>匯率計算機</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <h1>匯率計算機</h1>
+        <p>以下請輸入台幣</p>
+        <div class="calculator" id="exchangeCalculator">
+            
+            <div class="mask">
+                <input type="number" v-model="inputMoney">
+            </div>
+            {{inputMoney}}
+            <!-- {{calculateTWD}} -->
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/all.js"></script>
+</body>
+</html>

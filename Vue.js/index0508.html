@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <input type="number" v-model="NTD">
+        <span>現在時間：{{updateTime}}</span>
+        <ul>
+            <!-- <li>日幣：{{NTD/0.2717}}</li>
+            <li>美金：{{NTD*30.495}}</li> -->
+            <li>日幣：{{changeJapan}}</li>
+            <li>美金：{{changeAmerica}}</li>
+        </ul>
+    </div>
+    <div class="test">
+        {{a}}
+    </div>
+    <div class="reposCommit">
+        <template v-for="branch in branches">
+            <input type="radio" name="branch" :value="branch" v-model="currentBranch">{{branch}}
+        </template>
+        {{currentBranch}}
+        <ul>
+            <li v-for="record in commits">
+                <a target="_blank" :href="record.html_url">更新記錄</a> -- by
+                <span><a target="_blank" :href="record.committer.html_url">{{record.committer.login}}</a></span> -- at
+                <span>{{record.commit.committer.date}}</span>
+                <span>{{record.commit.message}}</span>
+            </li>
+        </ul>
+        {{apiURL}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/all0508.js"></script>
+</body>
+</html>
