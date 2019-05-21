@@ -1,45 +1,44 @@
 /* ------ 主程式 ------ */
 
 // logo移掉原本event的事件
-var bmiLogoObj = document.querySelector(".bmiLogo");
+const bmiLogoObj = document.querySelector(".bmiLogo");
 bmiLogoObj.addEventListener("click",function(){
     event.preventDefault();
 });
 
 // 按下看結果按鈕
-var sendBtnObj = document.querySelector(".sendBtn");
+const sendBtnObj = document.querySelector(".sendBtn");
 sendBtnObj.addEventListener("click",getInputData);
 
 // 顯示結果的table
-var resultTableObj = document.querySelector(".resultTable");
+const resultTableObj = document.querySelector(".resultTable");
 resultTableObj.addEventListener("click",removeData);
 
 // 頁碼
-var showPage = document.querySelector(".showPage");
+const showPage = document.querySelector(".showPage");
 showPage.addEventListener("click",showDataPage);
 // 顯示總筆數的元素
-var totalRecordNumObj = document.querySelector(".totalRecordNum");
+const totalRecordNumObj = document.querySelector(".totalRecordNum");
 
 // 輸入身高跟體重的Element
-var dataInputHeightObj = document.getElementById("dataInputHeight");
-var dataInputWeightObj = document.getElementById("dataInputWeight");
+const dataInputHeightObj = document.getElementById("dataInputHeight");
+const dataInputWeightObj = document.getElementById("dataInputWeight");
 
-// 上面看結果按鈕跟點下去之後的結果元件
-var sendBtnObj = document.querySelector(".sendBtn");
-var resultBtnObj = document.querySelector(".resultBtn");
+// 點下去之後的結果元件
+const resultBtnObj = document.querySelector(".resultBtn");
 resultBtnObj.addEventListener("click",resetAction);
 
-var resultCircleBMIObj = document.getElementById("resultCircleBMI");
-var resultCircleTypeObj = document.getElementById("resultCircleType");
+const resultCircleBMIObj = document.getElementById("resultCircleBMI");
+const resultCircleTypeObj = document.getElementById("resultCircleType");
 
 //每頁要顯示的筆數
-var recordnumPerPage = 5;
+let recordnumPerPage = 5;
 
 // 初始值先把現在頁碼設為1
-var currentPageNum = 1;
+let currentPageNum = 1;
 
 // 宣告BMI嚴重程度跟要套用的class
-var bodyTypeArray = [{
+let bodyTypeArray = [{
     bodyType: "嚴重肥胖",
     bodyTypeClass: "bodyTypeClassSerious", 
 },{
@@ -73,24 +72,24 @@ showData(); // 一開始要先顯示資料&頁碼
 
 // 顯示資料
 function showData(){
-    var localStorageDataStr = localStorage.getItem("result");
-    var localStorageDataArray = JSON.parse(localStorageDataStr);
+    let localStorageDataStr = localStorage.getItem("result");
+    let localStorageDataArray = JSON.parse(localStorageDataStr);
 
     if ( localStorageDataArray == null ){return;} //取到的值為null就跳出不做
 
-    var resultTableStr = "" ;
-    var bodyTypeClass = "" ;
+    let resultTableStr = "" ;
+    let bodyTypeClass = "" ;
 
-    var totalResultNum = localStorageDataArray.length;
+    let totalResultNum = localStorageDataArray.length;
     totalRecordNumObj.textContent = "總筆數："+totalResultNum;
 
-    var fromResultNum = (currentPageNum-1)*recordnumPerPage+1; //該頁的起始點
-    var toResultNum = currentPageNum*recordnumPerPage; //該頁的結束點
+    let fromResultNum = (currentPageNum-1)*recordnumPerPage+1; //該頁的起始點
+    let toResultNum = currentPageNum*recordnumPerPage; //該頁的結束點
     if ( toResultNum >= totalResultNum){toResultNum = totalResultNum};
 
     // 比對嚴重程度找到要套的class
-    for ( var i=fromResultNum-1; i<toResultNum; i++){
-        for ( var j=0; j<bodyTypeArray.length;j++){
+    for ( let i=fromResultNum-1; i<toResultNum; i++){
+        for ( let j=0; j<bodyTypeArray.length;j++){
             if ( localStorageDataArray[i].bodyType == bodyTypeArray[j].bodyType ){
                 bodyTypeClass = bodyTypeArray[j].bodyTypeClass;
             }
@@ -112,17 +111,17 @@ function showData(){
 
 // 動態產生頁碼
 function showTotalPageMenu(){
-    var localStorageDataStr = localStorage.getItem("result");
-    var localStorageDataArray = JSON.parse(localStorageDataStr);
+    let localStorageDataStr = localStorage.getItem("result");
+    let localStorageDataArray = JSON.parse(localStorageDataStr);
 
-    var totalResultNum = localStorageDataArray.length;
-    var totalPageNum = parseInt(totalResultNum/recordnumPerPage);
+    let totalResultNum = localStorageDataArray.length;
+    let totalPageNum = parseInt(totalResultNum/recordnumPerPage);
     
     if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
     }
     
-    var showPageStr = "";
+    let showPageStr = "";
 
     // 如果是第1頁，往上頁就不要有連結
     if ( currentPageNum == 1 ){
@@ -131,7 +130,7 @@ function showTotalPageMenu(){
         showPageStr += "<li><a href='#' class='showPageNum' data-page='prev'>⟸</a></li>";
     }
 
-    for ( var i=1; i<=totalPageNum; i++){
+    for ( let i=1; i<=totalPageNum; i++){
         // 如果 i 跟現在頁面一樣，就不要有連結，且套用樣式讓使用者知道目前在那一頁
         if ( i == currentPageNum ){
             showPageStr += "<li><a class='showCurrentPage' data-page='"+i+"'>"+i+"</a></li>";
@@ -167,27 +166,27 @@ function getInputData(){
     resultBtnObj.style.display = "block";
 
     // 取得現在時間
-    var today = new Date();
-    var todayMonth = today.getMonth()+1;
+    let today = new Date();
+    let todayMonth = today.getMonth()+1;
     todayMonth = JSON.stringify(todayMonth); //要轉字串才能知道長度
-    var todayDay = today.getDate();
+    let todayDay = today.getDate();
     todayDay = JSON.stringify(todayDay); //要轉字串才能知道長度
     // 日期如果只有1碼前面補0
     if ( todayMonth.length == 1 ){ todayMonth = "0"+todayMonth; }
     if ( todayDay.length == 1 ){ todayDay = "0"+todayDay; }
-    var currentDateTime =(todayMonth)+"-"+todayDay+"-"+today.getFullYear();
+    let currentDateTime =(todayMonth)+"-"+todayDay+"-"+today.getFullYear();
     
-    var dataInputHeight = parseFloat(dataInputHeightObj.value).toFixed(1); //取到小數點第1位
-    var dataInputWeight = parseFloat(dataInputWeightObj.value).toFixed(1); //取到小數點第1位
+    let dataInputHeight = parseFloat(dataInputHeightObj.value).toFixed(1); //取到小數點第1位
+    let dataInputWeight = parseFloat(dataInputWeightObj.value).toFixed(1); //取到小數點第1位
 
     // 如果小數點後面是0就去掉
     if ( dataInputHeight.split(".")[1] == 0 ){ dataInputHeight = dataInputHeight.split(".")[0]; }
     if ( dataInputWeight.split(".")[1] == 0 ){ dataInputWeight = dataInputWeight.split(".")[0]; }
 
-    var BMICalculateResult = dataInputWeight / (dataInputHeight/100 * dataInputHeight/100);
+    let BMICalculateResult = dataInputWeight / (dataInputHeight/100 * dataInputHeight/100);
     BMICalculateResult = BMICalculateResult.toFixed(2); //取到小數點第2位
 
-    var bodyType = "";
+    let bodyType = "";
     if ( BMICalculateResult >= 40 ){ bodyType = "嚴重肥胖"; } 
     else if ( BMICalculateResult < 40 && BMICalculateResult >= 35 ){ bodyType="重度肥胖"; }
     else if ( BMICalculateResult < 35 && BMICalculateResult >= 30 ){ bodyType="中度肥胖"; }
@@ -208,8 +207,8 @@ function getInputData(){
 
 // 增加輸入的資料
 function addInputData(heightValue,weightValue,BMIValue,bodyTypeValue,currentDateTime){
-    var localStorageDataStr = localStorage.getItem("result");
-    var localStorageDataArray = JSON.parse(localStorageDataStr) || [];
+    let localStorageDataStr = localStorage.getItem("result");
+    let localStorageDataArray = JSON.parse(localStorageDataStr) || [];
 
     localStorageDataArray.push({
         bodyType: bodyTypeValue,
@@ -223,9 +222,9 @@ function addInputData(heightValue,weightValue,BMIValue,bodyTypeValue,currentDate
     localStorage.setItem("result",localStorageDataStr);
 
     // 結果圓圈的樣式套用
-    var loopIconClass = resultBtnObj.childNodes[5].getAttribute("class");
-    var resultBtnObjClass = resultBtnObj.getAttribute("class");
-    for ( var i=0; i<bodyTypeArray.length; i++){
+    let loopIconClass = resultBtnObj.childNodes[5].getAttribute("class");
+    let resultBtnObjClass = resultBtnObj.getAttribute("class");
+    for ( let i=0; i<bodyTypeArray.length; i++){
         if ( bodyTypeValue == bodyTypeArray[i].bodyType ){
             loopIconClass = loopIconClass +" "+bodyTypeArray[i].bodyTypeClass;
             resultBtnObjClass = resultBtnObjClass+" "+bodyTypeArray[i].bodyTypeClass;
@@ -242,16 +241,16 @@ function addInputData(heightValue,weightValue,BMIValue,bodyTypeValue,currentDate
 function removeData(event){
     if ( event.target.nodeName != "INPUT" ){return;} //點到的不是INPUT就不做
 
-    var removeDataNum = event.target.dataset.num;
-    var localStorageDataStr = localStorage.getItem("result");
-    var localStorageDataArray = JSON.parse(localStorageDataStr);
+    let removeDataNum = event.target.dataset.num;
+    let localStorageDataStr = localStorage.getItem("result");
+    let localStorageDataArray = JSON.parse(localStorageDataStr);
 
     localStorageDataArray.splice(removeDataNum,1);
     localStorageDataStr = JSON.stringify(localStorageDataArray);
     localStorage.setItem("result",localStorageDataStr);
 
-    var totalResultNum = localStorageDataArray.length;
-    var totalPageNum = parseInt(totalResultNum/recordnumPerPage);
+    let totalResultNum = localStorageDataArray.length;
+    let totalPageNum = parseInt(totalResultNum/recordnumPerPage);
     
     if ( totalResultNum%recordnumPerPage > 0 ){
         totalPageNum = totalPageNum+1;
@@ -274,11 +273,11 @@ function showDataPage(event){
     //如果點到的頁碼是現在的頁碼，後面就不做
     if ( event.target.dataset.page == currentPageNum ){return;}
 
-    var localStorageDataStr = localStorage.getItem("result");
-    var localStorageDataArray = JSON.parse(localStorageDataStr);
+    let localStorageDataStr = localStorage.getItem("result");
+    let localStorageDataArray = JSON.parse(localStorageDataStr);
 
-    var totalResultNum = localStorageDataArray.length;
-    var totalPageNum = parseInt(totalResultNum/recordnumPerPage);
+    let totalResultNum = localStorageDataArray.length;
+    let totalPageNum = parseInt(totalResultNum/recordnumPerPage);
     
     // 除於recordnumPerPage如果有餘數表示會跑到下一頁
     if ( totalResultNum%recordnumPerPage > 0 ){
