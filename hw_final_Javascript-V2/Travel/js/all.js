@@ -1,5 +1,7 @@
 
-// ****** 主程式 ****** //
+/* ------ 主程式 ------ */
+
+
 
 // 把高雄景點找出各區及數量
 let districtRecords = findDistrict(kaoTravelSite);
@@ -57,7 +59,10 @@ for ( let i=0; i<5; i++){
 }
 
 
-// ****** 函式 ****** //
+
+/* ------ 函式宣告 ------ */
+
+
 
 // 找出各區域並存次數
 function findDistrict(inputArray){
