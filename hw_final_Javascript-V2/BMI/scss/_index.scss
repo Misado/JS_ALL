@@ -7,23 +7,23 @@
 }
 
 .bannerInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 600px;
     margin: 0 auto;
 }
 
 .bmiLogo{
-    float: left;
 	h1{
 		a{
 			@include logo-for-searchengine(117px,117px,"../img/BMICLogo.png");
 			margin: 20px;
-			float: left;
 		}
 	}
 }
 
 .dataInput{
-    float: left;
     margin-left: 40px;
     margin: 20px;
     label{
@@ -39,7 +39,8 @@
 }
 
 .sendBtn{
-    float: left;
+    display: flex;
+    justify-content: center;
     width: 100px;
     height: 100px;
     margin: 30px 10px;
@@ -63,8 +64,10 @@
 
 .resultBtn{
     display: none;
+    // display: flex;
+    flex-direction: column;
     position: relative;
-    float: left;
+    align-items: center;
     width: 100px;
     height: 100px;
     margin: 30px 10px;
@@ -214,28 +217,11 @@
     margin: 10px;
 }
 
-// .showPage{
-//     float: right;
-//     margin-right: 10px;
-//     background-color: $sub_bg_color;
-//     li{
-//         float: left;
-//         a{
-//             text-decoration: none;
-//             display: block;
-//             padding: 10px 20px;
-//             color: #5f9ea0;
-
-//         }
-//     }
-// }
 .showPage{
     display: flex;
     justify-content: center;
-    // margin-right: 10px;
     background-color: $sub_bg_color;
     li{
-        // float: left;
         a{
             text-decoration: none;
             display: block;

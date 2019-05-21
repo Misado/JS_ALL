@@ -162,7 +162,7 @@ function getInputData(){
 
     // 看結果按鈕隱藏，顯示結果圓圈
     sendBtnObj.style.display = "none";
-    resultBtnObj.style.display = "block";
+    resultBtnObj.style.display = "flex";
 
     // 取得現在時間
     let today = new Date();

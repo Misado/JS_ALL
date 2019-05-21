@@ -112,26 +112,31 @@ p {
   padding: 60px; }
 
 .bannerInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 600px;
   margin: 0 auto; }
 
-.bmiLogo {
-  float: left; }
-  .bmiLogo h1 a {
-    width: 117px;
-    height: 117px;
-    background-image: url("../img/BMICLogo.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    display: block;
-    text-indent: 101%;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 20px;
-    float: left; }
+.bmiLogo h1 a {
+  width: 117px;
+  height: 117px;
+  background-image: url("../img/BMICLogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 20px; }
 
 .dataInput {
-  float: left;
   margin-left: 40px;
   margin: 20px; }
   .dataInput label {
@@ -144,7 +149,12 @@ p {
     border-radius: 10px; }
 
 .sendBtn {
-  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 100px;
   height: 100px;
   margin: 30px 10px;
@@ -165,8 +175,14 @@ p {
 
 .resultBtn {
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   position: relative;
-  float: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100px;
   height: 100px;
   margin: 30px 10px;
