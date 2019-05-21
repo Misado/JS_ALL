@@ -81,7 +81,7 @@ function showData(){
     let bodyTypeClass = "" ;
 
     let totalResultNum = localStorageDataArray.length;
-    totalRecordNumObj.textContent = "總筆數："+totalResultNum;
+    totalRecordNumObj.textContent = `總筆數：${totalResultNum}`;
 
     let fromResultNum = (currentPageNum-1)*recordnumPerPage+1; //該頁的起始點
     let toResultNum = currentPageNum*recordnumPerPage; //該頁的結束點
@@ -95,12 +95,12 @@ function showData(){
             }
         }
         resultTableStr += "<tr>";
-        resultTableStr += "<td class='bodyTypeClass "+bodyTypeClass+"'>"+localStorageDataArray[i].bodyType+"</td>";
-        resultTableStr += "<td><span class='smallText'>BMI</span>"+localStorageDataArray[i].BMI+"</td>";
-        resultTableStr += "<td><span class='smallText'>weight</span>"+localStorageDataArray[i].weight+"kg</td>";
-        resultTableStr += "<td><span class='smallText'>height</span>"+localStorageDataArray[i].height+"cm</td>";
-        resultTableStr += "<td class='dateText'>"+localStorageDataArray[i].currentTime+"</td>";
-        resultTableStr += "<td><input type='button' class='pure-button pure-button-primary pure-button-customized' value='刪除' data-num='"+i+"'></td>";
+        resultTableStr += `<td class='bodyTypeClass ${bodyTypeClass}'>${localStorageDataArray[i].bodyType}</td>`;
+        resultTableStr += `<td><span class='smallText'>BMI</span>${localStorageDataArray[i].BMI}</td>`;
+        resultTableStr += `<td><span class='smallText'>weight</span>${localStorageDataArray[i].weight}kg</td>`;
+        resultTableStr += `<td><span class='smallText'>height</span>${localStorageDataArray[i].height}cm</td>`;
+        resultTableStr += `<td class='dateText'>${localStorageDataArray[i].currentTime}</td>`;
+        resultTableStr += `<td><input type='button' class='pure-button pure-button-primary pure-button-customized' value='刪除' data-num='${i}'></td>`;
         resultTableStr += "</tr>";
     }
     resultTableObj.innerHTML = resultTableStr;
@@ -133,9 +133,9 @@ function showTotalPageMenu(){
     for ( let i=1; i<=totalPageNum; i++){
         // 如果 i 跟現在頁面一樣，就不要有連結，且套用樣式讓使用者知道目前在那一頁
         if ( i == currentPageNum ){
-            showPageStr += "<li><a class='showCurrentPage' data-page='"+i+"'>"+i+"</a></li>";
+            showPageStr += `<li><a class='showCurrentPage' data-page='${i}'>${i}</a></li>`;
         } else {
-            showPageStr += "<li><a href='#' class='showPageNum' data-page='"+i+"'>"+i+"</a></li>";
+            showPageStr += `<li><a href='#' class='showPageNum' data-page='${i}'>${i}</a></li>`;
         }
     }
 
