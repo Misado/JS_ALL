@@ -27,7 +27,7 @@ districtMenuOptionObj.addEventListener("click",showHotDistrictSite);
 let hotClass =["firstHotClass","secondHotClass","thirdHotClass","fourthHotClass","fifthHotClass"];
 
 // --- 給初始值 --- //
-let recordnumPerPage = 8; //每頁要顯示的筆數
+let recordnumPerPage = 6; //每頁要顯示的筆數
 let currentPageNum = 1; //現在所在頁數
 let districtSelected = "三民區"; //先給它一個預設值顯示結果
 
