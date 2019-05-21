@@ -51,35 +51,59 @@
 
 .line{
     position: relative;
-    width: 80%;
-    margin: 0 10%;
-    margin-top: 120px;
+    width: 90%;
+    margin: 0 5%;
+    margin-top: 100px;
     margin-bottom: 20px;
-    hr{
-        position: absolute;
-        border-top: 1px dashed $main_bg_color;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
+    // hr{
+    //     position: absolute;
+    //     border-top: 1px dashed $main_bg_color;
+    //     bottom: 0;
+    //     left: 0;
+    //     right: 0;
+    // }
     .arrowOnLine{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        margin: 0 50%;
+        // position: absolute;
+        // bottom: 0;
+        // left: 0;
+        // margin: 0 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // color: $main_font_color;
+        margin: 0px auto;
+        // padding: 20px 0;
+        width: 50%;
 
         i{
 
             color: $main_bg_color;
             
             
+            
         }
+        &::before,&::after{
+            // 偽元素的線
+            content: "";
+            flex-grow: 1;
+            background: $main_bg_color;
+            // height: 1px;
+            border-top: 1px dashed $main_bg_color;
+            // margin: 0px 10px;
+        }
+        
     }
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .showContent{
     width: 80%;
-    margin: 60px auto;
     h2{
         margin-top: 60px;
         text-align: center;
@@ -159,16 +183,19 @@
 }
 
 .pageMenu{
-    float: right;
+    // float: right;
+    display: flex;
+    justify-content: center;
     margin-right: 10px;
     background-color: $sub_bg_color;
     li{
-        float: left;
+        // float: left;
         a{
             text-decoration: none;
             display: block;
             padding: 10px 20px;
-            color: #5f9ea0;
+            // color: #5f9ea0;
+            color: #f5d005;
 
         }
     }

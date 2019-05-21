@@ -24,10 +24,11 @@ p{	font-size: 14px;
 
 
 .footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	background-color: $main_bg_color;
-	margin: 0 auto;
 	padding: 20px;
-	text-align: center;
 	p{
 		color: #f5d005;
 		margin-top: 10px;

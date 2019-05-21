@@ -95,10 +95,18 @@ p {
   margin: 0 auto; }
 
 .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #559ac8;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center; }
+  padding: 20px; }
   .footer p {
     color: #f5d005;
     margin-top: 10px; }
@@ -158,27 +166,46 @@ p {
 
 .line {
   position: relative;
-  width: 80%;
-  margin: 0 10%;
-  margin-top: 120px;
+  width: 90%;
+  margin: 0 5%;
+  margin-top: 100px;
   margin-bottom: 20px; }
-  .line hr {
-    position: absolute;
-    border-top: 1px dashed #559ac8;
-    bottom: 0;
-    left: 0;
-    right: 0; }
   .line .arrowOnLine {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0 50%; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 50%; }
     .line .arrowOnLine i {
       color: #559ac8; }
+    .line .arrowOnLine::before, .line .arrowOnLine::after {
+      content: "";
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      background: #559ac8;
+      border-top: 1px dashed #559ac8; }
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .showContent {
-  width: 80%;
-  margin: 60px auto; }
+  width: 80%; }
   .showContent h2 {
     margin-top: 60px;
     text-align: center; }
@@ -236,16 +263,19 @@ p {
       padding: 20px; }
 
 .pageMenu {
-  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-right: 10px;
   background-color: #424242; }
-  .pageMenu li {
-    float: left; }
-    .pageMenu li a {
-      text-decoration: none;
-      display: block;
-      padding: 10px 20px;
-      color: #5f9ea0; }
+  .pageMenu li a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    color: #f5d005; }
 
 .pageMenuNum:hover, .pageMenuNum:focus {
   background-color: #559ac8; }

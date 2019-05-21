@@ -122,10 +122,12 @@ function showTotalPageMenu(){
     
     let showPageStr = "";
 
-    // 如果是第1頁，往上頁就不要有連結
+    // 如果是第1頁，往上頁 / 跳到最前頁 就不要有連結
     if ( currentPageNum == 1 ){
+        showPageStr += "<li><a data-page='top'>⟽</a></li>";
         showPageStr += "<li><a data-page='prev'>⟸</a></li>";
     } else {
+        showPageStr += "<li><a href='#' class='showPageNum' data-page='top'>⟽</a></li>";
         showPageStr += "<li><a href='#' class='showPageNum' data-page='prev'>⟸</a></li>";
     }
 
@@ -138,11 +140,13 @@ function showTotalPageMenu(){
         }
     }
 
-     // 如果是最後1頁，往下頁就不要有連結
+     // 如果是最後1頁，往下頁 / 跳到最後頁就不要有連結
     if ( currentPageNum == totalPageNum ){
         showPageStr += "<li><a data-page='next' >⟹</a></li>";
+        showPageStr += "<li><a data-page='bottom' >⟾</a></li>";
     } else {
         showPageStr += "<li><a href='#' class='showPageNum' data-page='next' >⟹</a></li>";
+        showPageStr += "<li><a href='#' class='showPageNum' data-page='bottom' >⟾</a></li>";
     }
     showPage.innerHTML = showPageStr;
 }
@@ -287,11 +291,17 @@ function showDataPage(event){
     if ( currentPageNum == 1 && event.target.dataset.page == "prev" ){return;}
     if ( currentPageNum == totalPageNum && event.target.dataset.page == "next" ){return;}
     
-    // 點往上一頁就把頁碼-1 下一頁頁碼+1 都不是就設為點到的頁數
+    // 點往上一頁就把頁碼-1 下一頁頁碼+1 
+    // 點到top表示要跳到最前頁 點到bottom表示要跳到最後頁
+    // 都不是就設為點到的頁數
     if ( event.target.dataset.page == "prev"){
         currentPageNum = currentPageNum - 1;
     } else if ( event.target.dataset.page == "next"){
         currentPageNum = currentPageNum + 1;
+    } else if ( event.target.dataset.page == "top"){
+        currentPageNum = 1;
+    } else if ( event.target.dataset.page == "bottom"){
+        currentPageNum = totalPageNum;
     } else {
         currentPageNum = parseInt(event.target.dataset.page);
     }
