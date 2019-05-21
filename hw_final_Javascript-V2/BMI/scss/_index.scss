@@ -1,0 +1,242 @@
+
+/* 1. INDEX.HTML CSS */
+
+.banner{
+    background-color: $sub_bg_color;
+    padding: 60px;
+}
+
+.bannerInput{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.bmiLogo{
+    float: left;
+	h1{
+		a{
+			@include logo-for-searchengine(117px,117px,"../img/BMICLogo.png");
+			margin: 20px;
+			float: left;
+		}
+	}
+}
+
+.dataInput{
+    float: left;
+    margin-left: 40px;
+    margin: 20px;
+    label{
+        color: #fff;
+    }
+    input{
+        margin-top: 5px;
+        font-family: $font_type;
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+}
+
+.sendBtn{
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 30px 10px;
+    background-color: $main_bg_color;
+    border-radius: 50%;
+    cursor: pointer;
+    .mediumText{
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        margin: 40px 0;
+    }
+    &:hover,&:focus{
+        box-shadow: 3px 3px 15px 2px $main_bg_color,-3px -3px 15px 2px $main_bg_color;
+    }
+    &:active{
+        background-color: $main_bg_color_dark;
+    }
+}
+
+.resultBtn{
+    display: none;
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 30px 10px;
+    padding: 10px;
+    border: 5px solid;
+    border-radius: 50%;
+    /* 隨著類別而要改變的顏色 */
+    &.bodyTypeClassFine{
+        border-color: $body_type_color_fine;
+        color: $body_type_color_fine;
+    }
+    &.bodyTypeClassSerious{
+        border-color: $body_type_color_serious;
+        color: $body_type_color_serious;
+    }
+    &.bodyTypeClassHeavy{
+        border-color: $body_type_color_heavy;
+        color: $body_type_color_heavy;
+    }
+    &.bodyTypeClassMedium{
+        border-color: $body_type_color_medium;
+        color: $body_type_color_medium;
+    }
+    &.bodyTypeClassLittle{
+        border-color: $body_type_color_little;
+        color: $body_type_color_little;
+    }
+    &.bodyTypeClassLight{
+        border-color: $body_type_color_light;
+        color: $body_type_color_light;
+    }
+    .mediumText{
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .smallText{
+        font-size: 12px;
+        font-weight: normal;
+    }
+    h3{
+        position: absolute;
+        right: -120px;
+        top: 36px;
+    }
+    .loopIcon{
+        position: absolute;
+        right: -5px;
+        bottom: -5px;
+        width: 36px;
+        height: 36px;
+        padding: 5px 0;
+        text-align: center;
+        border-radius: 50%;
+        border: 5px solid $sub_bg_color;
+        cursor: pointer;
+        &:hover,&:focus{
+            box-shadow: 5px 5px 10px $main_bg_color,-5px -5px 10px $main_bg_color;
+        }
+        /* 隨著類別而要改變的顏色 */
+        &.bodyTypeClassFine{
+            background-color: $body_type_color_fine;
+        }
+        &.bodyTypeClassSerious{
+            background-color: $body_type_color_serious;
+        }
+        &.bodyTypeClassHeavy{
+            background-color: $body_type_color_heavy;
+        }
+        &.bodyTypeClassMedium{
+            background-color: $body_type_color_medium;
+        }
+        &.bodyTypeClassLittle{
+            background-color: $body_type_color_little;
+        }
+        &.bodyTypeClassLight{
+            background-color: $body_type_color_light;
+        }
+    }
+}
+
+.resultShow{
+	background-color: #f5f5f5;
+    text-align: center;
+    padding: 40px 0;
+    
+}
+
+.resultTable{
+    margin: 40px auto;
+    /* 讓表格每行可以有間距 */
+    border-spacing: 0 20px; /* 左右 上下 */
+    border-collapse: separate; 
+    font-size: 20px;
+    font-weight: bold;
+    .smallText{
+        font-size: 14px;
+        margin-right: 5px;
+        font-weight: normal;
+    }
+    .dateText{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    tr{
+        background-color: #fff;
+    }
+    td{
+        padding: 20px;
+        
+    }
+    /* 隨著類別而要改變的顏色 */
+    .bodyTypeClass{
+        border-left: 8px solid;
+        &.bodyTypeClassFine{
+            border-color: $body_type_color_fine;
+        }
+        &.bodyTypeClassSerious{
+            border-color: $body_type_color_serious;
+        }
+        &.bodyTypeClassHeavy{
+            border-color: $body_type_color_heavy;
+        }
+        &.bodyTypeClassMedium{
+            border-color: $body_type_color_medium;
+        }
+        &.bodyTypeClassLittle{
+            border-color: $body_type_color_little;
+        }
+        &.bodyTypeClassLight{
+            border-color: $body_type_color_light;
+        }
+    }
+    .pure-button-customized{
+        font-size: 14px;
+    }
+}
+
+
+
+.totalRecordNum{
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.showPage{
+    float: right;
+    margin-right: 10px;
+    background-color: $sub_bg_color;
+    li{
+        float: left;
+        a{
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            color: #5f9ea0;
+
+        }
+    }
+}
+
+.showPageNum{
+    &:hover,&:focus{
+        background-color: $main_bg_color;
+    }
+}
+
+.showCurrentPage{
+    background-color: $main_bg_color;
+}
+
+/* 1. INDEX.HTML CSS END */

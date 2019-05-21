@@ -1,0 +1,186 @@
+.banner{
+    height: 320px;
+    background-image: url("../img/Hero.png");
+    background-size: cover;
+    background-position: 20% center;
+    position: relative;
+    h1{
+        position: absolute;
+        top: 80px;
+        left: 360px;
+        color: #fff;
+    }
+    .pure-form-districtOption{
+        opacity: 0.7;
+        position: absolute;
+        top: 140px;
+        left: 320px;
+        width: 600px;
+        transition: all 0.5s;
+        &:hover,&:active{ opacity: 1; }
+    }
+    .districtMenu{
+        position: absolute;
+        bottom: -50px;
+        padding: 20px;
+        width: 80%;
+        margin: 0 10%;
+        background-color: #fff;
+        border: 1px solid #000;
+    }
+    .districtMenuOption{
+        margin-top: 10px;
+        li{
+            float: left;
+            margin: 0 10px;
+            a{
+                display: block;
+                padding: 10px 30px;
+                text-decoration: none;
+                background-color: #559ac8;
+                color: #fff;
+            }
+        }
+        .firstHotClass{ a{ background-color: $first_hot_color; } }
+        .secondHotClass{ a{ background-color: $second_hot_color; } }
+        .thirdHotClass{ a{ background-color: $third_hot_color; } }
+        .fourthHotClass{ a{ background-color: $fourth_hot_color; } }
+        .fifthHotClass{ a{ background-color: $fifth_hot_color; } }
+    }
+}
+
+.line{
+    position: relative;
+    width: 80%;
+    margin: 0 10%;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    hr{
+        position: absolute;
+        border-top: 1px dashed $main_bg_color;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .arrowOnLine{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 0 50%;
+
+        i{
+
+            color: $main_bg_color;
+            
+            
+        }
+    }
+}
+
+.showContent{
+    width: 80%;
+    margin: 60px auto;
+    h2{
+        margin-top: 60px;
+        text-align: center;
+    }
+    .siteBlock{
+        width: 100%;
+        li{
+            float: left;
+            width: 48%;
+            height: 280px;
+            margin: 30px 1%;
+            position: relative;
+            .sitePic{
+                position: relative;
+                height: 150px;
+                background-size: cover;
+                background-position: 20% center;
+                // background-image: url(../img/FileArtPic.jpg);
+                .sitePicMask{
+                    position: absolute;
+                    width: 100%;
+                    // height: 30px;
+                    background-color: rgba(0,0,0,0.3);
+                    bottom: 0;
+                    padding: 10px;
+                    color: #fff;
+                    p{
+                        position: absolute;
+                        bottom: 5px;
+                        right: 5px;
+                    }
+                }
+            }
+            .siteInfo{
+                /* 讓表格每行可以有間距 */
+                border-spacing: 0 10px; /* 左右 上下 */
+                border-collapse: separate; 
+                margin-top: 10px;
+                line-height: 2em;
+                td{
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                // td{
+                //     align: center;
+                // }
+                span{
+                    margin-left: 5px;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                // img{
+                //     margin: 0 5px;
+                // }
+            }
+            .tagInfo{
+                position: absolute;
+                right: 0;
+                bottom: -20px;
+                span{
+                    margin-left: 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.pageMenu{
+    margin-bottom: 40px;
+    li{
+        float: left;
+        a{
+            padding: 20px;
+        }
+    }
+}
+
+.pageMenu{
+    float: right;
+    margin-right: 10px;
+    background-color: $sub_bg_color;
+    li{
+        float: left;
+        a{
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            color: #5f9ea0;
+
+        }
+    }
+}
+
+.pageMenuNum{
+    &:hover,&:focus{
+        background-color: $main_bg_color;
+    }
+}
+
+.showCurrentPage{
+    background-color: $main_bg_color;
+    color: #fff;
+}

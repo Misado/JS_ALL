@@ -1,0 +1,110 @@
+.banner{
+    background-color: $sub_font_color;
+	/*height: 200px;*/
+    padding: 60px;
+    // margin-bottom: 40px;
+}
+
+.bannerInput{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.bmiLogo{
+    // margin: 10px auto;
+    float: left;
+	h1{
+		a{
+			@include logo-for-searchengine(117px,117px,"../img/BMICLogo.png");
+			margin: 20px;
+			float: left;
+		}
+	}
+}
+
+.dataInput{
+    float: left;
+    margin-left: 40px;
+    margin: 20px;
+    label{
+        color: #fff;
+    }
+    input{
+        margin-top: 5px;
+        font-family: $font_type;
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+}
+
+.sendBtn{
+    float: left;
+    width: 100px;
+    height: 100px;
+    // padding: 50px;
+    margin: 30px 10px;
+    background-color: $main_bg_color;
+    border-radius: 50%;
+    cursor: pointer;
+    span{
+        font-size: 20px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        margin: 40px 0;
+    }
+}
+
+.resultShow{
+	background-color: #f5f5f5;
+    text-align: center;
+    padding: 40px 0;
+    
+}
+
+.resultTable{
+    margin: 40px auto;
+    /* 讓表格每行可以有間距 */
+    border-spacing: 0 20px; /* 左右 上下 */
+    border-collapse: separate; 
+    font-size: 20px;
+    font-weight: bold;
+    tr{
+        background-color: #fff;
+    }
+    td{
+        padding: 20px;
+        
+    }
+    .smallText{
+        font-size: 14px;
+        margin-right: 5px;
+        font-weight: normal;
+    }
+    .dateText{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .bodyTypeClassFine{
+        @include bodyTypeClass(#86d73f);
+    }
+    .bodyTypeClassSerious{
+        @include bodyTypeClass(red);
+    }
+    .bodyTypeClassHeavy{
+        @include bodyTypeClass(#ff1200);
+    }
+    .bodyTypeClassMedium{
+        @include bodyTypeClass(#ff6c03);
+    }
+    .bodyTypeClassLittle{
+        @include bodyTypeClass(#ff982d);
+    }
+    .bodyTypeClassLight{
+        @include bodyTypeClass(#31baf9);
+    }
+    .pure-button-customized{
+        font-size: 14px;
+    }
+}

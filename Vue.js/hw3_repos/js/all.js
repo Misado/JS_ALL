@@ -19,8 +19,10 @@ var reposCommitVue = new Vue({
         fetchData: function(){
             // 找repos
             let self = this; // 這行一定要加，因為onload的this不是Vue原本的this
+            // 用ES6 `{$}`的方式字串相加
+            let url = `${self.apiReposURL}${self.recordNumPerPage}`;
             let xhr = new XMLHttpRequest();
-            xhr.open("GET",self.apiReposURL+self.recordNumPerPage,true);
+            xhr.open("GET",url,true);
             xhr.send();
             xhr.onload = function(){
                 self.repos = JSON.parse(xhr.responseText);
@@ -32,8 +34,10 @@ var reposCommitVue = new Vue({
             // 找branches
             let self = this; // 這行一定要加，因為onload的this不是Vue原本的this
             self.branches = []; // 先清空 branches 的結果
+            // 用ES6 `{$}`的方式字串相加
+            let url = `${self.apiBranchURL}${self.currentRepo}/branches?per_page=${self.recordNumPerPage}`;
             let xhr = new XMLHttpRequest();
-            xhr.open("GET",self.apiBranchURL+self.currentRepo+"/branches?per_page="+self.recordNumPerPage,true);
+            xhr.open("GET",url,true);
             xhr.send();
             xhr.onload = function(){
                 self.branches = JSON.parse(xhr.responseText);
@@ -41,7 +45,9 @@ var reposCommitVue = new Vue({
         },
         getBranchURL: function(branch){
             // 取得該repository的Branch的URL
-            return this.branchURL+this.currentRepo+"/tree/"+branch.name;
+            // 用ES6 `{$}`的方式字串相加
+            let url = `${this.branchURL}${this.currentRepo}/tree/${branch.name}`;
+            return url;
         }
     }
 });

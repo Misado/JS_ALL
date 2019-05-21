@@ -1,0 +1,301 @@
+@charset "UTF-8";
+/* Overall setting */
+/* 各種類型所代表的顏色 */
+/* 以後類型要改顏色來這邊改就好 不用CSS一個一個改 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 微軟正黑體; }
+
+p {
+  text-align: justify;
+  text-indent: 1em; }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* 統一字型大小 h2~h6,p {font-size} */
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  text-indent: 2em; }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.footer {
+  background-color: #ffd366;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center; }
+
+/* -- 0. Overall page setting END -- */
+/* 1. INDEX.HTML CSS */
+.banner {
+  background-color: #424242;
+  padding: 60px; }
+
+.bannerInput {
+  width: 600px;
+  margin: 0 auto; }
+
+.bmiLogo {
+  float: left; }
+  .bmiLogo h1 a {
+    width: 117px;
+    height: 117px;
+    background-image: url("../img/BMICLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 20px;
+    float: left; }
+
+.dataInput {
+  float: left;
+  margin-left: 40px;
+  margin: 20px; }
+  .dataInput label {
+    color: #fff; }
+  .dataInput input {
+    margin-top: 5px;
+    font-family: 微軟正黑體;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px; }
+
+.sendBtn {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  background-color: #ffd366;
+  border-radius: 50%;
+  cursor: pointer; }
+  .sendBtn .mediumText {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 40px 0; }
+  .sendBtn:hover, .sendBtn:focus {
+    -webkit-box-shadow: 3px 3px 15px 2px #ffd366, -3px -3px 15px 2px #ffd366;
+    box-shadow: 3px 3px 15px 2px #ffd366, -3px -3px 15px 2px #ffd366; }
+  .sendBtn:active {
+    background-color: #dea821; }
+
+.resultBtn {
+  display: none;
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  padding: 10px;
+  border: 5px solid;
+  border-radius: 50%;
+  /* 隨著類別而要改變的顏色 */ }
+  .resultBtn.bodyTypeClassFine {
+    border-color: #86d73f;
+    color: #86d73f; }
+  .resultBtn.bodyTypeClassSerious {
+    border-color: red;
+    color: red; }
+  .resultBtn.bodyTypeClassHeavy {
+    border-color: #ff1200;
+    color: #ff1200; }
+  .resultBtn.bodyTypeClassMedium {
+    border-color: #ff6c03;
+    color: #ff6c03; }
+  .resultBtn.bodyTypeClassLittle {
+    border-color: #ff982d;
+    color: #ff982d; }
+  .resultBtn.bodyTypeClassLight {
+    border-color: #31baf9;
+    color: #31baf9; }
+  .resultBtn .mediumText {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 20px 0; }
+  .resultBtn .smallText {
+    font-size: 12px;
+    font-weight: normal; }
+  .resultBtn h3 {
+    position: absolute;
+    right: -120px;
+    top: 36px; }
+  .resultBtn .loopIcon {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 36px;
+    height: 36px;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 50%;
+    border: 5px solid #424242;
+    cursor: pointer;
+    /* 隨著類別而要改變的顏色 */ }
+    .resultBtn .loopIcon:hover, .resultBtn .loopIcon:focus {
+      -webkit-box-shadow: 5px 5px 10px #ffd366, -5px -5px 10px #ffd366;
+      box-shadow: 5px 5px 10px #ffd366, -5px -5px 10px #ffd366; }
+    .resultBtn .loopIcon.bodyTypeClassFine {
+      background-color: #86d73f; }
+    .resultBtn .loopIcon.bodyTypeClassSerious {
+      background-color: red; }
+    .resultBtn .loopIcon.bodyTypeClassHeavy {
+      background-color: #ff1200; }
+    .resultBtn .loopIcon.bodyTypeClassMedium {
+      background-color: #ff6c03; }
+    .resultBtn .loopIcon.bodyTypeClassLittle {
+      background-color: #ff982d; }
+    .resultBtn .loopIcon.bodyTypeClassLight {
+      background-color: #31baf9; }
+
+.resultShow {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 40px 0; }
+
+.resultTable {
+  margin: 40px auto;
+  /* 讓表格每行可以有間距 */
+  border-spacing: 0 20px;
+  /* 左右 上下 */
+  border-collapse: separate;
+  font-size: 20px;
+  font-weight: bold;
+  /* 隨著類別而要改變的顏色 */ }
+  .resultTable .smallText {
+    font-size: 14px;
+    margin-right: 5px;
+    font-weight: normal; }
+  .resultTable .dateText {
+    font-size: 16px;
+    font-weight: normal; }
+  .resultTable tr {
+    background-color: #fff; }
+  .resultTable td {
+    padding: 20px; }
+  .resultTable .bodyTypeClass {
+    border-left: 8px solid; }
+    .resultTable .bodyTypeClass.bodyTypeClassFine {
+      border-color: #86d73f; }
+    .resultTable .bodyTypeClass.bodyTypeClassSerious {
+      border-color: red; }
+    .resultTable .bodyTypeClass.bodyTypeClassHeavy {
+      border-color: #ff1200; }
+    .resultTable .bodyTypeClass.bodyTypeClassMedium {
+      border-color: #ff6c03; }
+    .resultTable .bodyTypeClass.bodyTypeClassLittle {
+      border-color: #ff982d; }
+    .resultTable .bodyTypeClass.bodyTypeClassLight {
+      border-color: #31baf9; }
+  .resultTable .pure-button-customized {
+    font-size: 14px; }
+
+.totalRecordNum {
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 10px; }
+
+.showPage {
+  float: right;
+  margin-right: 10px;
+  background-color: #424242; }
+  .showPage li {
+    float: left; }
+    .showPage li a {
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      color: #5f9ea0; }
+
+.showPageNum:hover, .showPageNum:focus {
+  background-color: #ffd366; }
+
+.showCurrentPage {
+  background-color: #ffd366; }
+
+/* 1. INDEX.HTML CSS END */
