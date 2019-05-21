@@ -9,6 +9,12 @@ bmiLogoObj.addEventListener("click",function(){
 // 按下看結果按鈕
 const sendBtnObj = document.querySelector(".sendBtn");
 sendBtnObj.addEventListener("click",getInputData);
+// 點下去之後的結果元件
+const resultBtnObj = document.querySelector(".resultBtn");
+resultBtnObj.addEventListener("click",resetAction);
+
+const resultCircleBMIObj = document.getElementById("resultCircleBMI");
+const resultCircleTypeObj = document.getElementById("resultCircleType");
 
 // 顯示結果的table
 const resultTableObj = document.querySelector(".resultTable");
@@ -23,13 +29,6 @@ const totalRecordNumObj = document.querySelector(".totalRecordNum");
 // 輸入身高跟體重的Element
 const dataInputHeightObj = document.getElementById("dataInputHeight");
 const dataInputWeightObj = document.getElementById("dataInputWeight");
-
-// 點下去之後的結果元件
-const resultBtnObj = document.querySelector(".resultBtn");
-resultBtnObj.addEventListener("click",resetAction);
-
-const resultCircleBMIObj = document.getElementById("resultCircleBMI");
-const resultCircleTypeObj = document.getElementById("resultCircleType");
 
 //每頁要顯示的筆數
 let recordnumPerPage = 5;
