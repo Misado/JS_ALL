@@ -188,9 +188,9 @@ function showTotalPageMenu(){
 
     // 如果是第1頁，往上頁就不要有連結
     if ( currentPageNum == 1 ){
-        pageMenuStr += "<li><a data-page='prev'>⟸</a></li>";
+        pageMenuStr += "<li><a data-page='prev'>< prev</a></li>";
     } else {
-        pageMenuStr += "<li><a href='#' class='pageMenuNum' data-page='prev'>⟸</a></li>";
+        pageMenuStr += "<li><a href='#' class='pageMenuNum' data-page='prev'>< prev</a></li>";
     }
 
     for ( let i=1; i<=totalPageNum; i++){
@@ -204,9 +204,9 @@ function showTotalPageMenu(){
 
      // 如果是最後1頁，往下頁就不要有連結
     if ( currentPageNum == totalPageNum ){
-        pageMenuStr += "<li><a data-page='next' >⟹</a></li>";
+        pageMenuStr += "<li><a data-page='next' >next ></a></li>";
     } else {
-        pageMenuStr += "<li><a href='#' class='pageMenuNum' data-page='next' >⟹</a></li>";
+        pageMenuStr += "<li><a href='#' class='pageMenuNum' data-page='next' >next ></a></li>";
     }
     pageMenuObj.innerHTML = pageMenuStr;
 }
