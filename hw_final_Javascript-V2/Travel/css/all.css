@@ -143,9 +143,14 @@ p {
     background-color: #fff;
     border: 1px solid #000; }
   .banner .districtMenuOption {
-    margin-top: 10px; }
+    margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
     .banner .districtMenuOption li {
-      float: left;
       margin: 0 10px; }
       .banner .districtMenuOption li a {
         display: block;
