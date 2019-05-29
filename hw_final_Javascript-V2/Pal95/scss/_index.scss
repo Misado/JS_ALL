@@ -1,0 +1,63 @@
+html{
+    height: 100%;
+}
+
+body{
+    background-image: url("../img/map.png");
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+}
+
+.wrap{
+    position: relative;
+    height: 100%;
+    max-width: $max_width;
+    margin: 0 auto;
+    display: flex;
+    // justify-content: space-around;
+    align-items: flex-end;
+
+    
+}
+
+.role{
+    position: absolute;
+    bottom: 80px;
+    &.girl{
+        left: -20px;
+        animation: walk_girl 2s 1;
+        animation-fill-mode: forwards;
+    }
+    &.boy{
+        left: -100px;
+        bottom: 70px;
+        animation: walk_boy 2s 1;
+        animation-fill-mode: forwards;
+    }
+    &.monster{
+        left: 800px;
+        animation: walk_monster 2s 1;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes walk_girl{
+    to{
+        left: 600px;
+    }
+}
+
+@keyframes walk_boy{
+    to{
+        left: 520px;
+    }
+}
+
+@keyframes walk_monster{
+    to{
+        left: 680px;
+    }
+}

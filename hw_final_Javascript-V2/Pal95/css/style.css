@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/* Overall setting */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 微軟正黑體; }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* 統一字型大小 h1~h6,p {font-size} */
+h1 {
+  font-size: 36px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  font-size: 14px;
+  line-height: 1.5; }
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #559ac8;
+  padding: 20px; }
+  .footer p {
+    color: #f5d005;
+    margin-top: 10px; }
+
+/* -- 0. Overall page setting END -- */
+html {
+  height: 100%; }
+
+body {
+  background-image: url("../img/map.png");
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  height: 100%; }
+
+.wrap {
+  position: relative;
+  height: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end; }
+
+.role {
+  position: absolute;
+  bottom: 80px; }
+  .role.girl {
+    left: -20px;
+    -webkit-animation: walk_girl 2s 1;
+    animation: walk_girl 2s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
+  .role.boy {
+    left: -100px;
+    bottom: 70px;
+    -webkit-animation: walk_boy 2s 1;
+    animation: walk_boy 2s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
+  .role.monster {
+    left: 800px;
+    -webkit-animation: walk_monster 2s 1;
+    animation: walk_monster 2s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
+
+@-webkit-keyframes walk_girl {
+  to {
+    left: 600px; } }
+
+@keyframes walk_girl {
+  to {
+    left: 600px; } }
+
+@-webkit-keyframes walk_boy {
+  to {
+    left: 520px; } }
+
+@keyframes walk_boy {
+  to {
+    left: 520px; } }
+
+@-webkit-keyframes walk_monster {
+  to {
+    left: 680px; } }
+
+@keyframes walk_monster {
+  to {
+    left: 680px; } }
