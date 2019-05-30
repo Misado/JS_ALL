@@ -17,6 +17,7 @@ musicElement.onprogress = function() {
 
 musicElement.autoplay = true;
 musicElement.loop = true;
+musicElement.src = "mp3/happy.mp3";
 
 musicElement.onloadeddata = function() {
     console.log("載入完畢！");
@@ -27,7 +28,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    
+    musicElement.play();
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 10 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 10 +"px";
@@ -100,7 +101,10 @@ function battleStart(){
     // 靜音允許自動播放（Muted autoplay is always allowed）
     // 使用者與瀏覽器有所互動（例如：click, touch 事件）
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
-    musicElement.play(); //測試中，先不要讓它播放XD
+    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    musicElement.onloadeddata = function() {
+        musicElement.play(); //測試中，先不要讓它播放XD
+    };
     
 }
 
