@@ -1,3 +1,4 @@
+$(document).ready(function() {
 
 const bodyElement = document.body;
 const roleElementGirl = document.querySelector(".girl");
@@ -17,7 +18,8 @@ musicElement.onprogress = function() {
 
 musicElement.autoplay = true;
 musicElement.loop = true;
-musicElement.src = "mp3/happy.mp3";
+// musicElement.src = "mp3/happy.mp3";
+musicElement.pause();
 
 musicElement.onloadeddata = function() {
     console.log("載入完畢！");
@@ -108,3 +110,4 @@ function battleStart(){
     
 }
 
+});

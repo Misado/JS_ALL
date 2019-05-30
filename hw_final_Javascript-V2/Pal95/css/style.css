@@ -121,7 +121,7 @@ body {
 .wrap {
   position: relative;
   height: 100%;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,11 +139,11 @@ body {
     left: -100px;
     bottom: 70px; }
   .role.monster {
-    left: 800px; }
+    left: 990px; }
 
 .walk.role.monster {
-  -webkit-animation: walk_monster 2s 1;
-  animation: walk_monster 2s 1;
+  -webkit-animation: walk_monster 1s 1;
+  animation: walk_monster 1s 1;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
@@ -167,8 +167,8 @@ body {
 
 @-webkit-keyframes walk_monster {
   to {
-    left: 680px; } }
+    left: 880px; } }
 
 @keyframes walk_monster {
   to {
-    left: 680px; } }
+    left: 880px; } }

@@ -39,7 +39,7 @@ body{
             // animation-fill-mode: forwards;
         }
         &.monster{
-            left: 800px;
+            left: 990px;
             // animation: walk_monster 2s 1;
             // animation-fill-mode: forwards;
         }
@@ -49,7 +49,7 @@ body{
 .walk{
     &.role{
         &.monster{
-            animation: walk_monster 2s 1;
+            animation: walk_monster 1s 1;
             animation-fill-mode: forwards;
             animation-play-state: running;
         }
@@ -70,6 +70,6 @@ body{
 
 @keyframes walk_monster{
     to{
-        left: 680px;
+        left: 880px;
     }
 }
