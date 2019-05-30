@@ -32,15 +32,21 @@ function roleWalking(event){
     // alert("走一下");
     musicElement.play();
     if ( event.keyCode === 39 ){ // 往右走
-        roleElementGirl.style.left = roleElementGirl.offsetLeft + 10 +"px";
-        roleElementBoy.style.left = roleElementBoy.offsetLeft + 10 +"px";
+        roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
+        roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
         console.log("roleElementGirl.offsetLeft: "+roleElementGirl.offsetLeft);
         console.log("roleElementBoy.offsetLeft: "+roleElementBoy.offsetLeft);
+
+        $(".role.girl").toggleClass('walk');
+        $(".role.boy").toggleClass('walk');
     } else if ( event.keyCode === 37 ){ // 往左走
-        roleElementGirl.style.left = roleElementGirl.offsetLeft - 10 +"px";
-        roleElementBoy.style.left = roleElementBoy.offsetLeft - 10 +"px";
+        roleElementGirl.style.left = roleElementGirl.offsetLeft - 20 +"px";
+        roleElementBoy.style.left = roleElementBoy.offsetLeft - 20 +"px";
         console.log("roleElementGirl.offsetLeft: "+roleElementGirl.offsetLeft);
         console.log("roleElementBoy.offsetLeft: "+roleElementBoy.offsetLeft);
+
+        $(".role.girl").toggleClass('walk');
+        $(".role.boy").toggleClass('walk');
     }
 
     let posGirl = roleElementGirl.offsetLeft + roleElementGirl.offsetWidth;
@@ -51,10 +57,8 @@ function roleWalking(event){
     // 角色是否走到怪的偵測範圍確認，有走進怪就開始走動
     if ( posMonster - posGirl <= 100 ){
         console.log("快碰到了！");
-        let roleMonsterClass = roleElementMonster.getAttribute("class");
-        
-        roleElementMonster.setAttribute("class","walk "+roleMonsterClass);
-        console.log("roleMonsterClass: "+roleMonsterClass);
+
+        $(".role.monster").toggleClass('walk');
     } 
     // else{
     //     roleElementMonster.style.animation-play-state  "paused";

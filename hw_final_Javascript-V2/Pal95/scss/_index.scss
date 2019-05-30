@@ -28,17 +28,29 @@ body{
         position: absolute;
         bottom: 80px;
         &.girl{
+            width: 91px;
+            height: 170px;
+            background-image: url("../img/girl.png");
+
             left: -20px;
             // animation: walk_girl 2s 1;
             // animation-fill-mode: forwards;
         }
         &.boy{
+            width: 91px;
+            height: 198px;
+            background-image: url("../img/boy.png");
+
             left: -100px;
             bottom: 70px;
             // animation: walk_boy 2s 1;
             // animation-fill-mode: forwards;
         }
         &.monster{
+            width: 86px;
+            height: 42px;
+            background-image: url("../img/monster.png");
+
             left: 990px;
             // animation: walk_monster 2s 1;
             // animation-fill-mode: forwards;
@@ -48,6 +60,14 @@ body{
 
 .walk{
     &.role{
+        &.girl{
+            background-image: url("../img/girl_walking.png");
+            background-repeat: no-repeat;
+        }
+        &.boy{
+            background-image: url("../img/boy_walking.png");
+            background-repeat: no-repeat;
+        }
         &.monster{
             animation: walk_monster 1s 1;
             animation-fill-mode: forwards;
