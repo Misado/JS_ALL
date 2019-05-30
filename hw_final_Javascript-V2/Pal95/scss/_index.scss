@@ -29,22 +29,32 @@ body{
         bottom: 80px;
         &.girl{
             left: -20px;
-            animation: walk_girl 2s 1;
-            animation-fill-mode: forwards;
+            // animation: walk_girl 2s 1;
+            // animation-fill-mode: forwards;
         }
         &.boy{
             left: -100px;
             bottom: 70px;
-            animation: walk_boy 2s 1;
-            animation-fill-mode: forwards;
+            // animation: walk_boy 2s 1;
+            // animation-fill-mode: forwards;
         }
         &.monster{
             left: 800px;
-            animation: walk_monster 2s 1;
-            animation-fill-mode: forwards;
+            // animation: walk_monster 2s 1;
+            // animation-fill-mode: forwards;
         }
     }
 // }
+
+.walk{
+    &.role{
+        &.monster{
+            animation: walk_monster 2s 1;
+            animation-fill-mode: forwards;
+            animation-play-state: running;
+        }
+    }
+}
 
 @keyframes walk_girl{
     to{

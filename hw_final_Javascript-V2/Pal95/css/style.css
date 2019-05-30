@@ -134,24 +134,20 @@ body {
   position: absolute;
   bottom: 80px; }
   .role.girl {
-    left: -20px;
-    -webkit-animation: walk_girl 2s 1;
-    animation: walk_girl 2s 1;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards; }
+    left: -20px; }
   .role.boy {
     left: -100px;
-    bottom: 70px;
-    -webkit-animation: walk_boy 2s 1;
-    animation: walk_boy 2s 1;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards; }
+    bottom: 70px; }
   .role.monster {
-    left: 800px;
-    -webkit-animation: walk_monster 2s 1;
-    animation: walk_monster 2s 1;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards; }
+    left: 800px; }
+
+.walk.role.monster {
+  -webkit-animation: walk_monster 2s 1;
+  animation: walk_monster 2s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
 
 @-webkit-keyframes walk_girl {
   to {
