@@ -166,21 +166,15 @@ body {
   -webkit-animation-play-state: running;
   animation-play-state: running; }
 
-@-webkit-keyframes walk_girl {
-  to {
-    left: 600px; } }
+.walk_backward.girl {
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1); }
 
-@keyframes walk_girl {
-  to {
-    left: 600px; } }
-
-@-webkit-keyframes walk_boy {
-  to {
-    left: 520px; } }
-
-@keyframes walk_boy {
-  to {
-    left: 520px; } }
+.walk_backward.boy {
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1); }
 
 @-webkit-keyframes walk_monster {
   to {

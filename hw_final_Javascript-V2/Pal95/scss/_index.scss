@@ -76,17 +76,33 @@ body{
     }
 }
 
-@keyframes walk_girl{
-    to{
-        left: 600px;
-    }
+// 倒退嚕
+.walk_backward{
+    // .walk{
+        &.girl{
+            // background-image: url("../img/girl_walking.png");
+            // background-repeat: no-repeat;
+            transform:scaleX(-1);
+        }
+        &.boy{
+            // background-image: url("../img/boy_walking.png");
+            // background-repeat: no-repeat;
+            transform:scaleX(-1);
+        }
+    // }
 }
 
-@keyframes walk_boy{
-    to{
-        left: 520px;
-    }
-}
+// @keyframes walk_girl{
+//     to{
+//         left: 600px;
+//     }
+// }
+
+// @keyframes walk_boy{
+//     to{
+//         left: 520px;
+//     }
+// }
 
 @keyframes walk_monster{
     to{

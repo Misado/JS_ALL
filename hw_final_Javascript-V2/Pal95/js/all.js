@@ -39,6 +39,8 @@ function roleWalking(event){
 
         $(".role.girl").toggleClass('walk');
         $(".role.boy").toggleClass('walk');
+        $(".role.girl").removeClass('walk_backward');
+        $(".role.boy").removeClass('walk_backward');
     } else if ( event.keyCode === 37 ){ // 往左走
         roleElementGirl.style.left = roleElementGirl.offsetLeft - 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft - 20 +"px";
@@ -47,6 +49,8 @@ function roleWalking(event){
 
         $(".role.girl").toggleClass('walk');
         $(".role.boy").toggleClass('walk');
+        $(".role.girl").addClass('walk_backward');
+        $(".role.boy").addClass('walk_backward');
     }
 
     let posGirl = roleElementGirl.offsetLeft + roleElementGirl.offsetWidth;
