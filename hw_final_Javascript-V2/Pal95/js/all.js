@@ -119,6 +119,12 @@ function battleStart(){
     $(".role.girl").hide();
     $(".role.boy").hide();
     $(".role.monster").addClass('war');
+
+    battleInitial();
+}
+
+function battleInitial(){
+    console.log("戰鬥資料初始化");
 }
 
 });

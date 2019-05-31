@@ -142,6 +142,7 @@ body {
     width: 91px;
     height: 198px;
     background-image: url("../img/boy.png");
+    background-position: bottom center;
     left: -100px;
     bottom: 70px; }
   .role.monster {
