@@ -176,6 +176,9 @@ body {
   -ms-transform: scaleX(-1);
   transform: scaleX(-1); }
 
+.war.role.monster {
+  bottom: 300px; }
+
 @-webkit-keyframes walk_monster {
   to {
     left: 870px; } }

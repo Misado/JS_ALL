@@ -82,14 +82,23 @@ body{
         &.girl{
             // background-image: url("../img/girl_walking.png");
             // background-repeat: no-repeat;
-            transform:scaleX(-1);
+            transform:scaleX(-1); //水平翻轉
         }
         &.boy{
             // background-image: url("../img/boy_walking.png");
             // background-repeat: no-repeat;
-            transform:scaleX(-1);
+            transform:scaleX(-1); //水平翻轉
         }
     // }
+}
+
+// 進入戰鬥時，怪位置要往上移
+.war{
+    &.role{
+        &.monster{
+            bottom: 300px;
+        }
+    }
 }
 
 // @keyframes walk_girl{

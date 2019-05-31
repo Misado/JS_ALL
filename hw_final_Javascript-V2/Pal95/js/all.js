@@ -115,7 +115,10 @@ function battleStart(){
     musicElement.onloadeddata = function() {
         musicElement.play(); //測試中，先不要讓它播放XD
     };
-    
+    $("body").css("background-image","url('img/war05.png')");
+    $(".role.girl").hide();
+    $(".role.boy").hide();
+    $(".role.monster").addClass('war');
 }
 
 });
