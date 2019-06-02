@@ -101,18 +101,18 @@ body{
 .status{
     display: flex;
     // flex-direction: row;
-
+    margin-right: 10px;
     .girl{
         display: none;
-        width: 282px;
-        height: 146px;
+        width: 254px;
+        height: 131px;
         background-image: url("../img/status_girl.png");
         background-repeat: no-repeat;
     }
     .boy{
         display: none;
-        width: 282px;
-        height: 146px;
+        width: 254px;
+        height: 131px;
         background-image: url("../img/status_boy.png");
         background-repeat: no-repeat;
     }
@@ -141,6 +141,7 @@ body{
 
 .menu{
     display: none;
+    margin-right: 10px;
     .option{
         width: 100px;
         height: 100px;

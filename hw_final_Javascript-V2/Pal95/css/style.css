@@ -183,17 +183,18 @@ body {
 .status {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  margin-right: 10px; }
   .status .girl {
     display: none;
-    width: 282px;
-    height: 146px;
+    width: 254px;
+    height: 131px;
     background-image: url("../img/status_girl.png");
     background-repeat: no-repeat; }
   .status .boy {
     display: none;
-    width: 282px;
-    height: 146px;
+    width: 254px;
+    height: 131px;
     background-image: url("../img/status_boy.png");
     background-repeat: no-repeat; }
 
@@ -207,7 +208,8 @@ body {
   display: block; }
 
 .menu {
-  display: none; }
+  display: none;
+  margin-right: 10px; }
   .menu .option {
     width: 100px;
     height: 100px;
