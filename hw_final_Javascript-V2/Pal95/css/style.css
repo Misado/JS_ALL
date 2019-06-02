@@ -126,9 +126,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end; }
@@ -196,7 +196,8 @@ body {
     width: 254px;
     height: 131px;
     background-image: url("../img/status_boy.png");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    margin-right: 10px; }
 
 .war.role.monster {
   bottom: 300px; }
@@ -209,7 +210,7 @@ body {
 
 .menu {
   display: none;
-  margin-right: 10px; }
+  margin-left: 10px; }
   .menu .option {
     width: 100px;
     height: 100px;
