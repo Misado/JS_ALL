@@ -1,9 +1,34 @@
 $(document).ready(function() {
 
+
 const bodyElement = document.body;
 const roleElementGirl = document.querySelector(".girl");
 const roleElementBoy = document.querySelector(".boy");
 const roleElementMonster = document.querySelector(".monster");
+
+/* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
+let roleData = [{
+    name: "李逍遙",
+    bloodNum: 150,
+    magicNum: 50,
+    attackPower: 20,
+    magicPower: 0,
+    protectPower: 20,
+},{
+    name: "趙靈兒",
+    bloodNum: 100,
+    magicNum: 100,
+    attackPower: 10,
+    magicPower: 30,
+    protectPower: 10,
+},{
+    name: "怪",
+    bloodNum: 100,
+    magicNum: 0,
+    attackPower: 10,
+    magicPower: 0,
+    protectPower: 10,
+}];
 
 
 
@@ -30,7 +55,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    musicElement.play();
+    // musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -111,9 +136,11 @@ function battleStart(){
     // 靜音允許自動播放（Muted autoplay is always allowed）
     // 使用者與瀏覽器有所互動（例如：click, touch 事件）
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
-    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    
+    //測試中，先不要讓它播放XD
+    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
-        musicElement.play(); //測試中，先不要讓它播放XD
+        // musicElement.play(); //測試中，先不要讓它播放XD
     };
     $("body").css("background-image","url('img/war05.png')");
     $(".role.girl").hide();
@@ -125,6 +152,11 @@ function battleStart(){
 
 function battleInitial(){
     console.log("戰鬥資料初始化");
+    console.log(`${roleData[0].name} 血量: ${roleData[0].bloodNum} 法力: ${roleData[0].magicNum}`);
+    console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum} 法力: ${roleData[1].magicNum}`);
+    $(".status").addClass('war');
+    $(".menu").addClass('war');
 }
+
 
 });

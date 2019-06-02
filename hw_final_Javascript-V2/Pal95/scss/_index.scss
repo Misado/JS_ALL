@@ -18,7 +18,12 @@ body{
     margin: 0 auto;
     display: flex;
     // justify-content: space-around;
+    // justify-content: space-between;
+   
+    justify-content: flex-end;
     align-items: flex-end;
+
+    // flex-wrap: wrap;
 
     
 }
@@ -32,7 +37,7 @@ body{
             height: 170px;
             background-image: url("../img/girl.png");
 
-            left: -20px;
+            left: 20px;
             // animation: walk_girl 2s 1;
             // animation-fill-mode: forwards;
         }
@@ -42,7 +47,7 @@ body{
             background-image: url("../img/boy.png");
             background-position: bottom center; //因為李逍遙的圖比較奇怪，必須要設bottom走路才不會有違和感
 
-            left: -100px;
+            left: -60px;
             bottom: 70px;
             // animation: walk_boy 2s 1;
             // animation-fill-mode: forwards;
@@ -93,11 +98,79 @@ body{
     // }
 }
 
+.status{
+    display: flex;
+    // flex-direction: row;
+
+    .girl{
+        display: none;
+        width: 282px;
+        height: 146px;
+        background-image: url("../img/status_girl.png");
+        background-repeat: no-repeat;
+    }
+    .boy{
+        display: none;
+        width: 282px;
+        height: 146px;
+        background-image: url("../img/status_boy.png");
+        background-repeat: no-repeat;
+    }
+}
+
 // 進入戰鬥時，怪位置要往上移
 .war{
     &.role{
         &.monster{
             bottom: 300px;
+        }
+    }
+    &.status{
+        .girl{
+            // width: 282px;
+            // height: 146px;
+            // background-image: url("../img/girl.png");
+            // background-repeat: no-repeat;
+            display: block;
+        }
+        .boy{
+            display: block;
+        }
+    }
+}
+
+.menu{
+    display: none;
+    .option{
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        &.movement{
+            background-image: url("../img/war_menu_movement.png");
+        }
+        &.attack{
+            background-image: url("../img/war_menu_attack.png");
+        }
+        &.item{
+            background-image: url("../img/war_menu_item.png");
+        }
+        &.cooperation{
+            background-image: url("../img/war_menu_cooperation.png");
+        }
+    }
+}
+
+.war{
+    &.menu{
+        // display: block;
+        display: flex;
+        align-items: center;
+        .center{
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
         }
     }
 }

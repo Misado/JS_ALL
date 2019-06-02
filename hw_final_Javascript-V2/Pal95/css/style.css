@@ -121,11 +121,14 @@ body {
 .wrap {
   position: relative;
   height: 100%;
-  max-width: 1080px;
+  max-width: 1366px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   -webkit-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end; }
@@ -137,13 +140,13 @@ body {
     width: 91px;
     height: 170px;
     background-image: url("../img/girl.png");
-    left: -20px; }
+    left: 20px; }
   .role.boy {
     width: 91px;
     height: 198px;
     background-image: url("../img/boy.png");
     background-position: bottom center;
-    left: -100px;
+    left: -60px;
     bottom: 70px; }
   .role.monster {
     width: 86px;
@@ -177,8 +180,64 @@ body {
   -ms-transform: scaleX(-1);
   transform: scaleX(-1); }
 
+.status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .status .girl {
+    display: none;
+    width: 282px;
+    height: 146px;
+    background-image: url("../img/status_girl.png");
+    background-repeat: no-repeat; }
+  .status .boy {
+    display: none;
+    width: 282px;
+    height: 146px;
+    background-image: url("../img/status_boy.png");
+    background-repeat: no-repeat; }
+
 .war.role.monster {
   bottom: 300px; }
+
+.war.status .girl {
+  display: block; }
+
+.war.status .boy {
+  display: block; }
+
+.menu {
+  display: none; }
+  .menu .option {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
+    .menu .option.movement {
+      background-image: url("../img/war_menu_movement.png"); }
+    .menu .option.attack {
+      background-image: url("../img/war_menu_attack.png"); }
+    .menu .option.item {
+      background-image: url("../img/war_menu_item.png"); }
+    .menu .option.cooperation {
+      background-image: url("../img/war_menu_cooperation.png"); }
+
+.war.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .war.menu .center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
 
 @-webkit-keyframes walk_monster {
   to {
