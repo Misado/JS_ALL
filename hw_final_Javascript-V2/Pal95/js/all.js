@@ -174,19 +174,6 @@ function battleRemoveActive(){
     thisValue = $(".option.item").data('option');
     console.log("option: "+thisValue);
 
-    // let menuObj = document.querySelector(".menu");
-    // for (let i=0; i<menuObj.childNodes.length; i++){
-    //     console.log("我是子項目");
-    //     console.log(menuObj.childNodes[i]);
-    //     let menuChildClass = menuObj.getAttribute("class");
-    //     console.log("menuChildClass: "+menuChildClass);
-    //     // let menuChildClass = menuObj.childNodes[i].getAttribute("class");
-    //     // console.log("menuChildClass: "+menuChildClass);
-
-        
-
-    // }
-    // const optionObj = document.querySelectorAll(".option");
     let optionObjClass;
     let optionObjClassFinal;
     let optionObjActive = "";
@@ -206,15 +193,7 @@ function battleRemoveActive(){
                 console.log(optionObjClass.split(" ")[i]);
                 optionObjActive += `.${optionObjClass.split(" ")[i]}`;
                 $(`${optionObjActive}`).removeClass("active");
-                // console.log("optionObjActive: "+optionObjActive);
-                // optionObjActiveObj = document
             }
-            
-            // console.log("optionObjActive: "+optionObjActive);
-            // optionObjActiveObj = document.querySelector(`${optionObjActive}`);
-            // console.log(optionObjActiveObj.getAttribute("class"));
-            // optionActiveValue = $(`${optionObjActive}`).data('option');
-            // console.log("option: "+optionActiveValue);
         }
     }
     
@@ -306,7 +285,7 @@ function battleActionChange(event){
             }
         }
         console.log("optionActiveValue: "+optionActiveValue);
-    battleShowActive(); // 更新active值後要加active class
+        battleShowActive(); // 更新active值後要加active class
     
     
 }
@@ -314,8 +293,7 @@ function battleActionChange(event){
 // 取得改之後現在active的值，加active class
 function battleShowActive(){
     console.log("------------");
-    // console.log("optionObjOption: "+optionObjOption);
-            console.log("optionActiveValue: "+optionActiveValue);
+    console.log("optionActiveValue: "+optionActiveValue);
     console.log("------------");
 
     for ( let i=0; i< optionObj.length; i++){
