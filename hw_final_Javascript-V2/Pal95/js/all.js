@@ -6,6 +6,10 @@ const roleElementGirl = document.querySelector(".girl");
 const roleElementBoy = document.querySelector(".boy");
 const roleElementMonster = document.querySelector(".monster");
 
+const optionObj = document.querySelectorAll(".option");
+
+let optionActiveValue = 1; //預設為1
+
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
     name: "李逍遙",
@@ -157,6 +161,13 @@ function battleInitial(){
     $(".status").addClass('war');
     $(".menu").addClass('war');
 
+    bodyElement.addEventListener("keydown", battleActionChange);
+    battleGetActiveAction();
+
+}
+
+
+function battleGetActiveAction(){
     // 取值
     let thisValue = $(".option.movement").data('option');
     console.log("option: "+thisValue);
@@ -175,12 +186,12 @@ function battleInitial(){
         
 
     // }
-    const optionObj = document.querySelectorAll(".option");
+    // const optionObj = document.querySelectorAll(".option");
     let optionObjClass;
     let optionObjClassFinal;
     let optionObjActive = "";
     let optionObjActiveObj = "";
-    let optionObjActiveOption;
+    // let optionActiveValue;
     for ( i=0; i< optionObj.length; i++){
         console.log("我是option");
         console.log(optionObj[i]);
@@ -200,12 +211,37 @@ function battleInitial(){
             console.log("optionObjActive: "+optionObjActive);
             optionObjActiveObj = document.querySelector(`${optionObjActive}`);
             console.log(optionObjActiveObj.getAttribute("class"));
-            thisValue = $(`${optionObjActive}`).data('option');
-            console.log("option: "+thisValue);
+            optionActiveValue = $(`${optionObjActive}`).data('option');
+            console.log("option: "+optionActiveValue);
         }
     }
-
+    
 }
 
+
+
+function battleActionChange(event){
+    console.log("optionActiveValue: "+optionActiveValue);
+
+    if ( optionActiveValue === 1){
+        switch(event.keyCode){
+            case 37:
+                console.log("往左");
+                optionActiveValue = 2;
+                break;
+            case 39:
+                console.log("往右");
+                optionActiveValue = 4;
+                break;
+            case 40:
+                console.log("往下");
+                break;
+            default:
+                console.log("都不是");
+                break;
+        }
+    }
+    
+}
 
 });
