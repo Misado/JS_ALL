@@ -162,12 +162,12 @@ function battleInitial(){
     $(".menu").addClass('war');
 
     bodyElement.addEventListener("keydown", battleActionChange);
-    battleGetActiveAction();
+    // battleGetActiveAction();
 
 }
 
-
-function battleGetActiveAction(){
+// 取得現在active的值，remove active class
+function battleRemoveActive(){
     // 取值
     let thisValue = $(".option.movement").data('option');
     console.log("option: "+thisValue);
@@ -205,14 +205,16 @@ function battleGetActiveAction(){
             for ( i=0; i< optionObjClass.split(" ").length; i++){
                 console.log(optionObjClass.split(" ")[i]);
                 optionObjActive += `.${optionObjClass.split(" ")[i]}`;
-                console.log("optionObjActive: "+optionObjActive);
+                $(`${optionObjActive}`).removeClass("active");
+                // console.log("optionObjActive: "+optionObjActive);
                 // optionObjActiveObj = document
             }
-            console.log("optionObjActive: "+optionObjActive);
-            optionObjActiveObj = document.querySelector(`${optionObjActive}`);
-            console.log(optionObjActiveObj.getAttribute("class"));
-            optionActiveValue = $(`${optionObjActive}`).data('option');
-            console.log("option: "+optionActiveValue);
+            
+            // console.log("optionObjActive: "+optionObjActive);
+            // optionObjActiveObj = document.querySelector(`${optionObjActive}`);
+            // console.log(optionObjActiveObj.getAttribute("class"));
+            // optionActiveValue = $(`${optionObjActive}`).data('option');
+            // console.log("option: "+optionActiveValue);
         }
     }
     
@@ -221,27 +223,138 @@ function battleGetActiveAction(){
 
 
 function battleActionChange(event){
-    console.log("optionActiveValue: "+optionActiveValue);
-
-    if ( optionActiveValue === 1){
+    battleRemoveActive(); //一開始要先remove active的class
+    
+    if ( optionActiveValue === 1 || optionActiveValue === 3 ){
         switch(event.keyCode){
             case 37:
                 console.log("往左");
                 optionActiveValue = 2;
+                // $(".option.attack.active").removeClass('active');
+                // $(".option.movement").addClass('active');
+                console.log("optionActiveValue: "+optionActiveValue);
                 break;
             case 39:
                 console.log("往右");
                 optionActiveValue = 4;
-                break;
-            case 40:
-                console.log("往下");
+                // $(".option.attack.active").removeClass('active');
+                // $(".option.cooperation").addClass('active');
+                console.log("optionActiveValue: "+optionActiveValue);
                 break;
             default:
-                console.log("都不是");
                 break;
         }
     }
+    if ( optionActiveValue === 1 ){
+        switch(event.keyCode){
+            case 40:
+                console.log("往下");
+                optionActiveValue = 3;
+                console.log("optionActiveValue: "+optionActiveValue);
+                break;
+            default:
+                break;
+        }
+    }
+    if ( optionActiveValue === 3 ){
+        switch(event.keyCode){
+            case 38:
+                console.log("往上");
+                optionActiveValue = 1;
+                console.log("optionActiveValue: "+optionActiveValue);
+                break;
+            default:
+                break;
+        }
+    }
+
+        if ( optionActiveValue === 2 || optionActiveValue === 4 ){
+            switch(event.keyCode){
+                case 38:
+                    console.log("往上");
+                    optionActiveValue = 1;
+                    $(".option.attack.active").removeClass('active');
+                    // $(".option.movement").addClass('active');
+                    console.log("optionActiveValue: "+optionActiveValue);
+                    break;
+                case 40:
+                    console.log("往下");
+                    optionActiveValue = 3;
+                    $(".option.attack.active").removeClass('active');
+                    // $(".option.movement").addClass('active');
+                    console.log("optionActiveValue: "+optionActiveValue);
+                    break;
+                default:
+                    console.log("都不是");
+                    console.log("optionActiveValue: "+optionActiveValue);
+                    break;
+            }
+        }
+        if ( optionActiveValue === 2 ){
+            switch(event.keyCode){
+                case 39:
+                    console.log("往右");
+                    optionActiveValue = 4;
+                    // $(".option.attack.active").removeClass('active');
+                    // $(".option.cooperation").addClass('active');
+                    console.log("optionActiveValue: "+optionActiveValue);
+                    break;
+                default:
+                    break;
+            }
+        }
+        if ( optionActiveValue === 4 ){
+            switch(event.keyCode){
+                case 37:
+                    console.log("往左");
+                    optionActiveValue = 2;
+                    // $(".option.attack.active").removeClass('active');
+                    // $(".option.cooperation").addClass('active');
+                    console.log("optionActiveValue: "+optionActiveValue);
+                    break;
+                default:
+                    break;
+            }
+        }
+        console.log("optionActiveValue: "+optionActiveValue);
+    battleShowActive(); // 更新active值後要加active class
     
+    
+}
+
+// 取得改之後現在active的值，加active class
+function battleShowActive(){
+    console.log("------------");
+    // console.log("optionObjOption: "+optionObjOption);
+            console.log("optionActiveValue: "+optionActiveValue);
+    console.log("------------");
+
+    for ( let i=0; i< optionObj.length; i++){
+        let optionObjClass;
+    let optionObjOption;
+    let optionObjClassFinal;
+    let optionObjActive = "";
+    let optionObjActiveObj = "";
+
+        console.log("我是option");
+        console.log(optionObj[i]);
+
+        optionObjClass = optionObj[i].getAttribute("class");
+        console.log("optionObjClass: "+optionObjClass);
+
+        for ( let j=0; j< optionObjClass.split(" ").length; j++){
+        optionObjActive += `.${optionObjClass.split(" ")[j]}`;
+        console.log("optionObjActive: "+optionObjActive);
+        }
+        optionObjOption = parseInt($(`${optionObjActive}`).data('option'));
+            console.log("optionObjOption: "+optionObjOption);
+            console.log("optionActiveValue: "+optionActiveValue);
+        
+        if ( optionObjOption === optionActiveValue ){
+            console.log("一樣哦");
+            $(`${optionObjActive}`).addClass('active');
+        }
+    }
 }
 
 });
