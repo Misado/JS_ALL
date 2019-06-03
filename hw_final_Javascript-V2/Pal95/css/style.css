@@ -212,6 +212,7 @@ body {
   display: none;
   margin-left: 10px; }
   .menu .option {
+    position: relative;
     width: 100px;
     height: 100px;
     background-size: cover;
@@ -225,6 +226,35 @@ body {
       background-image: url("../img/war_menu_item.png"); }
     .menu .option.cooperation {
       background-image: url("../img/war_menu_cooperation.png"); }
+  .menu .active .mask {
+    position: relative;
+    opacity: 0.35;
+    width: 95px;
+    height: 0;
+    border-width: 0 25px 25px 25px;
+    border-style: solid;
+    border-color: transparent transparent  #846c4f; }
+    .menu .active .mask:before {
+      position: absolute;
+      content: "";
+      top: 70px;
+      left: -25px;
+      width: 95px;
+      height: 0;
+      border-width: 25px 25px 0 25px;
+      border-style: solid;
+      border-color: #846c4f transparent transparent; }
+    .menu .active .mask:after {
+      position: absolute;
+      content: "";
+      top: 25px;
+      left: -25px;
+      width: 95px;
+      height: 0;
+      border-width: 0 0 45px 0;
+      background: none;
+      border-style: solid;
+      border-color: transparent transparent #846c4f; }
 
 .war.menu {
   display: -webkit-box;

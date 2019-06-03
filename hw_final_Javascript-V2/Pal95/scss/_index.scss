@@ -139,6 +139,8 @@ body{
     display: none;
     margin-left: 10px;
     .option{
+        position: relative;
+       
         width: 100px;
         height: 100px;
         background-size: cover;
@@ -155,6 +157,45 @@ body{
         }
         &.cooperation{
             background-image: url("../img/war_menu_cooperation.png");
+        }
+    }
+
+    .active{
+        .mask{
+            // position: absolute;
+            // top: 0px;
+            // left: 0px;
+            position:relative;
+            opacity: 0.35;
+
+            width:95px;
+            height:0;
+            border-width:0 25px 25px 25px;
+            border-style:solid;
+            border-color:transparent transparent  #846c4f;
+            &:before{
+                position:absolute;
+                content:"";
+                top:70px;
+                left:-25px;
+                width:95px;
+                height:0;
+                border-width:25px 25px 0 25px;
+                border-style:solid;    
+                border-color: #846c4f transparent transparent;
+            }
+            &:after{
+                position:absolute;
+                content:"";
+                top:25px;
+                left:-25px;
+                width:95px;
+                height:0;
+                border-width:0 0 45px 0;
+                background:none;
+                border-style:solid;
+                border-color:transparent transparent #846c4f;
+            }
         }
     }
 }
