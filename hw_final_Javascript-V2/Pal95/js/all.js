@@ -156,6 +156,55 @@ function battleInitial(){
     console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum} 法力: ${roleData[1].magicNum}`);
     $(".status").addClass('war');
     $(".menu").addClass('war');
+
+    // 取值
+    let thisValue = $(".option.movement").data('option');
+    console.log("option: "+thisValue);
+    thisValue = $(".option.item").data('option');
+    console.log("option: "+thisValue);
+
+    // let menuObj = document.querySelector(".menu");
+    // for (let i=0; i<menuObj.childNodes.length; i++){
+    //     console.log("我是子項目");
+    //     console.log(menuObj.childNodes[i]);
+    //     let menuChildClass = menuObj.getAttribute("class");
+    //     console.log("menuChildClass: "+menuChildClass);
+    //     // let menuChildClass = menuObj.childNodes[i].getAttribute("class");
+    //     // console.log("menuChildClass: "+menuChildClass);
+
+        
+
+    // }
+    const optionObj = document.querySelectorAll(".option");
+    let optionObjClass;
+    let optionObjClassFinal;
+    let optionObjActive = "";
+    let optionObjActiveObj = "";
+    let optionObjActiveOption;
+    for ( i=0; i< optionObj.length; i++){
+        console.log("我是option");
+        console.log(optionObj[i]);
+        optionObjClass = optionObj[i].getAttribute("class");
+        console.log("我的class是"+optionObjClass);
+        optionObjClassFinal = optionObjClass.split(" ").pop();
+        console.log("最後的class是: "+optionObjClassFinal);
+
+        if ( optionObjClassFinal === "active" ){
+            console.log("正在選擇: "+optionObjClass);
+            for ( i=0; i< optionObjClass.split(" ").length; i++){
+                console.log(optionObjClass.split(" ")[i]);
+                optionObjActive += `.${optionObjClass.split(" ")[i]}`;
+                console.log("optionObjActive: "+optionObjActive);
+                // optionObjActiveObj = document
+            }
+            console.log("optionObjActive: "+optionObjActive);
+            optionObjActiveObj = document.querySelector(`${optionObjActive}`);
+            console.log(optionObjActiveObj.getAttribute("class"));
+            thisValue = $(`${optionObjActive}`).data('option');
+            console.log("option: "+thisValue);
+        }
+    }
+
 }
 
 
