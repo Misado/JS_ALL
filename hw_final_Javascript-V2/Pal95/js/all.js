@@ -8,7 +8,7 @@ const roleElementMonster = document.querySelector(".monster");
 
 const optionObj = document.querySelectorAll(".option");
 
-let optionActiveValue = 1; //預設為1
+let optionActiveValue = 1; //預設為1 - 攻擊模式
 
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
@@ -221,7 +221,8 @@ function battleRemoveActive(){
 }
 
 
-
+// 戰鬥選單，動作選擇
+// 1: 普通攻擊 - 2: 法術 - 3: 防禦 - 4: 聯合攻擊
 function battleActionChange(event){
     battleRemoveActive(); //一開始要先remove active的class
     
@@ -230,15 +231,11 @@ function battleActionChange(event){
             case 37:
                 console.log("往左");
                 optionActiveValue = 2;
-                // $(".option.attack.active").removeClass('active');
-                // $(".option.movement").addClass('active');
                 console.log("optionActiveValue: "+optionActiveValue);
                 break;
             case 39:
                 console.log("往右");
                 optionActiveValue = 4;
-                // $(".option.attack.active").removeClass('active');
-                // $(".option.cooperation").addClass('active');
                 console.log("optionActiveValue: "+optionActiveValue);
                 break;
             default:
@@ -273,15 +270,11 @@ function battleActionChange(event){
                 case 38:
                     console.log("往上");
                     optionActiveValue = 1;
-                    $(".option.attack.active").removeClass('active');
-                    // $(".option.movement").addClass('active');
                     console.log("optionActiveValue: "+optionActiveValue);
                     break;
                 case 40:
                     console.log("往下");
                     optionActiveValue = 3;
-                    $(".option.attack.active").removeClass('active');
-                    // $(".option.movement").addClass('active');
                     console.log("optionActiveValue: "+optionActiveValue);
                     break;
                 default:
@@ -295,8 +288,6 @@ function battleActionChange(event){
                 case 39:
                     console.log("往右");
                     optionActiveValue = 4;
-                    // $(".option.attack.active").removeClass('active');
-                    // $(".option.cooperation").addClass('active');
                     console.log("optionActiveValue: "+optionActiveValue);
                     break;
                 default:
@@ -308,8 +299,6 @@ function battleActionChange(event){
                 case 37:
                     console.log("往左");
                     optionActiveValue = 2;
-                    // $(".option.attack.active").removeClass('active');
-                    // $(".option.cooperation").addClass('active');
                     console.log("optionActiveValue: "+optionActiveValue);
                     break;
                 default:
