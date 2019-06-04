@@ -130,7 +130,15 @@ body{
             display: block;
         }
         .boy{
-            display: block;
+            // display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            .bloodNum,.magicNum{
+                color: #fff;
+                margin-left: 50px;
+            }
         }
     }
 }

@@ -14,21 +14,27 @@ let optionActiveValue = 1; //預設為1 - 攻擊模式
 let roleData = [{
     name: "李逍遙",
     bloodNum: 150,
+    bloodTotalNum: 150,
     magicNum: 50,
+    magicTotalNum: 50,
     attackPower: 20,
     magicPower: 0,
     protectPower: 20,
 },{
     name: "趙靈兒",
     bloodNum: 100,
+    bloodTotalNum: 100,
     magicNum: 100,
+    magicTotalNum: 100,
     attackPower: 10,
     magicPower: 30,
     protectPower: 10,
 },{
     name: "怪",
     bloodNum: 100,
+    bloodTotalNum: 100,
     magicNum: 0,
+    magicTotalNum: 0,
     attackPower: 10,
     magicPower: 0,
     protectPower: 10,
@@ -156,14 +162,20 @@ function battleStart(){
 
 function battleInitial(){
     console.log("戰鬥資料初始化");
-    console.log(`${roleData[0].name} 血量: ${roleData[0].bloodNum} 法力: ${roleData[0].magicNum}`);
-    console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum} 法力: ${roleData[1].magicNum}`);
+    // console.log(`${roleData[0].name} 血量: ${roleData[0].bloodNum} 法力: ${roleData[0].magicNum}`);
+    // console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum} 法力: ${roleData[1].magicNum}`);
     $(".status").addClass('war');
     $(".menu").addClass('war');
 
     bodyElement.addEventListener("keydown", battleActionChange);
     // battleGetActiveAction();
+    battleRoleDataShow();
 
+}
+
+function battleRoleDataShow(){
+    console.log(`${roleData[0].name} 血量: ${roleData[0].bloodNum}/${roleData[0].bloodTotalNum} 法力: ${roleData[0].magicNum}/${roleData[0].magicTotalNum}`);
+    console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum}/${roleData[1].bloodTotalNum} 法力: ${roleData[1].magicNum}/${roleData[1].magicTotalNum}`);
 }
 
 // 取得現在active的值，remove active class
