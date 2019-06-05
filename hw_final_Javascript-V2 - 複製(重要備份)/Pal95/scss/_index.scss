@@ -1,0 +1,300 @@
+html{
+    height: 100%;
+}
+
+body{
+    background-image: url("../img/map.png");
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+    overflow: hidden; //戰鬥選單有點往下凸，要用這個讓多出來的地方不會出現
+}
+
+.wrap{
+    position: relative;
+    height: 100%;
+    max-width: $max_width;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+}
+
+// .walk{
+    .role{
+        position: absolute;
+        bottom: 80px;
+        &.girl{
+            width: 91px;
+            height: 170px;
+            background-image: url("../img/girl.png");
+
+            left: 20px;
+            // animation: walk_girl 2s 1;
+            // animation-fill-mode: forwards;
+        }
+        &.boy{
+            width: 91px;
+            height: 198px;
+            background-image: url("../img/boy.png");
+            background-position: bottom center; //因為李逍遙的圖比較奇怪，必須要設bottom走路才不會有違和感
+
+            left: -60px;
+            bottom: 70px;
+            // animation: walk_boy 2s 1;
+            // animation-fill-mode: forwards;
+        }
+        &.monster{
+            width: 86px;
+            height: 42px;
+            background-image: url("../img/monster.png");
+
+            left: 990px;
+            // animation: walk_monster 2s 1;
+            // animation-fill-mode: forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            // align-items: center;
+            .bloodShow{
+                display: none;
+
+                position: relative;
+                top: -50px;
+
+                width: 0%;
+                height: 10px;
+                background-color: red;
+
+                transition: all 1s;
+            }
+            .attackNumShow{
+                font-family: 新細明體;
+                font-size: 28px;
+                color: red;
+                position: relative;
+                top: -60px;
+            }
+        }
+    }
+// }
+
+.walk{
+    &.role{
+        &.girl{
+            background-image: url("../img/girl_walking.png");
+            background-repeat: no-repeat;
+        }
+        &.boy{
+            background-image: url("../img/boy_walking.png");
+            background-repeat: no-repeat;
+        }
+        &.monster{
+            animation: walk_monster 1s 1;
+            animation-fill-mode: forwards;
+            animation-play-state: running;
+        }
+    }
+}
+
+// 倒退嚕
+.walk_backward{
+    // .walk{
+        &.girl{
+            // background-image: url("../img/girl_walking.png");
+            // background-repeat: no-repeat;
+            transform:scaleX(-1); //水平翻轉
+        }
+        &.boy{
+            // background-image: url("../img/boy_walking.png");
+            // background-repeat: no-repeat;
+            transform:scaleX(-1); //水平翻轉
+        }
+    // }
+}
+
+.status{
+    display: flex;
+    // flex-direction: row;
+    margin-right: 10px;
+    .girl{
+        display: none;
+        width: 254px;
+        height: 131px;
+        background-image: url("../img/status_girl.png");
+        background-repeat: no-repeat;
+    }
+    .boy{
+        display: none;
+        width: 254px;
+        height: 131px;
+        background-image: url("../img/status_boy.png");
+        background-repeat: no-repeat;
+
+        margin-right: 10px;
+    }
+}
+
+// 進入戰鬥時，怪位置要往上移
+.war{
+    &.role{
+        &.monster{
+            position: absolute;
+            bottom: 300px;
+            .bloodShow{
+                display: block;
+                
+            }
+        }
+    }
+    &.status{
+        .girl{
+            // width: 282px;
+            // height: 146px;
+            // background-image: url("../img/girl.png");
+            // background-repeat: no-repeat;
+            display: block;
+        }
+        .boy{
+            display: block;
+            
+        }
+        .bodyStatus{
+            height: 100%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            font-size: 30px;
+            font-family: $font_eng_type_bold;
+            margin-left: 90px;
+            margin-top: 10px;
+            .bloodNum{
+                color: #d5c7b3;
+            }
+            .magicNum{
+                color: #70a098;
+            }
+        }
+    }
+}
+
+.menu{
+    display: none;
+    margin-left: 10px;
+    .option{
+        position: relative;
+       
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        &.movement{
+            background-image: url("../img/war_menu_movement.png");
+        }
+        &.attack{
+            background-image: url("../img/war_menu_attack.png");
+        }
+        &.item{
+            background-image: url("../img/war_menu_item.png");
+        }
+        &.cooperation{
+            background-image: url("../img/war_menu_cooperation.png");
+        }
+    }
+
+    .active{
+        .mask{
+            // position: absolute;
+            // top: 0px;
+            // left: 0px;
+            position:relative;
+            opacity: 0.35;
+
+            width:95px;
+            height:0;
+            border-width:0 25px 25px 25px;
+            border-style:solid;
+            border-color:transparent transparent  #846c4f;
+            &:before{
+                position:absolute;
+                content:"";
+                top:70px;
+                left:-25px;
+                width:95px;
+                height:0;
+                border-width:25px 25px 0 25px;
+                border-style:solid;    
+                border-color: #846c4f transparent transparent;
+            }
+            &:after{
+                position:absolute;
+                content:"";
+                top:25px;
+                left:-25px;
+                width:95px;
+                height:0;
+                border-width:0 0 45px 0;
+                background:none;
+                border-style:solid;
+                border-color:transparent transparent #846c4f;
+            }
+        }
+    }
+}
+
+.war{
+    &.menu{
+        // display: block;
+        display: flex;
+        align-items: center;
+        .center{
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+        }
+    }
+}
+
+.success{
+    .wrap{
+        justify-content: center;
+        align-items: center;
+        .successMsg{
+            // align-self: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.successMsg{
+    display: none;
+}
+
+// @keyframes walk_girl{
+//     to{
+//         left: 600px;
+//     }
+// }
+
+// @keyframes walk_boy{
+//     to{
+//         left: 520px;
+//     }
+// }
+
+@keyframes walk_monster{
+    to{
+        left: 870px;
+    }
+}
