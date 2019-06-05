@@ -9,6 +9,7 @@ const roleElementMonster = document.querySelector(".role.monster");
 const optionObj = document.querySelectorAll(".option");
 
 let optionActiveValue = 1; //預設為1 - 攻擊模式
+let roleActive = 1; // 目前作動的角色是誰，預設第1個是李逍遙
 
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
@@ -20,6 +21,7 @@ let roleData = [{
     attackPower: 20,
     magicPower: 0,
     protectPower: 20,
+    actionAndNum: [0,0],
 },{
     name: "趙靈兒",
     bloodNum: 100,
@@ -29,6 +31,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 30,
     protectPower: 10,
+    actionAndNum: [0,0],
 },{
     name: "怪",
     bloodNum: 100,
@@ -38,6 +41,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 0,
     protectPower: 10,
+    actionAndNum: [0,0],
 }];
 
 
@@ -65,7 +69,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    musicElement.play(); //測試中，先不要讓它播放XD
+    // musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -148,7 +152,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -312,7 +316,27 @@ function battleActionChange(event){
         }
         console.log("optionActiveValue: "+optionActiveValue);
         battleShowActive(); // 更新active值後要加active class
-    
+        battleActionExec();
+
+        if( event.keyCode === 13){
+            console.log("按下ENTER，塵埃落定！");
+            console.log("目前作動角色: "+roleData[roleActive-1].name);
+            console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            bodyElement.removeEventListener("keydown", battleActionChange);
+            console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
+            if ( roleActive < 2 ){
+            
+                roleActive += 1;
+                bodyElement.addEventListener("keydown", battleActionChange);
+                console.log(`換成${roleActive}選擇動作`);
+            } else{
+                console.log("李逍遙跟仙女姐姐選擇動作完畢");
+                battleActionExecMonster();
+            }
+        }
+
+        
+        
     
 }
 
@@ -348,6 +372,60 @@ function battleShowActive(){
             $(`${optionObjActive}`).addClass('active');
         }
     }
+}
+
+// 戰鬥選單，動作選擇
+// 1: 普通攻擊 - 2: 法術 - 3: 防禦 - 4: 聯合攻擊
+function battleActionExec(){
+    console.log("執行動作！");
+    console.log("目前作動角色: "+roleData[roleActive-1].name);
+    console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+    // roleActive = 2;
+    // console.log("目前作動角色: "+roleData[roleActive-1].name);
+    // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+    
+    switch(optionActiveValue){
+        case 1:
+            roleData[roleActive-1].actionAndNum[0] = 1;
+            roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
+            
+            console.log("普通攻擊");
+            console.log("optionActiveValue: "+optionActiveValue);
+            break;
+        case 2:
+            roleData[roleActive-1].actionAndNum[0] = 2;
+            roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].magicPower;
+            // console.log("目前作動角色: "+roleData[roleActive-1].name);
+            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            
+            console.log("法術");
+            console.log("optionActiveValue: "+optionActiveValue);
+            break;
+        case 3:
+            roleData[roleActive-1].actionAndNum[0] = 3;
+            roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].protectPower;
+            // console.log("目前作動角色: "+roleData[roleActive-1].name);
+            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            
+            console.log("防禦");
+            console.log("optionActiveValue: "+optionActiveValue);
+            break;
+        case 4:
+            roleData[roleActive-1].actionAndNum[0] = 1;
+            roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
+            // console.log("目前作動角色: "+roleData[roleActive-1].name);
+            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            
+            console.log("聯合攻擊");
+            console.log("optionActiveValue: "+optionActiveValue);
+            break;
+        default:
+            break;
+    }
+}
+
+function battleActionExecMonster(){
+    console.log("換怪攻擊了!!!");
 }
 
 });
