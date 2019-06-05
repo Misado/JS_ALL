@@ -9,6 +9,7 @@ body{
     background-repeat: no-repeat;
     height: 100%;
     
+    overflow: hidden; //戰鬥選單有點往下凸，要用這個讓多出來的地方不會出現
 }
 
 .wrap{
