@@ -153,6 +153,16 @@ body {
     height: 42px;
     background-image: url("../img/monster.png");
     left: 990px; }
+    .role.monster .bloodShow {
+      display: none;
+      position: relative;
+      top: -20px;
+      width: 100%;
+      height: 10px;
+      background-color: red;
+      -webkit-transition: all 3s;
+      -o-transition: all 3s;
+      transition: all 3s; }
 
 .walk.role.girl {
   background-image: url("../img/girl_walking.png");
@@ -200,12 +210,19 @@ body {
     margin-right: 10px; }
 
 .war.role.monster {
+  position: absolute;
   bottom: 300px; }
+  .war.role.monster .bloodShow {
+    display: block; }
 
 .war.status .girl {
   display: block; }
 
 .war.status .boy {
+  display: block; }
+
+.war.status .bodyStatus {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,12 +233,17 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start; }
-  .war.status .boy .bloodNum, .war.status .boy .magicNum {
-    color: #fff;
-    margin-left: 50px; }
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: Arial Black;
+  margin-left: 90px;
+  margin-top: 10px; }
+  .war.status .bodyStatus .bloodNum {
+    color: #d5c7b3; }
+  .war.status .bodyStatus .magicNum {
+    color: #70a098; }
 
 .menu {
   display: none;

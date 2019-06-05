@@ -54,6 +54,18 @@ body{
             left: 990px;
             // animation: walk_monster 2s 1;
             // animation-fill-mode: forwards;
+            .bloodShow{
+                display: none;
+
+                position: relative;
+                top: -20px;
+
+                width: 100%;
+                height: 10px;
+                background-color: red;
+
+                transition: all 3s; //沒效果，之後研究
+            }
         }
     }
 // }
@@ -118,7 +130,12 @@ body{
 .war{
     &.role{
         &.monster{
+            position: absolute;
             bottom: 300px;
+            .bloodShow{
+                display: block;
+                
+            }
         }
     }
     &.status{
@@ -130,14 +147,26 @@ body{
             display: block;
         }
         .boy{
-            // display: block;
+            display: block;
+            
+        }
+        .bodyStatus{
+            height: 100%;
+            
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
-            .bloodNum,.magicNum{
-                color: #fff;
-                margin-left: 50px;
+            align-items: center;
+            
+            font-size: 30px;
+            font-family: $font_eng_type_bold;
+            margin-left: 90px;
+            margin-top: 10px;
+            .bloodNum{
+                color: #d5c7b3;
+            }
+            .magicNum{
+                color: #70a098;
             }
         }
     }
