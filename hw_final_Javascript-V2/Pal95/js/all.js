@@ -38,7 +38,7 @@ let roleData = [{
     bloodTotalNum: 100,
     magicNum: 0,
     magicTotalNum: 0,
-    attackPower: 10,
+    attackPower: 30,
     magicPower: 0,
     protectPower: 10,
     actionAndNum: [0,99],
@@ -69,7 +69,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    // musicElement.play(); //測試中，先不要讓它播放XD
+    musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -154,7 +154,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -475,6 +475,7 @@ function eachActionBoy(){
     console.log("目前作動角色: "+roleData[0].name);
     console.log(`目前作動角色的動作及數量: ${roleData[0].actionAndNum[0]}/${roleData[0].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
+    $(".role.monster .attackNumShow").show();
     $(".role.monster .attackNumShow").addClass("flash animated");
     
     roleData[2].bloodNum -= roleData[0].actionAndNum[1];
@@ -498,6 +499,7 @@ function eachActionGirl(){
     console.log("目前作動角色: "+roleData[1].name);
     console.log(`目前作動角色的動作及數量: ${roleData[1].actionAndNum[0]}/${roleData[1].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
+    $(".role.monster .attackNumShow").show();
     $(".role.monster .attackNumShow").addClass("flash animated");
 
     roleData[2].bloodNum -= roleData[1].actionAndNum[1];
@@ -529,6 +531,19 @@ function eachActionMonster(){
         battleInitial();
     } else{
         console.log("你死了ㄍㄋㄇㄉ");
+        $(".role.monster").hide();
+        $(".menu").hide();
+        $(".status").hide();
+        
+        setTimeout(function() {
+            $("body").addClass("success");
+            $(".successMsg").addClass("pulse animated");
+            //測試中，先不要讓它播放XD
+            musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
+            musicElement.loop = false;
+        }, 1000);
+        
+        
     }
 }
 

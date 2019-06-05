@@ -262,6 +262,25 @@ body{
     }
 }
 
+.success{
+    .wrap{
+        justify-content: center;
+        align-items: center;
+        .successMsg{
+            // align-self: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.successMsg{
+    display: none;
+}
+
 // @keyframes walk_girl{
 //     to{
 //         left: 600px;
