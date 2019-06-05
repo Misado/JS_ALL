@@ -55,17 +55,28 @@ body{
             left: 990px;
             // animation: walk_monster 2s 1;
             // animation-fill-mode: forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
             .bloodShow{
                 display: none;
 
                 position: relative;
-                top: -20px;
+                top: -50px;
 
                 width: 0%;
                 height: 10px;
                 background-color: red;
 
                 transition: all 1s;
+            }
+            .attackNumShow{
+                font-family: 新細明體;
+                font-size: 28px;
+                color: red;
+                position: relative;
+                top: -60px;
             }
         }
     }

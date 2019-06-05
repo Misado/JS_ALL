@@ -153,17 +153,36 @@ body {
     width: 86px;
     height: 42px;
     background-image: url("../img/monster.png");
-    left: 990px; }
+    left: 990px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
     .role.monster .bloodShow {
       display: none;
       position: relative;
-      top: -20px;
+      top: -50px;
       width: 0%;
       height: 10px;
       background-color: red;
       -webkit-transition: all 1s;
       -o-transition: all 1s;
       transition: all 1s; }
+    .role.monster .attackNumShow {
+      font-family: 新細明體;
+      font-size: 28px;
+      color: red;
+      position: relative;
+      top: -60px; }
 
 .walk.role.girl {
   background-image: url("../img/girl_walking.png");

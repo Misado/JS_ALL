@@ -131,7 +131,9 @@ function positionCheck(event){
 
     if ( posGirl >= posMonster ){
         console.log("碰到了！");
-        
+        // 因為role monster後面還有動畫，這邊就要先移除監聽，免得再次觸發
+        roleElementMonster.removeEventListener("animationstart",meetCheck);
+        roleElementMonster.removeEventListener("animationend",positionCheck);
         battleStart();
     }
 }
@@ -439,16 +441,66 @@ function battleActionConfirm(){
 
 function battleActionExec(){
     console.log("角色開始動作");
+    eachAction();
+    // setTimeout(function() {
+    // for ( let i=0; i<2; i++){
+        
 
-    for ( let i=0; i<2; i++){
-        console.log("目前作動角色: "+roleData[i].name);
-        console.log(`目前作動角色的動作及數量: ${roleData[i].actionAndNum[0]}/${roleData[i].actionAndNum[1]}`);
-    }
+    //         setTimeout(eachAction(i),(i+1)*1000);
+            
+    //     }
+    // },2000);
 
     
 }
 
-function battleActionExecMonster(){
+// function eachAction(i){
+//     console.log("我開始做動了~");
+//     console.log("目前作動角色: "+roleData[i].name);
+//         console.log(`目前作動角色的動作及數量: ${roleData[i].actionAndNum[0]}/${roleData[i].actionAndNum[1]}`);
+//         $(".role.monster .attackNumShow").text(`-${roleData[i].actionAndNum[1]}`);
+//         $(".role.monster .attackNumShow").addClass("flash animated");
+//         setTimeout(function() {
+//             console.log("移除CLASS flash animated")
+//             $(".role.monster .attackNumShow").removeClass("flash animated");
+//             $(".role.monster .attackNumShow").hide();
+//         }, 2000);
+// }
+function eachAction(){
+    setTimeout(eachActionBoy(),3000);
+    
+}
+function eachActionBoy(){
+    console.log("1我開始做動了~");
+    console.log("目前作動角色: "+roleData[0].name);
+    console.log(`目前作動角色的動作及數量: ${roleData[0].actionAndNum[0]}/${roleData[0].actionAndNum[1]}`);
+    $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
+    $(".role.monster .attackNumShow").addClass("flash animated");
+    setTimeout(function() {
+        console.log("移除CLASS flash animated")
+        $(".role.monster .attackNumShow").removeClass("flash animated");
+        $(".role.monster .attackNumShow").hide();
+    }, 2000);
+    setTimeout(eachActionGirl,4000);
+    
+}
+
+function eachActionGirl(){
+    $(".role.monster .attackNumShow").show();
+    console.log("2我開始做動了~");
+    console.log("目前作動角色: "+roleData[1].name);
+    console.log(`目前作動角色的動作及數量: ${roleData[1].actionAndNum[0]}/${roleData[1].actionAndNum[1]}`);
+    $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
+    $(".role.monster .attackNumShow").addClass("flash animated");
+    setTimeout(function() {
+        console.log("移除CLASS flash animated")
+        $(".role.monster .attackNumShow").removeClass("flash animated");
+        $(".role.monster .attackNumShow").hide();
+    }, 2000);
+    setTimeout(eachActionMonster,4000);
+}
+
+function eachActionMonster(){
     console.log("換怪攻擊了!!!");
     roleData[roleActive-1].actionAndNum[0] = 1;
     roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
