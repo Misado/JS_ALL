@@ -21,7 +21,7 @@ let roleData = [{
     attackPower: 20,
     magicPower: 0,
     protectPower: 20,
-    actionAndNum: [0,0],
+    actionAndNum: [0,99],
 },{
     name: "趙靈兒",
     bloodNum: 100,
@@ -31,7 +31,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 30,
     protectPower: 10,
-    actionAndNum: [0,0],
+    actionAndNum: [0,99],
 },{
     name: "怪",
     bloodNum: 100,
@@ -41,7 +41,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 0,
     protectPower: 10,
-    actionAndNum: [0,0],
+    actionAndNum: [0,99],
 }];
 
 
@@ -69,7 +69,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    musicElement.play(); //測試中，先不要讓它播放XD
+    // musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -152,7 +152,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -343,14 +343,7 @@ function battleActionChange(event){
     
 }
 
-function battleActionExec(){
-    console.log("角色開始動作");
 
-    for ( let i=0; i<2; i++){
-        console.log("目前作動角色: "+roleData[i].name);
-        console.log(`目前作動角色的動作及數量: ${roleData[i].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
-    }
-}
 
 // 取得改之後現在active的值，加active class
 function battleShowActive(){
@@ -400,40 +393,59 @@ function battleActionConfirm(){
         case 1:
             roleData[roleActive-1].actionAndNum[0] = 1;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
+            console.log(`attackPower: ${roleData[roleActive-1].attackPower}`);
             
             console.log("普通攻擊");
             console.log("optionActiveValue: "+optionActiveValue);
+            console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 2:
             roleData[roleActive-1].actionAndNum[0] = 2;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].magicPower;
+            console.log(`attackPower: ${roleData[roleActive-1].magicPower}`);
             // console.log("目前作動角色: "+roleData[roleActive-1].name);
             // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
             
             console.log("法術");
             console.log("optionActiveValue: "+optionActiveValue);
+            console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 3:
             roleData[roleActive-1].actionAndNum[0] = 3;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].protectPower;
+            console.log(`attackPower: ${roleData[roleActive-1].protectPower}`);
             // console.log("目前作動角色: "+roleData[roleActive-1].name);
             // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
             
             console.log("防禦");
             console.log("optionActiveValue: "+optionActiveValue);
+            console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 4:
             roleData[roleActive-1].actionAndNum[0] = 4;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
+            console.log(`attackPower: ${roleData[roleActive-1].attackPower}`);
             // console.log("目前作動角色: "+roleData[roleActive-1].name);
             // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
             
             console.log("聯合攻擊");
             console.log("optionActiveValue: "+optionActiveValue);
+            console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         default:
             break;
     }
+}
+
+function battleActionExec(){
+    console.log("角色開始動作");
+
+    for ( let i=0; i<2; i++){
+        console.log("目前作動角色: "+roleData[i].name);
+        console.log(`目前作動角色的動作及數量: ${roleData[i].actionAndNum[0]}/${roleData[i].actionAndNum[1]}`);
+    }
+
+    
 }
 
 function battleActionExecMonster(){
@@ -444,5 +456,7 @@ function battleActionExecMonster(){
     console.log("目前作動角色: "+roleData[roleActive-1].name);
     console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
 }
+
+
 
 });
