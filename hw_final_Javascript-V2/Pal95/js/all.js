@@ -541,7 +541,7 @@ function eachActionMonster(){
             //測試中，先不要讓它播放XD
             musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
             musicElement.loop = false;
-        }, 1000);
+        }, 600);
         
         
     }
