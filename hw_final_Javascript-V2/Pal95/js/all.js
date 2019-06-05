@@ -476,6 +476,13 @@ function eachActionBoy(){
     console.log(`目前作動角色的動作及數量: ${roleData[0].actionAndNum[0]}/${roleData[0].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").addClass("flash animated");
+    
+    roleData[2].bloodNum -= roleData[0].actionAndNum[1];
+    $(".role.monster").data("blood", roleData[2].bloodNum);
+    let monsterBloodNum = $(".role.monster").data("blood");
+    console.log("monsterBloodNum: "+monsterBloodNum);
+    $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+
     setTimeout(function() {
         console.log("移除CLASS flash animated")
         $(".role.monster .attackNumShow").removeClass("flash animated");
@@ -492,21 +499,37 @@ function eachActionGirl(){
     console.log(`目前作動角色的動作及數量: ${roleData[1].actionAndNum[0]}/${roleData[1].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").addClass("flash animated");
+
+    roleData[2].bloodNum -= roleData[1].actionAndNum[1];
+    $(".role.monster").data("blood", roleData[2].bloodNum);
+    let monsterBloodNum = $(".role.monster").data("blood");
+    console.log("monsterBloodNum: "+monsterBloodNum);
+    $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+
     setTimeout(function() {
         console.log("移除CLASS flash animated")
         $(".role.monster .attackNumShow").removeClass("flash animated");
         $(".role.monster .attackNumShow").hide();
     }, 2000);
+    roleActive = 1;
     setTimeout(eachActionMonster,4000);
 }
 
 function eachActionMonster(){
     console.log("換怪攻擊了!!!");
-    roleData[roleActive-1].actionAndNum[0] = 1;
-    roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
+    roleData[2].actionAndNum[0] = 1;
+    roleData[2].actionAndNum[1] = roleData[2].attackPower;
 
-    console.log("目前作動角色: "+roleData[roleActive-1].name);
-    console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+    console.log("目前作動角色: "+roleData[2].name);
+    console.log(`目前作動角色的動作及數量: ${roleData[2].actionAndNum[0]}/${roleData[2].actionAndNum[1]}`);
+
+    if ( roleData[2].bloodNum >0 ){
+        console.log("怪還沒死！");
+        roleData[1].bloodNum -= roleData[2].attackPower;
+        battleInitial();
+    } else{
+        console.log("你死了ㄍㄋㄇㄉ");
+    }
 }
 
 
