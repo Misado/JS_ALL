@@ -60,11 +60,11 @@ body{
                 position: relative;
                 top: -20px;
 
-                width: 100%;
+                width: 0%;
                 height: 10px;
                 background-color: red;
 
-                transition: all 3s; //沒效果，之後研究
+                transition: all 1s;
             }
         }
     }

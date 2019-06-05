@@ -157,12 +157,12 @@ body {
       display: none;
       position: relative;
       top: -20px;
-      width: 100%;
+      width: 0%;
       height: 10px;
       background-color: red;
-      -webkit-transition: all 3s;
-      -o-transition: all 3s;
-      transition: all 3s; }
+      -webkit-transition: all 1s;
+      -o-transition: all 1s;
+      transition: all 1s; }
 
 .walk.role.girl {
   background-image: url("../img/girl_walking.png");

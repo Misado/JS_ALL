@@ -2,9 +2,9 @@ $(document).ready(function() {
 
 
 const bodyElement = document.body;
-const roleElementGirl = document.querySelector(".girl");
-const roleElementBoy = document.querySelector(".boy");
-const roleElementMonster = document.querySelector(".monster");
+const roleElementGirl = document.querySelector(".role.girl");
+const roleElementBoy = document.querySelector(".role.boy");
+const roleElementMonster = document.querySelector(".role.monster");
 
 const optionObj = document.querySelectorAll(".option");
 
@@ -48,7 +48,7 @@ console.log(musicElement["src"]);
 console.log(musicElement["readyState"]);
 
 musicElement.onprogress = function() {
-    alert("Downloading music");
+    // alert("Downloading music");
   };
 
 musicElement.autoplay = true;
@@ -59,13 +59,13 @@ musicElement.pause();
 musicElement.onloadeddata = function() {
     console.log("載入完畢！");
     console.log(musicElement["readyState"]);
-    alert("載入完畢！");
+    // alert("載入完畢！");
     bodyElement.addEventListener("keydown",roleWalking);
 }
 
 function roleWalking(event){
     // alert("走一下");
-    // musicElement.play(); //測試中，先不要讓它播放XD
+    musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -148,7 +148,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -176,6 +176,20 @@ function battleInitial(){
 function battleRoleDataShow(){
     console.log(`${roleData[0].name} 血量: ${roleData[0].bloodNum}/${roleData[0].bloodTotalNum} 法力: ${roleData[0].magicNum}/${roleData[0].magicTotalNum}`);
     console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum}/${roleData[1].bloodTotalNum} 法力: ${roleData[1].magicNum}/${roleData[1].magicTotalNum}`);
+    console.log(`${roleData[2].name} 血量: ${roleData[2].bloodNum}/${roleData[2].bloodTotalNum} 法力: ${roleData[2].magicNum}/${roleData[2].magicTotalNum}`);
+    $(".status .boy .bodyStatus .bloodNum").text(`${roleData[0].bloodNum}/${roleData[0].bloodTotalNum}`);
+    $(".status .boy .bodyStatus .magicNum").text(`${roleData[0].magicNum}/${roleData[0].magicTotalNum}`);
+    $(".status .girl .bodyStatus .bloodNum").text(`${roleData[1].bloodNum}/${roleData[1].bloodTotalNum}`);
+    $(".status .girl .bodyStatus .magicNum").text(`${roleData[1].magicNum}/${roleData[1].magicTotalNum}`);
+    
+    // let monsterBloodNum = $(".role.monster").data("blood");
+    // console.log("monsterBloodNum: "+monsterBloodNum);
+    $(".role.monster").data("blood", roleData[2].bloodNum);
+    let monsterBloodNum = $(".role.monster").data("blood");
+    console.log("monsterBloodNum: "+monsterBloodNum);
+    $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+    // thisValue = $(".option.item").data('option');
+    // console.log("option: "+thisValue);
 }
 
 // 取得現在active的值，remove active class
