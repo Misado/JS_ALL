@@ -71,7 +71,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    musicElement.play(); //測試中，先不要讓它播放XD
+    // musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -156,7 +156,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -172,6 +172,8 @@ function battleInitial(){
     console.log("戰鬥資料初始化");
     // console.log(`${roleData[0].name} 血量: ${roleData[0].bloodNum} 法力: ${roleData[0].magicNum}`);
     // console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum} 法力: ${roleData[1].magicNum}`);
+    $(".menu").css("opacity",1);
+
     $(".status").addClass('war');
     $(".menu").addClass('war');
 
@@ -331,6 +333,9 @@ function battleActionChange(event){
             console.log("按下ENTER，塵埃落定！");
             console.log("目前作動角色: "+roleData[roleActive-1].name);
             console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+
+            
+
             bodyElement.removeEventListener("keydown", battleActionChange);
             console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
             if ( roleActive === 1 ){
@@ -346,6 +351,7 @@ function battleActionChange(event){
                 roleActive += 1;
                 console.log("李逍遙跟仙女姐姐選擇動作完畢");
                 $(".status .girl .arrowFlag").removeClass('index');
+                $(".menu").css("opacity",0);
                 battleActionExec();
                 // battleActionExecMonster();
             }
@@ -545,6 +551,7 @@ function eachActionGirl(){
 function eachActionMonster(){
     console.log("roleActive: "+roleActive);
     console.log("換怪攻擊了!!!");
+    
     roleData[2].actionAndNum[0] = 1;
     roleData[2].actionAndNum[1] = roleData[2].attackPower;
 

@@ -215,15 +215,17 @@ body {
   .status .girl {
     display: none;
     width: 254px;
-    height: 131px;
+    height: 180px;
     background-image: url("../img/status_girl.png");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    background-position: bottom center; }
   .status .boy {
     display: none;
     width: 254px;
-    height: 131px;
+    height: 180px;
     background-image: url("../img/status_boy.png");
     background-repeat: no-repeat;
+    background-position: bottom center;
     margin-right: 10px; }
 
 .war.role.monster {
@@ -250,11 +252,15 @@ body {
   -ms-flex-direction: column;
   flex-direction: column; }
 
+.war.status .attackNumShow {
+  margin: 0 auto;
+  font-family: 新細明體;
+  font-size: 28px;
+  color: red; }
+
 .war.status .arrowFlag {
   opacity: 0;
   margin: 0 auto;
-  position: relative;
-  top: -20px;
   font-size: 24px;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -276,15 +282,16 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   font-size: 30px;
   font-family: Arial Black;
-  margin-left: 90px; }
+  margin-left: 90px;
+  margin-bottom: 25px; }
   .war.status .bodyStatus .bloodNum {
     color: #d5c7b3; }
   .war.status .bodyStatus .magicNum {

@@ -124,16 +124,18 @@ body{
     .girl{
         display: none;
         width: 254px;
-        height: 131px;
+        height: 180px;
         background-image: url("../img/status_girl.png");
         background-repeat: no-repeat;
+        background-position: bottom center;
     }
     .boy{
         display: none;
         width: 254px;
-        height: 131px;
+        height: 180px;
         background-image: url("../img/status_boy.png");
         background-repeat: no-repeat;
+        background-position: bottom center;
 
         margin-right: 10px;
     }
@@ -167,13 +169,21 @@ body{
             flex-direction: column;
             
         }
+        .attackNumShow{
+            margin: 0 auto;
+            // position: relative;
+            // top: -40px;
+            font-family: 新細明體;
+            font-size: 28px;
+            color: red;
+        }
         .arrowFlag{
             // display: none;
             opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
 
             margin: 0 auto;
-            position: relative;
-            top: -20px;
+            // position: relative;
+            // top: -20px;
             font-size: 24px;
 
             animation-iteration-count: infinite;
@@ -189,13 +199,14 @@ body{
             
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            // justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             
             font-size: 30px;
             font-family: $font_eng_type_bold;
             margin-left: 90px;
-            // margin-top: 10px;
+            margin-bottom: 25px;
             
             .bloodNum{
                 color: #d5c7b3;
