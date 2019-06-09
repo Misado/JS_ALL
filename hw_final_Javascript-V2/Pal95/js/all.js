@@ -205,6 +205,23 @@ function battleRoleDataShow(){
     $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
     // thisValue = $(".option.item").data('option');
     // console.log("option: "+thisValue);
+
+    for ( i=0; i< roleData.length-1; i++ ){
+        switch(i){
+            case 0:
+                if ( roleData[i].bloodNum <= roleData[i].bloodTotalNum/2){
+                    $(".status .boy .bodyStatus .bloodNum").addClass("dangerSituation"); // 角色瀕死狀態
+                }
+                break;
+            case 1:
+                if ( roleData[i].bloodNum <= roleData[i].bloodTotalNum/2){
+                    $(".status .girl .bodyStatus .bloodNum").addClass("dangerSituation"); // 角色瀕死狀態
+                }
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 // 取得現在active的值，remove active class
@@ -564,7 +581,7 @@ function eachActionMonster(){
     $(".status .girl .attackNumShow").text(`-${roleData[2].actionAndNum[1]}`);
     // $(".status .girl .attackNumShow").show();
     // $(".status .girl .attackNumShow").addClass("flash animated");
-    $(".status .girl .bodyStatus .bloodNum").addClass("flash animated attackIng");
+    $(".status .girl .bodyStatus .bloodNum").addClass("flash animated dangerSituation");
     // monsterDeathCheck();
     // if ( roleData[2].bloodNum >0 ){
     //     console.log("怪還沒死！");
@@ -595,7 +612,7 @@ function eachActionMonster(){
     }
     setTimeout(function() {
         console.log("移除CLASS flash animated");
-        $(".status .girl .bodyStatus .bloodNum").removeClass("flash animated attackIng");
+        $(".status .girl .bodyStatus .bloodNum").removeClass("flash animated dangerSituation");
         roleActive = 1;
         battleInitial();
     }, 2000);

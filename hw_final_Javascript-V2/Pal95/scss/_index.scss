@@ -203,8 +203,8 @@ body{
             
             .bloodNum{
                 color: #d5c7b3;
-                &.attackIng{
-                    color: yellow;
+                &.dangerSituation{
+                    color: #ff0000;
                 }
             }
             .magicNum{
