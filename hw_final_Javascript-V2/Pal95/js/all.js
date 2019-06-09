@@ -354,37 +354,44 @@ function battleActionChange(event){
         battleActionConfirm();
 
         if( event.keyCode === 13 && optionActiveValue !== 2){
-            console.log("按下ENTER，塵埃落定！");
-            console.log("目前作動角色: "+roleData[roleActive-1].name);
-            console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            battleActionSelect();
+            // console.log("按下ENTER，塵埃落定！");
+            // console.log("目前作動角色: "+roleData[roleActive-1].name);
+            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
 
             
 
-            bodyElement.removeEventListener("keydown", battleActionChange);
-            console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
-            if ( roleActive === 1 ){
-                $(".status .boy .arrowFlag").removeClass('index');
-                $(".status .girl .arrowFlag").addClass('index');
-            }
-            if ( roleActive < 2 ){
+            // bodyElement.removeEventListener("keydown", battleActionChange);
+            // console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
+            // if ( roleActive === 1 ){
+            //     $(".status .boy .arrowFlag").removeClass('index');
+            //     $(".status .girl .arrowFlag").addClass('index');
+            // }
+            // if ( roleActive < 2 ){
             
-                roleActive += 1;
-                bodyElement.addEventListener("keydown", battleActionChange);
-                console.log(`換成${roleActive}選擇動作`);
+            //     roleActive += 1;
+            //     bodyElement.addEventListener("keydown", battleActionChange);
+            //     console.log(`換成${roleActive}選擇動作`);
 
                 
-            } else{
-                roleActive += 1;
-                console.log("李逍遙跟仙女姐姐選擇動作完畢");
-                $(".status .girl .arrowFlag").removeClass('index');
-                $(".menu").css("opacity",0);
-                battleActionExec();
-                // battleActionExecMonster();
-            }
+            // } else{
+            //     roleActive += 1;
+            //     console.log("李逍遙跟仙女姐姐選擇動作完畢");
+            //     $(".status .girl .arrowFlag").removeClass('index');
+            //     $(".menu").css("opacity",0);
+            //     battleActionExec();
+            //     // battleActionExecMonster();
+            // }
             
         }
         if ( event.keyCode === 13 && optionActiveValue === 2){
+            // bodyElement.removeEventListener("keydown", battleActionChange);
+            $(".movementMenu").addClass("war");
             movementSelect();
+        }
+        if ( event.keyCode === 27 ){
+            $(".movementMenu").removeClass("war");
+            bodyElement.addEventListener("keydown", battleActionChange);
         }
 
         
@@ -392,11 +399,41 @@ function battleActionChange(event){
     
 }
 
+function battleActionSelect(){
+    console.log("按下ENTER，塵埃落定！");
+    console.log("目前作動角色: "+roleData[roleActive-1].name);
+    console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+
+    
+
+    bodyElement.removeEventListener("keydown", battleActionChange);
+    console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
+    if ( roleActive === 1 ){
+        $(".status .boy .arrowFlag").removeClass('index');
+        $(".status .girl .arrowFlag").addClass('index');
+    }
+    if ( roleActive < 2 ){
+    
+        roleActive += 1;
+        bodyElement.addEventListener("keydown", battleActionChange);
+        console.log(`換成${roleActive}選擇動作`);
+
+        
+    } else{
+        roleActive += 1;
+        console.log("李逍遙跟仙女姐姐選擇動作完畢");
+        $(".status .girl .arrowFlag").removeClass('index');
+        $(".menu").css("opacity",0);
+        battleActionExec();
+        // battleActionExecMonster();
+    }
+}
+
 function movementSelect(){
     console.log("選招式囉~~~");
     console.log("optionActiveValue: "+optionActiveValue);
 
-    $(".movementMenu").addClass("war");
+    // $(".movementMenu").addClass("war");
 }
 
 
