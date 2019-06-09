@@ -12,6 +12,7 @@ let optionActiveValue = 1; //預設為1 - 攻擊模式
 let roleActive = 1; // 目前作動的角色是誰，預設第1個是李逍遙
 
 let monsterDeath = 0; // 怪是否掛了，預設為否(0)
+let roleDeath = 0; // 角色是否全掛了，預設為否(0)
 
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
@@ -71,7 +72,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    // musicElement.play(); //測試中，先不要讓它播放XD
+    musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -156,7 +157,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -613,6 +614,7 @@ function eachActionMonster(){
         console.log("怪還沒死！");
         roleData[1].bloodNum -= roleData[2].attackPower;
         battleRoleDataShow(); // 角色被攻擊完後，更新角色的血量
+        roleDeathCheck();
             // roleActive = 1;
             // battleInitial();
     }
@@ -641,6 +643,33 @@ function monsterDeathCheck(){
             $(".successMsg").addClass("pulse animated");
             //測試中，先不要讓它播放XD
             musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
+            musicElement.loop = false;
+        }, 600);
+    }
+}
+
+function roleDeathCheck(){
+    if ( roleData[0].bloodNum <= 0 || roleData[1].bloodNum <= 0){
+        console.log("被怪打死了");
+        console.log("你死了ㄍㄋㄇㄉ");
+        roleDeath = 1;
+
+        // $(".role.monster").hide();
+        setTimeout(function() {
+            $(".menu").hide();
+            $(".status").hide();
+            $(".role.monster .bloodShow").hide();
+        }, 600);
+        
+        setTimeout(function() {
+            // $("body").css("background-image","url('img/war05.png')");
+            // $(".wrap").css("background-color","#78100d");
+            // $(".wrap").css("opacity",0.7);
+            $("body").addClass("fail");
+            // $("body").addClass("success");
+            // $(".successMsg").addClass("pulse animated");
+            //測試中，先不要讓它播放XD
+            musicElement.src = "mp3/fail.mp3"; //這行一定要寫在外面，不然音樂不會改變
             musicElement.loop = false;
         }, 600);
     }

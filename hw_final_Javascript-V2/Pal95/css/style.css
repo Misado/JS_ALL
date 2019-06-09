@@ -399,6 +399,37 @@ body {
 .successMsg {
   display: none; }
 
+.fail .wrap {
+  background-color: #78100d;
+  opacity: 0.7;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .fail .wrap .failMsg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 100px;
+    font-family: 新細明體;
+    font-size: 48px;
+    font-weight: bold;
+    color: #958a84;
+    line-height: 1.5em;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
+
+.failMsg {
+  display: none; }
+
 @-webkit-keyframes walk_monster {
   to {
     left: 870px; } }

@@ -324,6 +324,44 @@ body{
     display: none;
 }
 
+.fail{
+    .wrap{
+        background-color: #78100d;
+        opacity: 0.7;
+
+        justify-content: center;
+        // align-items: center;
+        align-items: flex-start;
+        .failMsg{
+            // align-self: center;
+
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+
+            font-family: 新細明體;
+            font-size: 48px;
+            font-weight: bold;
+            color: #958a84;
+            line-height: 1.5em;
+            // letter-spacing: 0.5em;
+
+            text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000,
+            2px 2px 2px #000;
+        }
+    }
+}
+
+.failMsg{
+    display: none;
+}
+
 // @keyframes walk_girl{
 //     to{
 //         left: 600px;
