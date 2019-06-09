@@ -69,7 +69,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    // musicElement.play(); //測試中，先不要讓它播放XD
+    musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -154,7 +154,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -173,6 +173,9 @@ function battleInitial(){
     $(".status").addClass('war');
     $(".menu").addClass('war');
 
+    optionActiveValue = 1; //預設為1 - 攻擊模式
+    $(".menu .center .option.attack").addClass('active');
+    
     $(".status .boy .arrowFlag").addClass('index');
 
     bodyElement.addEventListener("keydown", battleActionChange);
@@ -448,6 +451,7 @@ function battleActionConfirm(){
 
 function battleActionExec(){
     console.log("角色開始動作");
+    battleRemoveActive(); //一開始要先remove active的class
     eachAction();
     // setTimeout(function() {
     // for ( let i=0; i<2; i++){
@@ -496,7 +500,7 @@ function eachActionBoy(){
         $(".role.monster .attackNumShow").removeClass("flash animated");
         $(".role.monster .attackNumShow").hide();
     }, 2000);
-    setTimeout(eachActionGirl,4000);
+    setTimeout(eachActionGirl,3000);
     
 }
 
@@ -521,7 +525,7 @@ function eachActionGirl(){
         $(".role.monster .attackNumShow").hide();
     }, 2000);
     roleActive = 1;
-    setTimeout(eachActionMonster,4000);
+    setTimeout(eachActionMonster,3000);
 }
 
 function eachActionMonster(){
