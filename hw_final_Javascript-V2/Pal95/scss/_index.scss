@@ -204,6 +204,9 @@ body{
             .bloodNum{
                 color: #d5c7b3;
                 &.dangerSituation{
+                    color: #e1e100;
+                }
+                &.verydangerSituation{
                     color: #ff0000;
                 }
             }

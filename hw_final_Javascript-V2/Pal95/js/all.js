@@ -23,7 +23,7 @@ let roleData = [{
     attackPower: 20,
     magicPower: 0,
     protectPower: 20,
-    actionAndNum: [0,99],
+    actionAndNum: [0,0],
 },{
     name: "趙靈兒",
     bloodNum: 100,
@@ -33,7 +33,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 30,
     protectPower: 10,
-    actionAndNum: [0,99],
+    actionAndNum: [0,0],
 },{
     name: "怪",
     bloodNum: 100,
@@ -43,7 +43,7 @@ let roleData = [{
     attackPower: 30,
     magicPower: 0,
     protectPower: 10,
-    actionAndNum: [0,99],
+    actionAndNum: [0,0],
 }];
 
 
@@ -210,12 +210,18 @@ function battleRoleDataShow(){
         switch(i){
             case 0:
                 if ( roleData[i].bloodNum <= roleData[i].bloodTotalNum/2){
-                    $(".status .boy .bodyStatus .bloodNum").addClass("dangerSituation"); // 角色瀕死狀態
+                    $(".status .boy .bodyStatus .bloodNum").addClass("dangerSituation"); // 角色瀕死狀態(OOC)
+                }
+                if ( roleData[i].bloodNum <= roleData[i].bloodTotalNum/4){
+                    $(".status .boy .bodyStatus .bloodNum").addClass("verydangerSituation"); // 角色瀕死狀態(OOS)
                 }
                 break;
             case 1:
                 if ( roleData[i].bloodNum <= roleData[i].bloodTotalNum/2){
-                    $(".status .girl .bodyStatus .bloodNum").addClass("dangerSituation"); // 角色瀕死狀態
+                    $(".status .girl .bodyStatus .bloodNum").addClass("dangerSituation"); // 角色瀕死狀態(OOC)
+                }
+                if ( roleData[i].bloodNum <= roleData[i].bloodTotalNum/4){
+                    $(".status .girl .bodyStatus .bloodNum").addClass("verydangerSituation"); // 角色瀕死狀態(OOS)
                 }
                 break;
             default:

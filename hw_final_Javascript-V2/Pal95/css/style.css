@@ -292,6 +292,8 @@ body {
   .war.status .bodyStatus .bloodNum {
     color: #d5c7b3; }
     .war.status .bodyStatus .bloodNum.dangerSituation {
+      color: #e1e100; }
+    .war.status .bodyStatus .bloodNum.verydangerSituation {
       color: #ff0000; }
   .war.status .bodyStatus .magicNum {
     color: #70a098; }
