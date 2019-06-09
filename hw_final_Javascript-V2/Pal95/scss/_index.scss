@@ -119,12 +119,13 @@ body{
 .status{
     display: flex;
     // flex-direction: row;
+    align-items: flex-end;
     margin-right: 10px;
     
     .girl{
         display: none;
         width: 254px;
-        height: 180px;
+        height: 160px;
         background-image: url("../img/status_girl.png");
         background-repeat: no-repeat;
         background-position: bottom center;
@@ -132,7 +133,7 @@ body{
     .boy{
         display: none;
         width: 254px;
-        height: 180px;
+        height: 160px;
         background-image: url("../img/status_boy.png");
         background-repeat: no-repeat;
         background-position: bottom center;
@@ -169,14 +170,6 @@ body{
             flex-direction: column;
             
         }
-        .attackNumShow{
-            margin: 0 auto;
-            // position: relative;
-            // top: -40px;
-            font-family: 新細明體;
-            font-size: 28px;
-            color: red;
-        }
         .arrowFlag{
             // display: none;
             opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
@@ -210,6 +203,9 @@ body{
             
             .bloodNum{
                 color: #d5c7b3;
+                &.attackIng{
+                    color: yellow;
+                }
             }
             .magicNum{
                 color: #70a098;

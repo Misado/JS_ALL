@@ -211,18 +211,21 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   margin-right: 10px; }
   .status .girl {
     display: none;
     width: 254px;
-    height: 180px;
+    height: 160px;
     background-image: url("../img/status_girl.png");
     background-repeat: no-repeat;
     background-position: bottom center; }
   .status .boy {
     display: none;
     width: 254px;
-    height: 180px;
+    height: 160px;
     background-image: url("../img/status_boy.png");
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -251,12 +254,6 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column; }
-
-.war.status .attackNumShow {
-  margin: 0 auto;
-  font-family: 新細明體;
-  font-size: 28px;
-  color: red; }
 
 .war.status .arrowFlag {
   opacity: 0;
@@ -294,6 +291,8 @@ body {
   margin-bottom: 25px; }
   .war.status .bodyStatus .bloodNum {
     color: #d5c7b3; }
+    .war.status .bodyStatus .bloodNum.attackIng {
+      color: yellow; }
   .war.status .bodyStatus .magicNum {
     color: #70a098; }
 

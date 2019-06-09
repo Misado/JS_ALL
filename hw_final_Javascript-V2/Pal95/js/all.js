@@ -555,9 +555,16 @@ function eachActionMonster(){
     roleData[2].actionAndNum[0] = 1;
     roleData[2].actionAndNum[1] = roleData[2].attackPower;
 
+    
+
+    console.log("3我開始做動了~");
     console.log("目前作動角色: "+roleData[2].name);
     console.log(`目前作動角色的動作及數量: ${roleData[2].actionAndNum[0]}/${roleData[2].actionAndNum[1]}`);
-
+    
+    $(".status .girl .attackNumShow").text(`-${roleData[2].actionAndNum[1]}`);
+    // $(".status .girl .attackNumShow").show();
+    // $(".status .girl .attackNumShow").addClass("flash animated");
+    $(".status .girl .bodyStatus .bloodNum").addClass("flash animated attackIng");
     // monsterDeathCheck();
     // if ( roleData[2].bloodNum >0 ){
     //     console.log("怪還沒死！");
@@ -578,33 +585,20 @@ function eachActionMonster(){
     //         musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
     //         musicElement.loop = false;
     //     }, 300);
+
     if ( roleData[2].bloodNum >0 && roleActive === 3){
         console.log("怪還沒死！");
         roleData[1].bloodNum -= roleData[2].attackPower;
-            roleActive = 1;
-            battleInitial();
-    } else{
-        // console.log("你死了ㄍㄋㄇㄉ");
-        // $(".role.monster").hide();
-        // setTimeout(function() {
-        //     $(".menu").hide();
-        //     $(".status").hide();
-        // }, 300);
-        
-        // setTimeout(function() {
-        //     $("body").addClass("success");
-        //     $(".successMsg").addClass("pulse animated");
-        //     //測試中，先不要讓它播放XD
-        //     musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
-        //     musicElement.loop = false;
-        // }, 300);
-        // setTimeout(monsterDeathCheck,300);
-        // monsterDeathCheck();
-        
+        battleRoleDataShow(); // 角色被攻擊完後，更新角色的血量
+            // roleActive = 1;
+            // battleInitial();
     }
-        
-        
-    // }
+    setTimeout(function() {
+        console.log("移除CLASS flash animated");
+        $(".status .girl .bodyStatus .bloodNum").removeClass("flash animated attackIng");
+        roleActive = 1;
+        battleInitial();
+    }, 2000);
 }
 
 function monsterDeathCheck(){
