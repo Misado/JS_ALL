@@ -501,11 +501,13 @@ function eachActionBoy(){
         console.log("移除CLASS flash animated")
         $(".role.monster .attackNumShow").removeClass("flash animated");
         $(".role.monster .attackNumShow").hide();
+        monsterDeathCheck();
+        if ( monsterDeath === 0 ){
+            setTimeout(eachActionGirl,600);
+        }
     }, 2000);
-    monsterDeathCheck();
-    if ( monsterDeath === 0 ){
-        setTimeout(eachActionGirl,3000);
-    }
+    
+    
     
 }
 
@@ -528,14 +530,16 @@ function eachActionGirl(){
         console.log("移除CLASS flash animated")
         $(".role.monster .attackNumShow").removeClass("flash animated");
         $(".role.monster .attackNumShow").hide();
+        monsterDeathCheck();
+        if ( monsterDeath === 0 ){
+            setTimeout(eachActionMonster,600);
+        }
     }, 2000);
     // roleActive = 1;
     // monsterDeathCheck();
     // setTimeout(eachActionMonster,3000);
-    monsterDeathCheck();
-    if ( monsterDeath === 0 ){
-        setTimeout(eachActionMonster,3000);
-    }
+    
+    
 }
 
 function eachActionMonster(){
@@ -573,21 +577,22 @@ function eachActionMonster(){
             roleActive = 1;
             battleInitial();
     } else{
-        console.log("你死了ㄍㄋㄇㄉ");
-        $(".role.monster").hide();
-        setTimeout(function() {
-            $(".menu").hide();
-            $(".status").hide();
-        }, 300);
+        // console.log("你死了ㄍㄋㄇㄉ");
+        // $(".role.monster").hide();
+        // setTimeout(function() {
+        //     $(".menu").hide();
+        //     $(".status").hide();
+        // }, 300);
         
-        setTimeout(function() {
-            $("body").addClass("success");
-            $(".successMsg").addClass("pulse animated");
-            //測試中，先不要讓它播放XD
-            musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
-            musicElement.loop = false;
-        }, 300);
-        
+        // setTimeout(function() {
+        //     $("body").addClass("success");
+        //     $(".successMsg").addClass("pulse animated");
+        //     //測試中，先不要讓它播放XD
+        //     musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
+        //     musicElement.loop = false;
+        // }, 300);
+        // setTimeout(monsterDeathCheck,300);
+        // monsterDeathCheck();
         
     }
         
@@ -596,7 +601,7 @@ function eachActionMonster(){
 }
 
 function monsterDeathCheck(){
-    if ( roleData[2].bloodNum <0){
+    if ( roleData[2].bloodNum <= 0){
         console.log("提早把怪打死了!!!");
         console.log("你死了ㄍㄋㄇㄉ");
         monsterDeath = 1;
@@ -605,7 +610,7 @@ function monsterDeathCheck(){
         setTimeout(function() {
             $(".menu").hide();
             $(".status").hide();
-        }, 300);
+        }, 600);
         
         setTimeout(function() {
             $("body").addClass("success");
@@ -613,7 +618,7 @@ function monsterDeathCheck(){
             //測試中，先不要讓它播放XD
             musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
             musicElement.loop = false;
-        }, 300);
+        }, 600);
     }
 }
 
