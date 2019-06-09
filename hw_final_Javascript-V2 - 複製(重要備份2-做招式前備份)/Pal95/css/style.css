@@ -1,0 +1,439 @@
+@charset "UTF-8";
+/* Overall setting */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 新細明體; }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* 統一字型大小 h1~h6,p {font-size} */
+h1 {
+  font-size: 36px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  font-size: 14px;
+  line-height: 1.5; }
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #559ac8;
+  padding: 20px; }
+  .footer p {
+    color: #f5d005;
+    margin-top: 10px; }
+
+/* -- 0. Overall page setting END -- */
+html {
+  height: 100%; }
+
+body {
+  background-image: url("../img/map.png");
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden; }
+
+.wrap {
+  position: relative;
+  height: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end; }
+
+.role {
+  position: absolute;
+  bottom: 80px; }
+  .role.girl {
+    width: 91px;
+    height: 170px;
+    background-image: url("../img/girl.png");
+    left: 20px; }
+  .role.boy {
+    width: 91px;
+    height: 198px;
+    background-image: url("../img/boy.png");
+    background-position: bottom center;
+    left: -60px;
+    bottom: 70px; }
+  .role.monster {
+    width: 86px;
+    height: 42px;
+    background-image: url("../img/monster.png");
+    left: 990px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+    .role.monster .bloodShow {
+      display: none;
+      position: relative;
+      top: -50px;
+      width: 0%;
+      height: 10px;
+      background-color: red;
+      -webkit-transition: all 1s;
+      -o-transition: all 1s;
+      transition: all 1s; }
+    .role.monster .attackNumShow {
+      font-family: 新細明體;
+      font-size: 28px;
+      color: red;
+      position: relative;
+      top: -60px; }
+
+.walk.role.girl {
+  background-image: url("../img/girl_walking.png");
+  background-repeat: no-repeat; }
+
+.walk.role.boy {
+  background-image: url("../img/boy_walking.png");
+  background-repeat: no-repeat; }
+
+.walk.role.monster {
+  -webkit-animation: walk_monster 1s 1;
+  animation: walk_monster 1s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation-play-state: running; }
+
+.walk_backward.girl {
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1); }
+
+.walk_backward.boy {
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1); }
+
+.status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  margin-right: 10px; }
+  .status .girl {
+    display: none;
+    width: 254px;
+    height: 160px;
+    background-image: url("../img/status_girl.png");
+    background-repeat: no-repeat;
+    background-position: bottom center; }
+  .status .boy {
+    display: none;
+    width: 254px;
+    height: 160px;
+    background-image: url("../img/status_boy.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    margin-right: 10px; }
+
+.war.role.monster {
+  position: absolute;
+  bottom: 300px; }
+  .war.role.monster .bloodShow {
+    display: block; }
+
+.war.status .girl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.war.status .boy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.war.status .arrowFlag {
+  opacity: 0;
+  margin: 0 auto;
+  font-size: 24px;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-name: arrowBlink;
+  animation-name: arrowBlink;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s; }
+  .war.status .arrowFlag.index {
+    opacity: 1; }
+
+.war.status .bodyStatus {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: Arial Black;
+  margin-left: 90px;
+  margin-bottom: 25px; }
+  .war.status .bodyStatus .bloodNum {
+    color: #d5c7b3; }
+    .war.status .bodyStatus .bloodNum.dangerSituation {
+      color: #e1e100; }
+    .war.status .bodyStatus .bloodNum.verydangerSituation {
+      color: #ff0000; }
+  .war.status .bodyStatus .magicNum {
+    color: #70a098; }
+
+@-webkit-keyframes arrowBlink {
+  from {
+    color: red; }
+  to {
+    color: yellow; } }
+
+@keyframes arrowBlink {
+  from {
+    color: red; }
+  to {
+    color: yellow; } }
+
+.menu {
+  display: none;
+  margin-left: 10px; }
+  .menu .option {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
+    .menu .option.movement {
+      background-image: url("../img/war_menu_movement.png"); }
+    .menu .option.attack {
+      background-image: url("../img/war_menu_attack.png"); }
+    .menu .option.item {
+      background-image: url("../img/war_menu_item.png"); }
+    .menu .option.cooperation {
+      background-image: url("../img/war_menu_cooperation.png"); }
+  .menu .active .mask {
+    position: relative;
+    opacity: 0.35;
+    width: 95px;
+    height: 0;
+    border-width: 0 25px 25px 25px;
+    border-style: solid;
+    border-color: transparent transparent  #846c4f; }
+    .menu .active .mask:before {
+      position: absolute;
+      content: "";
+      top: 70px;
+      left: -25px;
+      width: 95px;
+      height: 0;
+      border-width: 25px 25px 0 25px;
+      border-style: solid;
+      border-color: #846c4f transparent transparent; }
+    .menu .active .mask:after {
+      position: absolute;
+      content: "";
+      top: 25px;
+      left: -25px;
+      width: 95px;
+      height: 0;
+      border-width: 0 0 45px 0;
+      background: none;
+      border-style: solid;
+      border-color: transparent transparent #846c4f; }
+
+.war.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .war.menu .center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+
+.success .wrap {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .success .wrap .successMsg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 100px; }
+  .success .wrap img {
+    margin-bottom: 20px; }
+
+.successMsg {
+  display: none; }
+
+.fail .wrap {
+  background-color: #78100d;
+  opacity: 0.7;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .fail .wrap .failMsg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 100px;
+    font-family: 新細明體;
+    font-size: 48px;
+    font-weight: bold;
+    color: #958a84;
+    line-height: 1.5em;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
+
+.failMsg {
+  display: none; }
+
+@-webkit-keyframes walk_monster {
+  to {
+    left: 870px; } }
+
+@keyframes walk_monster {
+  to {
+    left: 870px; } }

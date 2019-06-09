@@ -72,7 +72,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    musicElement.play(); //測試中，先不要讓它播放XD
+    // musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -157,7 +157,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -353,7 +353,7 @@ function battleActionChange(event){
         battleShowActive(); // 更新active值後要加active class
         battleActionConfirm();
 
-        if( event.keyCode === 13){
+        if( event.keyCode === 13 && optionActiveValue !== 2){
             console.log("按下ENTER，塵埃落定！");
             console.log("目前作動角色: "+roleData[roleActive-1].name);
             console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
@@ -371,6 +371,8 @@ function battleActionChange(event){
                 roleActive += 1;
                 bodyElement.addEventListener("keydown", battleActionChange);
                 console.log(`換成${roleActive}選擇動作`);
+
+                
             } else{
                 roleActive += 1;
                 console.log("李逍遙跟仙女姐姐選擇動作完畢");
@@ -381,10 +383,20 @@ function battleActionChange(event){
             }
             
         }
+        if ( event.keyCode === 13 && optionActiveValue === 2){
+            movementSelect();
+        }
 
         
         
     
+}
+
+function movementSelect(){
+    console.log("選招式囉~~~");
+    console.log("optionActiveValue: "+optionActiveValue);
+
+    $(".movementMenu").addClass("war");
 }
 
 

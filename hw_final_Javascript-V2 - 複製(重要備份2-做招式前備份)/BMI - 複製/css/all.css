@@ -1,0 +1,203 @@
+@charset "UTF-8";
+/* Overall setting */
+/* z-index */
+/* link color setting */
+/* cart color setting */
+/* favorite color setting */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CSS reset for RWD */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* -- CSS reset END -- */
+/* CSS RESET and RWD RESET */
+/* breakpoint */
+/*
+@import "grid"; */
+/* -- 0. Overall page setting -- */
+body {
+  font-family: 微軟正黑體; }
+
+p {
+  text-align: justify;
+  text-indent: 1em; }
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+/* 統一字型大小 h2~h6,p {font-size} */
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 16px; }
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  text-indent: 2em; }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.footer {
+  background-color: #ffd366;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center; }
+
+/* -- 0. Overall page setting END -- */
+.banner {
+  background-color: #424242;
+  /*height: 200px;*/
+  padding: 60px; }
+
+.bannerInput {
+  width: 600px;
+  margin: 0 auto; }
+
+.bmiLogo {
+  float: left; }
+  .bmiLogo h1 a {
+    width: 117px;
+    height: 117px;
+    background-image: url("../img/BMICLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 20px;
+    float: left; }
+
+.dataInput {
+  float: left;
+  margin-left: 40px;
+  margin: 20px; }
+  .dataInput label {
+    color: #fff; }
+  .dataInput input {
+    margin-top: 5px;
+    font-family: 微軟正黑體;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px; }
+
+.sendBtn {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  background-color: #ffd366;
+  border-radius: 50%;
+  cursor: pointer; }
+  .sendBtn span {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 40px 0; }
+
+.resultShow {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 40px 0; }
+
+.resultTable {
+  margin: 40px auto;
+  /* 讓表格每行可以有間距 */
+  border-spacing: 0 20px;
+  /* 左右 上下 */
+  border-collapse: separate;
+  font-size: 20px;
+  font-weight: bold; }
+  .resultTable tr {
+    background-color: #fff; }
+  .resultTable td {
+    padding: 20px; }
+  .resultTable .smallText {
+    font-size: 14px;
+    margin-right: 5px;
+    font-weight: normal; }
+  .resultTable .dateText {
+    font-size: 16px;
+    font-weight: normal; }
+  .resultTable .bodyTypeClassFine {
+    border-left: 8px solid #86d73f; }
+  .resultTable .bodyTypeClassSerious {
+    border-left: 8px solid red; }
+  .resultTable .bodyTypeClassHeavy {
+    border-left: 8px solid #ff1200; }
+  .resultTable .bodyTypeClassMedium {
+    border-left: 8px solid #ff6c03; }
+  .resultTable .bodyTypeClassLittle {
+    border-left: 8px solid #ff982d; }
+  .resultTable .bodyTypeClassLight {
+    border-left: 8px solid #31baf9; }
+  .resultTable .pure-button-customized {
+    font-size: 14px; }
