@@ -613,6 +613,9 @@ function eachActionMonster(){
     if ( roleData[2].bloodNum >0 && roleActive === 3){
         console.log("怪還沒死！");
         roleData[1].bloodNum -= roleData[2].attackPower;
+        if ( roleData[1].bloodNum < 0){
+            roleData[1].bloodNum = 0;
+        }
         battleRoleDataShow(); // 角色被攻擊完後，更新角色的血量
         roleDeathCheck();
             // roleActive = 1;
