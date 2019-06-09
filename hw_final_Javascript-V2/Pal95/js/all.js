@@ -69,7 +69,7 @@ musicElement.onloadeddata = function() {
 
 function roleWalking(event){
     // alert("走一下");
-    musicElement.play(); //測試中，先不要讓它播放XD
+    // musicElement.play(); //測試中，先不要讓它播放XD
     if ( event.keyCode === 39 ){ // 往右走
         roleElementGirl.style.left = roleElementGirl.offsetLeft + 20 +"px";
         roleElementBoy.style.left = roleElementBoy.offsetLeft + 20 +"px";
@@ -154,7 +154,7 @@ function battleStart(){
     // 頂部 frame 可以將自動播放權限委託給他們的 iframe，允許自動播放聲音
     
     //測試中，先不要讓它播放XD
-    musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    // musicElement.src = "mp3/battle02.mp3"; //這行一定要寫在外面，不然音樂不會改變
     musicElement.onloadeddata = function() {
         // musicElement.play(); //測試中，先不要讓它播放XD
     };
@@ -172,6 +172,8 @@ function battleInitial(){
     // console.log(`${roleData[1].name} 血量: ${roleData[1].bloodNum} 法力: ${roleData[1].magicNum}`);
     $(".status").addClass('war');
     $(".menu").addClass('war');
+
+    $(".status .boy .arrowFlag").addClass('index');
 
     bodyElement.addEventListener("keydown", battleActionChange);
     // battleGetActiveAction();
@@ -326,6 +328,10 @@ function battleActionChange(event){
             console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
             bodyElement.removeEventListener("keydown", battleActionChange);
             console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
+            if ( roleActive === 1 ){
+                $(".status .boy .arrowFlag").removeClass('index');
+                $(".status .girl .arrowFlag").addClass('index');
+            }
             if ( roleActive < 2 ){
             
                 roleActive += 1;
@@ -334,6 +340,7 @@ function battleActionChange(event){
             } else{
                 roleActive += 1;
                 console.log("李逍遙跟仙女姐姐選擇動作完畢");
+                $(".status .girl .arrowFlag").removeClass('index');
                 battleActionExec();
                 // battleActionExecMonster();
             }
@@ -535,7 +542,7 @@ function eachActionMonster(){
         setTimeout(function() {
             $(".menu").hide();
             $(".status").hide();
-        }, 600);
+        }, 300);
         
         setTimeout(function() {
             $("body").addClass("success");
@@ -543,7 +550,7 @@ function eachActionMonster(){
             //測試中，先不要讓它播放XD
             musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
             musicElement.loop = false;
-        }, 600);
+        }, 300);
         
         
     }

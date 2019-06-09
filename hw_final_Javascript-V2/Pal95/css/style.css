@@ -251,10 +251,21 @@ body {
   flex-direction: column; }
 
 .war.status .arrowFlag {
+  opacity: 0;
   margin: 0 auto;
   position: relative;
   top: -20px;
-  font-size: 24px; }
+  font-size: 24px;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-name: arrowBlink;
+  animation-name: arrowBlink;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s; }
+  .war.status .arrowFlag.index {
+    opacity: 1; }
 
 .war.status .bodyStatus {
   height: 100%;
@@ -278,6 +289,18 @@ body {
     color: #d5c7b3; }
   .war.status .bodyStatus .magicNum {
     color: #70a098; }
+
+@-webkit-keyframes arrowBlink {
+  from {
+    color: red; }
+  to {
+    color: yellow; } }
+
+@keyframes arrowBlink {
+  from {
+    color: red; }
+  to {
+    color: yellow; } }
 
 .menu {
   display: none;
