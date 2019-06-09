@@ -11,6 +11,8 @@ const optionObj = document.querySelectorAll(".option");
 let optionActiveValue = 1; //預設為1 - 攻擊模式
 let roleActive = 1; // 目前作動的角色是誰，預設第1個是李逍遙
 
+let monsterDeath = 0; // 怪是否掛了，預設為否(0)
+
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
     name: "李逍遙",
@@ -500,7 +502,10 @@ function eachActionBoy(){
         $(".role.monster .attackNumShow").removeClass("flash animated");
         $(".role.monster .attackNumShow").hide();
     }, 2000);
-    setTimeout(eachActionGirl,3000);
+    monsterDeathCheck();
+    if ( monsterDeath === 0 ){
+        setTimeout(eachActionGirl,3000);
+    }
     
 }
 
@@ -524,11 +529,17 @@ function eachActionGirl(){
         $(".role.monster .attackNumShow").removeClass("flash animated");
         $(".role.monster .attackNumShow").hide();
     }, 2000);
-    roleActive = 1;
-    setTimeout(eachActionMonster,3000);
+    // roleActive = 1;
+    // monsterDeathCheck();
+    // setTimeout(eachActionMonster,3000);
+    monsterDeathCheck();
+    if ( monsterDeath === 0 ){
+        setTimeout(eachActionMonster,3000);
+    }
 }
 
 function eachActionMonster(){
+    console.log("roleActive: "+roleActive);
     console.log("換怪攻擊了!!!");
     roleData[2].actionAndNum[0] = 1;
     roleData[2].actionAndNum[1] = roleData[2].attackPower;
@@ -536,10 +547,31 @@ function eachActionMonster(){
     console.log("目前作動角色: "+roleData[2].name);
     console.log(`目前作動角色的動作及數量: ${roleData[2].actionAndNum[0]}/${roleData[2].actionAndNum[1]}`);
 
-    if ( roleData[2].bloodNum >0 ){
+    // monsterDeathCheck();
+    // if ( roleData[2].bloodNum >0 ){
+    //     console.log("怪還沒死！");
+    //     roleData[1].bloodNum -= roleData[2].attackPower;
+    //     battleInitial();
+    // } else{
+    //     console.log("你死了ㄍㄋㄇㄉ");
+    //     $(".role.monster").hide();
+    //     setTimeout(function() {
+    //         $(".menu").hide();
+    //         $(".status").hide();
+    //     }, 300);
+        
+    //     setTimeout(function() {
+    //         $("body").addClass("success");
+    //         $(".successMsg").addClass("pulse animated");
+    //         //測試中，先不要讓它播放XD
+    //         musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
+    //         musicElement.loop = false;
+    //     }, 300);
+    if ( roleData[2].bloodNum >0 && roleActive === 3){
         console.log("怪還沒死！");
         roleData[1].bloodNum -= roleData[2].attackPower;
-        battleInitial();
+            roleActive = 1;
+            battleInitial();
     } else{
         console.log("你死了ㄍㄋㄇㄉ");
         $(".role.monster").hide();
@@ -557,6 +589,31 @@ function eachActionMonster(){
         }, 300);
         
         
+    }
+        
+        
+    // }
+}
+
+function monsterDeathCheck(){
+    if ( roleData[2].bloodNum <0){
+        console.log("提早把怪打死了!!!");
+        console.log("你死了ㄍㄋㄇㄉ");
+        monsterDeath = 1;
+
+        $(".role.monster").hide();
+        setTimeout(function() {
+            $(".menu").hide();
+            $(".status").hide();
+        }, 300);
+        
+        setTimeout(function() {
+            $("body").addClass("success");
+            $(".successMsg").addClass("pulse animated");
+            //測試中，先不要讓它播放XD
+            musicElement.src = "mp3/victory.mp3"; //這行一定要寫在外面，不然音樂不會改變
+            musicElement.loop = false;
+        }, 300);
     }
 }
 
