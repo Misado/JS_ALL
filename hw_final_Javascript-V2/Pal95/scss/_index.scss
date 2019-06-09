@@ -265,14 +265,16 @@ body{
 .success{
     .wrap{
         justify-content: center;
-        align-items: center;
+        // align-items: center;
+        align-items: flex-start;
         .successMsg{
             // align-self: center;
 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            // justify-content: center;
             align-items: center;
+            margin-top: 100px;
         }
         img{
             margin-bottom: 20px;
