@@ -532,8 +532,10 @@ function eachActionMonster(){
     } else{
         console.log("你死了ㄍㄋㄇㄉ");
         $(".role.monster").hide();
-        $(".menu").hide();
-        $(".status").hide();
+        setTimeout(function() {
+            $(".menu").hide();
+            $(".status").hide();
+        }, 600);
         
         setTimeout(function() {
             $("body").addClass("success");
