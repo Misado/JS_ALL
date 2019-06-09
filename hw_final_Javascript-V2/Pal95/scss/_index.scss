@@ -72,7 +72,7 @@ body{
                 transition: all 1s;
             }
             .attackNumShow{
-                font-family: 新細明體;
+                font-family: $font_type;
                 font-size: 28px;
                 color: red;
                 position: relative;
@@ -341,7 +341,7 @@ body{
             align-items: center;
             margin-top: 100px;
 
-            font-family: 新細明體;
+            font-family: $font_type;
             font-size: 48px;
             font-weight: bold;
             color: #958a84;
