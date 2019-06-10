@@ -6,6 +6,8 @@ const roleElementGirl = document.querySelector(".role.girl");
 const roleElementBoy = document.querySelector(".role.boy");
 const roleElementMonster = document.querySelector(".role.monster");
 
+const skillMenuObj = document.querySelector(".skillShow .skillMenu .menu");
+
 const optionObj = document.querySelectorAll(".option");
 
 let optionActiveValue = 1; //預設為1 - 攻擊模式
@@ -15,6 +17,7 @@ let monsterDeath = 0; // 怪是否掛了，預設為否(0)
 let roleDeath = 0; // 角色是否全掛了，預設為否(0)
 
 let battleMenuMode = 0; // 戰鬥選單模式：0>>一般選單 1>>招式選單
+let skillIndex = 1; // 目前選到的招式，給預設值
 
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
@@ -33,8 +36,7 @@ let roleData = [{
     skillEffect: 25},
     {skillName: "御劍術",
     skillMagicCost: 10,
-    skillEffect: -40},
-    ]
+    skillEffect: -40},],
 },{
     name: "趙靈兒",
     bloodNum: 100,
@@ -45,6 +47,16 @@ let roleData = [{
     magicPower: 30,
     protectPower: 10,
     actionAndNum: [0,0],
+    skillList:[
+        {skillName: "觀音咒",
+        skillMagicCost: 10,
+        skillEffect: 50},
+        {skillName: "風咒",
+        skillMagicCost: 5,
+        skillEffect: -20},
+        {skillName: "雷咒",
+        skillMagicCost: 7,
+        skillEffect: -30},],
 },{
     name: "怪",
     bloodNum: 100,
@@ -422,6 +434,15 @@ function skillSelect(){
     console.log(roleData[0].skillList[0].skillName);
     console.log(roleData[0].skillList[0].skillMagicCost);
     console.log(roleData[0].skillList[0].skillEffect);
+
+    let skillListStr = "";
+    for ( let i=0; i<roleData[roleActive-1].skillList.length; i++){
+        console.log(roleData[roleActive-1].skillList[i].skillName);
+        console.log(roleData[roleActive-1].skillList[i].skillMagicCost);
+        console.log(roleData[roleActive-1].skillList[i].skillEffect);
+        skillListStr += `<li>${roleData[roleActive-1].skillList[i].skillName}</li>`;
+    }
+    skillMenuObj.innerHTML = skillListStr;
 }
 
 
