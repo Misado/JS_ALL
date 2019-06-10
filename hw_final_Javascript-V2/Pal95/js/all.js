@@ -435,14 +435,14 @@ function skillSelect(){
     console.log(roleData[0].skillList[0].skillMagicCost);
     console.log(roleData[0].skillList[0].skillEffect);
 
-    let skillListStr = "";
-    for ( let i=0; i<roleData[roleActive-1].skillList.length; i++){
-        console.log(roleData[roleActive-1].skillList[i].skillName);
-        console.log(roleData[roleActive-1].skillList[i].skillMagicCost);
-        console.log(roleData[roleActive-1].skillList[i].skillEffect);
-        skillListStr += `<li>${roleData[roleActive-1].skillList[i].skillName}</li>`;
-    }
-    skillMenuObj.innerHTML = skillListStr;
+    // let skillListStr = "";
+    // for ( let i=0; i<roleData[roleActive-1].skillList.length; i++){
+    //     console.log(roleData[roleActive-1].skillList[i].skillName);
+    //     console.log(roleData[roleActive-1].skillList[i].skillMagicCost);
+    //     console.log(roleData[roleActive-1].skillList[i].skillEffect);
+    //     skillListStr += `<li class="active">${roleData[roleActive-1].skillList[i].skillName}</li>`;
+    // }
+    // skillMenuObj.innerHTML = skillListStr;
 }
 
 

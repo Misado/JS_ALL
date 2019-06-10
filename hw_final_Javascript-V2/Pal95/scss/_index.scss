@@ -375,6 +375,13 @@ body{
         height: 124px;
         background-image: url("../img/skillMagicCost.png");
         background-repeat: no-repeat;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: $font_eng_type_bold;
+        font-size: 28px;
     }
     .skillMenu{
         
@@ -429,10 +436,23 @@ body{
                 -1px 1px 0 #000,
                 1px 1px 0 #000,
                 2px 2px 2px #000;
+
+                &.active{
+                    // color: #d1c579;
+                    animation-iteration-count: infinite;
+                    animation-direction: alternate;
+                    animation-name: skillBlink;
+                    animation-duration: 0.3s;
+                }
             }
         }
 }
 
+}
+
+@keyframes skillBlink{
+    from {color: #958a84;}
+    to {color: #d1c579;}
 }
 
 .war{

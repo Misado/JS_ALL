@@ -446,7 +446,18 @@ body {
     width: 305px;
     height: 124px;
     background-image: url("../img/skillMagicCost.png");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: Arial Black;
+    font-size: 28px; }
   .skillShow .skillMenu {
     width: 1007px;
     height: 379px;
@@ -469,6 +480,27 @@ body {
         color: #958a84;
         line-height: 1.5em;
         text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
+        .skillShow .skillMenu .menu li.active {
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+          -webkit-animation-name: skillBlink;
+          animation-name: skillBlink;
+          -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s; }
+
+@-webkit-keyframes skillBlink {
+  from {
+    color: #958a84; }
+  to {
+    color: #d1c579; } }
+
+@keyframes skillBlink {
+  from {
+    color: #958a84; }
+  to {
+    color: #d1c579; } }
 
 .war.skillShow {
   display: -webkit-box;
