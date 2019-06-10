@@ -14,6 +14,8 @@ let roleActive = 1; // 目前作動的角色是誰，預設第1個是李逍遙
 let monsterDeath = 0; // 怪是否掛了，預設為否(0)
 let roleDeath = 0; // 角色是否全掛了，預設為否(0)
 
+let battleMenuMode = 0; // 戰鬥選單模式：0>>一般選單 1>>招式選單
+
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
     name: "李逍遙",
@@ -268,67 +270,17 @@ function battleRemoveActive(){
 // 戰鬥選單，動作選擇
 // 1: 普通攻擊 - 2: 法術 - 3: 防禦 - 4: 聯合攻擊
 function battleActionChange(event){
-    battleRemoveActive(); //一開始要先remove active的class
     
-    if ( optionActiveValue === 1 || optionActiveValue === 3 ){
-        switch(event.keyCode){
-            case 37:
-                console.log("往左");
-                optionActiveValue = 2;
-                console.log("optionActiveValue: "+optionActiveValue);
-                break;
-            case 39:
-                console.log("往右");
-                optionActiveValue = 4;
-                console.log("optionActiveValue: "+optionActiveValue);
-                break;
-            default:
-                break;
-        }
-    }
-    if ( optionActiveValue === 1 ){
-        switch(event.keyCode){
-            case 40:
-                console.log("往下");
-                optionActiveValue = 3;
-                console.log("optionActiveValue: "+optionActiveValue);
-                break;
-            default:
-                break;
-        }
-    }
-    if ( optionActiveValue === 3 ){
-        switch(event.keyCode){
-            case 38:
-                console.log("往上");
-                optionActiveValue = 1;
-                console.log("optionActiveValue: "+optionActiveValue);
-                break;
-            default:
-                break;
-        }
-    }
-
-        if ( optionActiveValue === 2 || optionActiveValue === 4 ){
+    // 戰鬥選單模式如果是0才作選單的選擇，不是就表示在打開招式選單
+    if ( battleMenuMode === 0){
+        battleRemoveActive(); //一開始要先remove active的class
+        if ( optionActiveValue === 1 || optionActiveValue === 3 ){
             switch(event.keyCode){
-                case 38:
-                    console.log("往上");
-                    optionActiveValue = 1;
+                case 37:
+                    console.log("往左");
+                    optionActiveValue = 2;
                     console.log("optionActiveValue: "+optionActiveValue);
                     break;
-                case 40:
-                    console.log("往下");
-                    optionActiveValue = 3;
-                    console.log("optionActiveValue: "+optionActiveValue);
-                    break;
-                default:
-                    console.log("都不是");
-                    console.log("optionActiveValue: "+optionActiveValue);
-                    break;
-            }
-        }
-        if ( optionActiveValue === 2 ){
-            switch(event.keyCode){
                 case 39:
                     console.log("往右");
                     optionActiveValue = 4;
@@ -338,60 +290,86 @@ function battleActionChange(event){
                     break;
             }
         }
-        if ( optionActiveValue === 4 ){
+        if ( optionActiveValue === 1 ){
             switch(event.keyCode){
-                case 37:
-                    console.log("往左");
-                    optionActiveValue = 2;
+                case 40:
+                    console.log("往下");
+                    optionActiveValue = 3;
                     console.log("optionActiveValue: "+optionActiveValue);
                     break;
                 default:
                     break;
             }
         }
-        console.log("optionActiveValue: "+optionActiveValue);
-        battleShowActive(); // 更新active值後要加active class
-        battleActionConfirm();
-
-        if( event.keyCode === 13 && optionActiveValue !== 2){
-            battleActionSelect();
-            // console.log("按下ENTER，塵埃落定！");
-            // console.log("目前作動角色: "+roleData[roleActive-1].name);
-            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
-
-            
-
-            // bodyElement.removeEventListener("keydown", battleActionChange);
-            // console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
-            // if ( roleActive === 1 ){
-            //     $(".status .boy .arrowFlag").removeClass('index');
-            //     $(".status .girl .arrowFlag").addClass('index');
-            // }
-            // if ( roleActive < 2 ){
-            
-            //     roleActive += 1;
-            //     bodyElement.addEventListener("keydown", battleActionChange);
-            //     console.log(`換成${roleActive}選擇動作`);
-
-                
-            // } else{
-            //     roleActive += 1;
-            //     console.log("李逍遙跟仙女姐姐選擇動作完畢");
-            //     $(".status .girl .arrowFlag").removeClass('index');
-            //     $(".menu").css("opacity",0);
-            //     battleActionExec();
-            //     // battleActionExecMonster();
-            // }
-            
+        if ( optionActiveValue === 3 ){
+            switch(event.keyCode){
+                case 38:
+                    console.log("往上");
+                    optionActiveValue = 1;
+                    console.log("optionActiveValue: "+optionActiveValue);
+                    break;
+                default:
+                    break;
+            }
         }
+
+            if ( optionActiveValue === 2 || optionActiveValue === 4 ){
+                switch(event.keyCode){
+                    case 38:
+                        console.log("往上");
+                        optionActiveValue = 1;
+                        console.log("optionActiveValue: "+optionActiveValue);
+                        break;
+                    case 40:
+                        console.log("往下");
+                        optionActiveValue = 3;
+                        console.log("optionActiveValue: "+optionActiveValue);
+                        break;
+                    default:
+                        console.log("都不是");
+                        console.log("optionActiveValue: "+optionActiveValue);
+                        break;
+                }
+            }
+            if ( optionActiveValue === 2 ){
+                switch(event.keyCode){
+                    case 39:
+                        console.log("往右");
+                        optionActiveValue = 4;
+                        console.log("optionActiveValue: "+optionActiveValue);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if ( optionActiveValue === 4 ){
+                switch(event.keyCode){
+                    case 37:
+                        console.log("往左");
+                        optionActiveValue = 2;
+                        console.log("optionActiveValue: "+optionActiveValue);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            console.log("optionActiveValue: "+optionActiveValue);
+            battleShowActive(); // 更新active值後要加active class
+            battleActionConfirm();
+
+            if( event.keyCode === 13 && optionActiveValue !== 2){
+                battleActionSelect();               
+            }
+        }
+
         if ( event.keyCode === 13 && optionActiveValue === 2){
-            // bodyElement.removeEventListener("keydown", battleActionChange);
+            battleMenuMode = 1;
             $(".movementMenu").addClass("war");
             movementSelect();
         }
         if ( event.keyCode === 27 ){
+            battleMenuMode = 0;
             $(".movementMenu").removeClass("war");
-            bodyElement.addEventListener("keydown", battleActionChange);
         }
 
         
