@@ -234,8 +234,8 @@ body{
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        &.movement{
-            background-image: url("../img/war_menu_movement.png");
+        &.skill{
+            background-image: url("../img/war_menu_skill.png");
         }
         &.attack{
             background-image: url("../img/war_menu_attack.png");
@@ -363,13 +363,13 @@ body{
     display: none;
 }
 
-.movementMenu{
+.skillMenu{
     display: none;
     // width: 719px;
     // height: 271px;
     width: 1007px;
     height: 379px;
-    background-image: url("../img/movement_menu.png");
+    background-image: url("../img/skill_menu.png");
     background-repeat: no-repeat;
 
     position: absolute;
@@ -422,7 +422,7 @@ body{
 }
 
 .war{
-   &.movementMenu{
+   &.skillMenu{
        display: block;
    } 
 }

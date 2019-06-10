@@ -27,6 +27,7 @@ let roleData = [{
     magicPower: 0,
     protectPower: 20,
     actionAndNum: [0,0],
+    
 },{
     name: "趙靈兒",
     bloodNum: 100,
@@ -236,7 +237,7 @@ function battleRoleDataShow(){
 // 取得現在active的值，remove active class
 function battleRemoveActive(){
     // 取值
-    let thisValue = $(".option.movement").data('option');
+    let thisValue = $(".option.skill").data('option');
     console.log("option: "+thisValue);
     thisValue = $(".option.item").data('option');
     console.log("option: "+thisValue);
@@ -364,12 +365,12 @@ function battleActionChange(event){
 
         if ( event.keyCode === 13 && optionActiveValue === 2){
             battleMenuMode = 1;
-            $(".movementMenu").addClass("war");
-            movementSelect();
+            $(".skillMenu").addClass("war");
+            skillSelect();
         }
         if ( event.keyCode === 27 ){
             battleMenuMode = 0;
-            $(".movementMenu").removeClass("war");
+            $(".skillMenu").removeClass("war");
         }
 
         
@@ -407,11 +408,11 @@ function battleActionSelect(){
     }
 }
 
-function movementSelect(){
+function skillSelect(){
     console.log("選招式囉~~~");
     console.log("optionActiveValue: "+optionActiveValue);
 
-    // $(".movementMenu").addClass("war");
+    // $(".skillMenu").addClass("war");
 }
 
 

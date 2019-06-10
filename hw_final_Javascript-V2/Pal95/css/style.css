@@ -320,8 +320,8 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; }
-    .menu .option.movement {
-      background-image: url("../img/war_menu_movement.png"); }
+    .menu .option.skill {
+      background-image: url("../img/war_menu_skill.png"); }
     .menu .option.attack {
       background-image: url("../img/war_menu_attack.png"); }
     .menu .option.item {
@@ -430,16 +430,16 @@ body {
 .failMsg {
   display: none; }
 
-.movementMenu {
+.skillMenu {
   display: none;
   width: 1007px;
   height: 379px;
-  background-image: url("../img/movement_menu.png");
+  background-image: url("../img/skill_menu.png");
   background-repeat: no-repeat;
   position: absolute;
   top: 10%;
   left: 10%; }
-  .movementMenu .menu {
+  .skillMenu .menu {
     width: 80%;
     margin: 40px 10%;
     display: -webkit-box;
@@ -447,7 +447,7 @@ body {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .movementMenu .menu li {
+    .skillMenu .menu li {
       width: 31.33333%;
       margin: 20px 1%;
       font-family: 新細明體;
@@ -457,7 +457,7 @@ body {
       line-height: 1.5em;
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
 
-.war.movementMenu {
+.war.skillMenu {
   display: block; }
 
 @-webkit-keyframes walk_monster {
