@@ -31,7 +31,7 @@ let roleData = [{
     attackPower: 20,
     magicPower: 0,
     protectPower: 20,
-    actionAndNum: [0,0], // 記錄該回合的動作,數量
+    actionAndNum: [0,0,0], // 記錄該回合的動作,數量,招式
     skillList:[
     {skillName: "氣療術",
     skillMagicCost: 6,
@@ -48,7 +48,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 30,
     protectPower: 10,
-    actionAndNum: [0,0],
+    actionAndNum: [0,0,0], // 記錄該回合的動作,數量,招式
     skillList:[
         {skillName: "觀音咒",
         skillMagicCost: 10,
@@ -293,6 +293,7 @@ function battleRemoveActive(){
 // 1: 普通攻擊 - 2: 法術 - 3: 防禦 - 4: 聯合攻擊
 function battleActionChange(event){
     
+    
     // 戰鬥選單模式如果是0才作選單的選擇，不是就表示在打開招式選單
     if ( battleMenuMode === 0){
         battleRemoveActive(); //一開始要先remove active的class
@@ -383,13 +384,19 @@ function battleActionChange(event){
                 battleActionSelect();               
             }
         }
+        // if ( optionActiveValue !== 2){
+        //     console.log("*************不是招式");
+        //     battleMenuMode = 0;
+        // } else{
+        //     battleMenuMode = 1;
+        // }
 
         if ( event.keyCode === 13 && optionActiveValue === 2){
             battleMenuMode = 1;
             $(".skillShow").addClass("war");
             skillSelect();
         }
-        if ( event.keyCode === 27 ){
+        if ( event.keyCode === 27 && optionActiveValue === 2 ){
             battleMenuMode = 0;
             $(".skillShow").removeClass("war");
         }
@@ -483,6 +490,22 @@ function skillConfirm(event){
             skillSelect();
         }
     }
+    // if ( event.keyCode === 13 ){
+    //     console.log("按下確定");
+    // }
+    
+    // battleShowActive(); // 更新active值後要加active class
+    battleActionConfirm();
+    console.log("optionActiveValue: "+optionActiveValue);
+
+    if( event.keyCode === 13 && optionActiveValue === 2){
+        console.log("optionActiveValue: "+optionActiveValue);
+        // battleMenuMode = 0;
+        bodyElement.removeEventListener("keydown",skillConfirm);
+        $(".skillShow").removeClass("war");
+        battleActionSelect();               
+    }
+    
 }
 
 
@@ -532,6 +555,7 @@ function battleActionConfirm(){
     
     switch(optionActiveValue){
         case 1:
+            // battleMenuMode = 0;
             roleData[roleActive-1].actionAndNum[0] = 1;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
             console.log(`attackPower: ${roleData[roleActive-1].attackPower}`);
@@ -541,9 +565,12 @@ function battleActionConfirm(){
             console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 2:
+            // battleMenuMode = 1;
             roleData[roleActive-1].actionAndNum[0] = 2;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].magicPower;
+            roleData[roleActive-1].actionAndNum[2] = skillIndex;
             console.log(`attackPower: ${roleData[roleActive-1].magicPower}`);
+            console.log(`招式: ${roleData[roleActive-1].actionAndNum[2]}`);
             // console.log("目前作動角色: "+roleData[roleActive-1].name);
             // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
             
@@ -552,6 +579,7 @@ function battleActionConfirm(){
             console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 3:
+            // battleMenuMode = 0;
             roleData[roleActive-1].actionAndNum[0] = 3;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].protectPower;
             console.log(`attackPower: ${roleData[roleActive-1].protectPower}`);
@@ -563,6 +591,7 @@ function battleActionConfirm(){
             console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 4:
+            // battleMenuMode = 0;
             roleData[roleActive-1].actionAndNum[0] = 4;
             roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].attackPower;
             console.log(`attackPower: ${roleData[roleActive-1].attackPower}`);
