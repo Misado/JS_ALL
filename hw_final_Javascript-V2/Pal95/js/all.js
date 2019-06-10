@@ -435,6 +435,8 @@ function skillSelect(){
     console.log(roleData[0].skillList[0].skillMagicCost);
     console.log(roleData[0].skillList[0].skillEffect);
 
+    bodyElement.addEventListener("keydown",skillConfirm);
+
     let skillListStr = "";
     for ( let i=0; i<roleData[roleActive-1].skillList.length; i++){
         console.log(roleData[roleActive-1].skillList[i].skillName);
@@ -456,6 +458,24 @@ function skillSelect(){
     skillMenuObj.innerHTML = skillListStr;
 }
 
+function skillConfirm(event){
+    console.log("確定招式~");
+
+    if ( event.keyCode === 39 ){
+        console.log("往右按~");
+        if ( skillIndex+1 <= roleData[roleActive-1].skillList.length ){
+            skillIndex += 1;
+            skillSelect();
+        }
+    }
+    if ( event.keyCode === 37 ){
+        console.log("往左按~");
+        if ( skillIndex-1 >= 1 ){
+            skillIndex -= 1;
+            skillSelect();
+        }
+    }
+}
 
 
 // 取得改之後現在active的值，加active class
