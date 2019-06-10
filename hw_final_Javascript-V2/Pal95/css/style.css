@@ -430,35 +430,50 @@ body {
 .failMsg {
   display: none; }
 
-.skillMenu {
+.skillShow {
   display: none;
-  width: 1007px;
-  height: 379px;
-  background-image: url("../img/skill_menu.png");
-  background-repeat: no-repeat;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   position: absolute;
-  top: 10%;
+  top: 0;
   left: 10%; }
-  .skillMenu .menu {
-    width: 80%;
-    margin: 40px 10%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-    .skillMenu .menu li {
-      width: 31.33333%;
-      margin: 20px 1%;
-      font-family: 新細明體;
-      font-size: 44px;
-      font-weight: bold;
-      color: #958a84;
-      line-height: 1.5em;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
+  .skillShow .skillMagicCostShow {
+    width: 305px;
+    height: 124px;
+    background-image: url("../img/skillMagicCost.png");
+    background-repeat: no-repeat; }
+  .skillShow .skillMenu {
+    width: 1007px;
+    height: 379px;
+    background-image: url("../img/skill_menu.png");
+    background-repeat: no-repeat; }
+    .skillShow .skillMenu .menu {
+      width: 80%;
+      margin: 40px 10%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      .skillShow .skillMenu .menu li {
+        width: 31.33333%;
+        margin: 20px 1%;
+        font-family: 新細明體;
+        font-size: 44px;
+        font-weight: bold;
+        color: #958a84;
+        line-height: 1.5em;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
 
-.war.skillMenu {
-  display: block; }
+.war.skillShow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
 
 @-webkit-keyframes walk_monster {
   to {

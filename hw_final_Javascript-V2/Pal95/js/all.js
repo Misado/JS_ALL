@@ -26,8 +26,15 @@ let roleData = [{
     attackPower: 20,
     magicPower: 0,
     protectPower: 20,
-    actionAndNum: [0,0],
-    
+    actionAndNum: [0,0], // 記錄該回合的動作,數量
+    skillList:[
+    {skillName: "氣療術",
+    skillMagicCost: 6,
+    skillEffect: 25},
+    {skillName: "御劍術",
+    skillMagicCost: 10,
+    skillEffect: -40},
+    ]
 },{
     name: "趙靈兒",
     bloodNum: 100,
@@ -365,12 +372,12 @@ function battleActionChange(event){
 
         if ( event.keyCode === 13 && optionActiveValue === 2){
             battleMenuMode = 1;
-            $(".skillMenu").addClass("war");
+            $(".skillShow").addClass("war");
             skillSelect();
         }
         if ( event.keyCode === 27 ){
             battleMenuMode = 0;
-            $(".skillMenu").removeClass("war");
+            $(".skillShow").removeClass("war");
         }
 
         
@@ -411,8 +418,10 @@ function battleActionSelect(){
 function skillSelect(){
     console.log("選招式囉~~~");
     console.log("optionActiveValue: "+optionActiveValue);
-
-    // $(".skillMenu").addClass("war");
+    console.log("----------------");
+    console.log(roleData[0].skillList[0].skillName);
+    console.log(roleData[0].skillList[0].skillMagicCost);
+    console.log(roleData[0].skillList[0].skillEffect);
 }
 
 
