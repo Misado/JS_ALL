@@ -10,6 +10,8 @@ const skillMenuObj = document.querySelector(".skillShow .skillMenu .menu");
 
 const optionObj = document.querySelectorAll(".option");
 
+const skillMagicCostShowObj = document.querySelector(".skillMagicCostShow");
+
 let optionActiveValue = 1; //預設為1 - 攻擊模式
 let roleActive = 1; // 目前作動的角色是誰，預設第1個是李逍遙
 
@@ -438,6 +440,7 @@ function skillSelect(){
     bodyElement.addEventListener("keydown",skillConfirm);
 
     let skillListStr = "";
+    let skillMagicCostShowStr ="";
     for ( let i=0; i<roleData[roleActive-1].skillList.length; i++){
         console.log(roleData[roleActive-1].skillList[i].skillName);
         console.log(roleData[roleActive-1].skillList[i].skillMagicCost);
@@ -449,6 +452,10 @@ function skillSelect(){
             skillListStr += `<div class="skillName active">${roleData[roleActive-1].skillList[i].skillName}</div>`;
             skillListStr += `<div class="arrowFlag">▲</div>`;
             skillListStr += `</li>`;
+            // skillMagicCostShowObj.textContent = `${roleData[roleActive-1].skillList[i].skillMagicCost}/${roleData[roleActive-1].magicNum}`;
+            skillMagicCostShowStr += `${roleData[roleActive-1].skillList[i].skillMagicCost}/`;
+            skillMagicCostShowStr += `<span class="total">${roleData[roleActive-1].magicNum}</span>`;
+            
         } else{
             skillListStr += `<li>`;
             skillListStr += `<div class="skillName">${roleData[roleActive-1].skillList[i].skillName}</div>`;
@@ -456,6 +463,7 @@ function skillSelect(){
         }
     }
     skillMenuObj.innerHTML = skillListStr;
+    skillMagicCostShowObj.innerHTML = skillMagicCostShowStr;
 }
 
 function skillConfirm(event){
