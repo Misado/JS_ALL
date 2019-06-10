@@ -423,27 +423,47 @@ body{
                 margin: 20px 1%;
     
                 font-family: $font_type;
-                font-size: 44px;
-    
-                font-weight: bold;
-                color: #958a84;
-                line-height: 1.5em;
-                // letter-spacing: 0.5em;
-    
-                text-shadow:
-                -1px -1px 0 #000,
-                1px -1px 0 #000,
-                -1px 1px 0 #000,
-                1px 1px 0 #000,
-                2px 2px 2px #000;
+                position: relative;
 
-                &.active{
-                    // color: #d1c579;
-                    animation-iteration-count: infinite;
-                    animation-direction: alternate;
-                    animation-name: skillBlink;
-                    animation-duration: 0.3s;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+
+                .skillName{
+                    font-size: 44px;
+    
+                    font-weight: bold;
+                    color: #958a84;
+                    line-height: 1.5em;
+                    // letter-spacing: 0.5em;
+        
+                    text-shadow:
+                    -1px -1px 0 #000,
+                    1px -1px 0 #000,
+                    -1px 1px 0 #000,
+                    1px 1px 0 #000,
+                    2px 2px 2px #000;
+    
+                    // position: absolute;
+                    &.active{
+                        // color: #d1c579;
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        animation-name: skillBlink;
+                        animation-duration: 0.5s;
+                    }
+                    
                 }
+
+                .arrowFlag{
+                    position: absolute;
+                    bottom: 0;
+                    font-size: 18px;
+                    color: #fff;
+                }
+
+                
             }
         }
 }

@@ -475,20 +475,37 @@ body {
         width: 31.33333%;
         margin: 20px 1%;
         font-family: 新細明體;
-        font-size: 44px;
-        font-weight: bold;
-        color: #958a84;
-        line-height: 1.5em;
-        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
-        .skillShow .skillMenu .menu li.active {
-          -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-          -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-          -webkit-animation-name: skillBlink;
-          animation-name: skillBlink;
-          -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s; }
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .skillShow .skillMenu .menu li .skillName {
+          font-size: 44px;
+          font-weight: bold;
+          color: #958a84;
+          line-height: 1.5em;
+          text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 2px #000; }
+          .skillShow .skillMenu .menu li .skillName.active {
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+            -webkit-animation-name: skillBlink;
+            animation-name: skillBlink;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s; }
+        .skillShow .skillMenu .menu li .arrowFlag {
+          position: absolute;
+          bottom: 0;
+          font-size: 18px;
+          color: #fff; }
 
 @-webkit-keyframes skillBlink {
   from {
