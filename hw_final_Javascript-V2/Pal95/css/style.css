@@ -499,8 +499,8 @@ body {
             animation-direction: alternate;
             -webkit-animation-name: skillBlink;
             animation-name: skillBlink;
-            -webkit-animation-duration: 0.5s;
-            animation-duration: 0.5s; }
+            -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s; }
         .skillShow .skillMenu .menu li .arrowFlag {
           position: absolute;
           bottom: 0;
