@@ -513,6 +513,12 @@ function skillConfirm(event){
             $(".skillShow").removeClass("war");
             bodyElement.removeEventListener("keydown",skillConfirm);
             // bodyElement.addEventListener("keydown",battleActionChange);
+
+            // 讓戰鬥選單回預設值
+            optionActiveValue = 1;
+            battleRemoveActive();
+            battleShowActive(); // 更新active值後要加active class
+            
             battleActionSelect();
         }
     }
