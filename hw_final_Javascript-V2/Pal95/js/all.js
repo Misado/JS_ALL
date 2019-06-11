@@ -424,11 +424,6 @@ function battleActionChange(event){
 }
 
 function battleActionSelect(){
-    console.log("-----------------------");
-                console.log("我現在 optionActiveValue 是: "+optionActiveValue);
-                console.log("我現在 battleMenuMode 是: "+battleMenuMode);
-                console.log("-----------------------");
-
     console.log("按下ENTER，塵埃落定！");
     console.log("目前作動角色: "+roleData[roleActive-1].name);
     console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
