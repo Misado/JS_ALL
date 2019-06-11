@@ -173,20 +173,27 @@ body{
         }
         .arrowFlag{
             // display: none;
-            opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
+            
 
             margin: 0 auto;
             // position: relative;
             // top: -20px;
-            font-size: 24px;
+            font-size: 18px;
 
             animation-iteration-count: infinite;
             animation-direction: alternate;
             animation-name: arrowBlink;
             animation-duration: 0.3s;
-            &.index{
-                opacity: 1;
+            &.upper{
+                opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
+                &.index{
+                    opacity: 1;
+                }
             }
+            &.lower{
+                opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
+            }
+            
         }
         .bodyStatus{
             height: 100%;

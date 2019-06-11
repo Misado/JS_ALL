@@ -205,7 +205,7 @@ function battleInitial(){
     optionActiveValue = 1; //預設為1 - 攻擊模式
     $(".menu .center .option.attack").addClass('active');
     
-    $(".status .boy .arrowFlag").addClass('index');
+    $(".status .boy .arrowFlag.upper").addClass('index');
 
     bodyElement.addEventListener("keydown", battleActionChange);
     // battleGetActiveAction();
@@ -425,8 +425,8 @@ function battleActionSelect(){
     bodyElement.removeEventListener("keydown", battleActionChange);
     console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
     if ( roleActive === 1 ){
-        $(".status .boy .arrowFlag").removeClass('index');
-        $(".status .girl .arrowFlag").addClass('index');
+        $(".status .boy .arrowFlag.upper").removeClass('index');
+        $(".status .girl .arrowFlag.upper").addClass('index');
     }
     if ( roleActive < 2 ){
     
@@ -438,7 +438,7 @@ function battleActionSelect(){
     } else{
         roleActive += 1;
         console.log("李逍遙跟仙女姐姐選擇動作完畢");
-        $(".status .girl .arrowFlag").removeClass('index');
+        $(".status .girl .arrowFlag.upper").removeClass('index');
         $(".menu").css("opacity",0);
         battleActionExec();
         // battleActionExecMonster();
@@ -669,7 +669,7 @@ function battleActionExec(){
 // }
 function eachAction(){
     setTimeout(eachActionBoy(),3000);
-    
+    battleRoleDataShow(); // 開始動作時要刷新角色資料(法力數值)
 }
 function eachActionBoy(){
     console.log("1我開始做動了~");
