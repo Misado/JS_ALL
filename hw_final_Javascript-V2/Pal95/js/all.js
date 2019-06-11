@@ -65,7 +65,7 @@ let roleData = [{
     bloodTotalNum: 100,
     magicNum: 0,
     magicTotalNum: 0,
-    attackPower: 30,
+    attackPower: 50,
     magicPower: 0,
     protectPower: 10,
     actionAndNum: [0,0],
@@ -798,7 +798,7 @@ function roleDeathCheck(){
             $(".menu").hide();
             $(".status").hide();
             $(".role.monster .bloodShow").hide();
-        }, 600);
+        }, 1000);
         
         setTimeout(function() {
             // $("body").css("background-image","url('img/war05.png')");
@@ -810,7 +810,7 @@ function roleDeathCheck(){
             //測試中，先不要讓它播放XD
             musicElement.src = "mp3/fail.mp3"; //這行一定要寫在外面，不然音樂不會改變
             musicElement.loop = false;
-        }, 600);
+        }, 1000);
     }
 }
 
