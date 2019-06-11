@@ -180,18 +180,31 @@ body{
             // top: -20px;
             font-size: 18px;
 
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-name: arrowBlink;
-            animation-duration: 0.3s;
+            // animation-iteration-count: infinite;
+            // animation-direction: alternate;
+            // animation-name: arrowBlink;
+            // animation-duration: 0.3s;
             &.upper{
                 opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
+                
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-name: arrowUpperBlink;
+                animation-duration: 0.3s;
+                
                 &.index{
                     opacity: 1;
                 }
             }
             &.lower{
                 opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
+
+                // animation-name: arrowLowerBlink;
+                color: #fc8f8e;
+                
+                &.index{
+                    opacity: 1;
+                }
             }
             
         }
@@ -225,9 +238,14 @@ body{
     }
 }
 
-@keyframes arrowBlink{
+@keyframes arrowUpperBlink{
     from {color: red;}
     to {color: yellow;}
+}
+
+@keyframes arrowLowerBlink{
+    from {color: #d5c7b3;}
+    to {color: #e49ca4;}
 }
 
 .menu{

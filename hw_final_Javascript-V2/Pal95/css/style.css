@@ -257,21 +257,24 @@ body {
 
 .war.status .arrowFlag {
   margin: 0 auto;
-  font-size: 18px;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  -webkit-animation-name: arrowBlink;
-  animation-name: arrowBlink;
-  -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s; }
+  font-size: 18px; }
   .war.status .arrowFlag.upper {
-    opacity: 0; }
+    opacity: 0;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-name: arrowUpperBlink;
+    animation-name: arrowUpperBlink;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s; }
     .war.status .arrowFlag.upper.index {
       opacity: 1; }
   .war.status .arrowFlag.lower {
-    opacity: 0; }
+    opacity: 0;
+    color: #fc8f8e; }
+    .war.status .arrowFlag.lower.index {
+      opacity: 1; }
 
 .war.status .bodyStatus {
   height: 100%;
@@ -301,17 +304,29 @@ body {
   .war.status .bodyStatus .magicNum {
     color: #70a098; }
 
-@-webkit-keyframes arrowBlink {
+@-webkit-keyframes arrowUpperBlink {
   from {
     color: red; }
   to {
     color: yellow; } }
 
-@keyframes arrowBlink {
+@keyframes arrowUpperBlink {
   from {
     color: red; }
   to {
     color: yellow; } }
+
+@-webkit-keyframes arrowLowerBlink {
+  from {
+    color: #d5c7b3; }
+  to {
+    color: #e49ca4; } }
+
+@keyframes arrowLowerBlink {
+  from {
+    color: #d5c7b3; }
+  to {
+    color: #e49ca4; } }
 
 .menu {
   display: none;

@@ -21,6 +21,8 @@ let roleDeath = 0; // 角色是否全掛了，預設為否(0)
 let battleMenuMode = 0; // 戰鬥選單模式：0>>一般選單 1>>招式選單
 let skillIndex = 1; // 目前選到的招式，給預設值
 
+let roleSelectAddBlood = 1; // 所選擇要補血的對象是誰，預設第1個是李逍遙
+
 /* 宣告角色跟怪的初始資料(名字/血量/法力/普攻/法攻/防禦) */
 let roleData = [{
     name: "李逍遙",
@@ -41,7 +43,7 @@ let roleData = [{
     skillEffect: "-"},],
 },{
     name: "趙靈兒",
-    bloodNum: 240,
+    bloodNum: 100,
     bloodTotalNum: 240,
     magicNum: 240,
     magicTotalNum: 240,
@@ -481,6 +483,9 @@ function skillListShow(){
             console.log(`actionAndNum[1]: ${roleData[roleActive-1].actionAndNum[1]}`);
             // console.log("目前作動角色: "+roleData[roleActive-1].name);
             // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            if ( roleData[roleActive-1].skillList[skillIndex-1].skillEffect === "+" ){
+                console.log("要補血哦!");
+            }
             
             console.log("法術");
             console.log("optionActiveValue: "+optionActiveValue);
@@ -527,6 +532,13 @@ function skillConfirm(event){
             console.log("此時的 skillIndex : "+skillIndex);
             console.log("-------------");
 
+            if ( roleData[roleActive-1].skillList[skillIndex-1].skillEffect === "+" ){
+                console.log("要補血哦!");
+                bodyElement.removeEventListener("keydown",skillConfirm);
+                // bodyElement.addEventListener("keydown",skillAddBlood);
+                skillAddBloodMode();
+            } else{
+
             // 用招式需要耗法力，寫在裡面會導致左右時就一直扣法力惹
             roleData[roleActive-1].magicNum -= roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost;
 
@@ -542,9 +554,106 @@ function skillConfirm(event){
             battleShowActive(); // 更新active值後要加active class
             
             battleActionSelect();
+            }
         }
     }
 }
+
+function skillAddBloodMode(){
+    console.log("進入補血模式");
+    roleSelectAddBlood = roleActive; // 每次要把選擇補血對象先預設為作動角色
+
+    $(".skillShow").removeClass("war");
+    // $(".status .boy .arrowFlag.lower").addClass('index');
+    skillAddBloodSelectShow();
+    bodyElement.addEventListener("keydown",skillAddBloodSelect);
+}
+
+function skillAddBloodSelect(event){
+    console.log("請選擇要補血的對象！");
+    switch(event.keyCode){
+        case 37:
+            console.log("往左");
+            if ( roleSelectAddBlood > 1 && roleSelectAddBlood < 3 ){
+                roleSelectAddBlood -=1;
+            }
+            // optionActiveValue = 2;
+            // console.log("optionActiveValue: "+optionActiveValue);
+            break;
+        case 39:
+            console.log("往右");
+            if ( roleSelectAddBlood >= 1 && roleSelectAddBlood < 2 ){
+                roleSelectAddBlood +=1;
+            }
+            // optionActiveValue = 4;
+            // console.log("optionActiveValue: "+optionActiveValue);
+            break;
+        case 13:
+            console.log("按下ENTER");
+            console.log("現在選擇的補血對象是 roleSelectAddBlood: "+roleSelectAddBlood);
+            console.log("現在選擇的招式是 skillIndex: "+skillIndex);
+            console.log(`skillEffect 是: ${roleData[roleActive-1].skillList[skillIndex-1].skillEffect}`);
+            console.log(`skillMagicCost 是: ${roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost}`);
+            // bodyElement.removeEventListener("keydown",skillAddBloodSelect);
+            skillAddBloodSelectConfirm();
+
+            // // 要讓招式選單模式變回0，把招式選單隱藏起來，移除招式時的監聽
+            // battleMenuMode = 0;
+            // $(".skillShow").removeClass("war");
+            // bodyElement.removeEventListener("keydown",skillConfirm);
+
+            // $(".status .boy .arrowFlag.lower").removeClass('index');
+            // $(".status .girl .arrowFlag.lower").removeClass('index');
+
+            // // 讓戰鬥選單回預設值
+            // optionActiveValue = 1;
+            // battleRemoveActive();
+            // battleShowActive(); // 更新active值後要加active class
+            
+            // battleActionSelect();
+            break;
+        default:
+            break;
+    }
+
+    console.log("roleSelectAddBlood: "+roleSelectAddBlood);
+    skillAddBloodSelectShow();
+}
+
+function skillAddBloodSelectShow(){
+    if ( roleSelectAddBlood === 1){
+        $(".status .boy .arrowFlag.lower").addClass('index');
+        $(".status .girl .arrowFlag.lower").removeClass('index');
+    }
+    if ( roleSelectAddBlood === 2){
+        $(".status .boy .arrowFlag.lower").removeClass('index');
+        $(".status .girl .arrowFlag.lower").addClass('index');
+    }
+}
+
+function skillAddBloodSelectConfirm(){
+    console.log("*************************");
+    console.log("按下ENTER");
+    console.log("現在選擇的補血對象是 roleSelectAddBlood: "+roleSelectAddBlood);
+    console.log("現在選擇的招式是 skillIndex: "+skillIndex);
+    console.log(`skillEffect 是: ${roleData[roleActive-1].skillList[skillIndex-1].skillEffect}`);
+    console.log(`skillMagicCost 是: ${roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost}`);
+    console.log("*************************");
+
+    if ( roleData[roleActive-1].skillList[skillIndex-1].skillEffect === "+" ){
+     // 公式：法攻*招式消耗法力
+     roleData[roleActive-1].actionAndNum[1] = (roleData[roleActive-1].magicPower)*(roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost);
+     roleData[roleActive-1].actionAndNum[1] = (roleData[roleActive-1].actionAndNum[1]).toFixed(0);
+     console.log(`actionAndNum[1]: ${roleData[roleActive-1].actionAndNum[1]}`);
+
+     roleData[roleSelectAddBlood-1].bloodNum +=  roleData[roleActive-1].actionAndNum[1];
+     // console.log("目前作動角色: "+roleData[roleActive-1].name);
+     // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+     
+         console.log("要補血哦!");
+     }
+}
+
 
 
 // 取得改之後現在active的值，加active class
@@ -675,6 +784,7 @@ function eachActionBoy(){
     console.log("1我開始做動了~");
     console.log("目前作動角色: "+roleData[0].name);
     console.log(`目前作動角色的動作及數量: ${roleData[0].actionAndNum[0]}/${roleData[0].actionAndNum[1]}`);
+    
     $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").show();
     $(".role.monster .attackNumShow").addClass("flash animated");
