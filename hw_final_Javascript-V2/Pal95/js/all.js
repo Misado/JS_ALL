@@ -292,6 +292,14 @@ function battleRemoveActive(){
 // 戰鬥選單，動作選擇
 // 1: 普通攻擊 - 2: 法術 - 3: 防禦 - 4: 聯合攻擊
 function battleActionChange(event){
+    if( event.keyCode === 13){
+        console.log("-----------------------");
+        console.log("我現在 optionActiveValue 是: "+optionActiveValue);
+        console.log("我現在 battleMenuMode 是: "+battleMenuMode);
+        console.log("-----------------------");              
+    }
+
+    
     
     // 戰鬥選單模式如果是0才作選單的選擇，不是就表示在打開招式選單
     if ( battleMenuMode === 0){
@@ -380,18 +388,34 @@ function battleActionChange(event){
             battleActionConfirm();
 
             if( event.keyCode === 13 && optionActiveValue !== 2){
+                console.log("我走到這個邏輯了");
+                console.log("-----------------------");
+                console.log("我現在 optionActiveValue 是: "+optionActiveValue);
+                console.log("我現在 battleMenuMode 是: "+battleMenuMode);
+                console.log("-----------------------");
                 battleActionSelect();               
             }
         }
 
-        if ( event.keyCode === 13 && optionActiveValue === 2){
-            battleMenuMode = 1;
+        if ( event.keyCode === 13 && optionActiveValue === 2 ){
+            // battleMenuMode = 1;
             $(".skillShow").addClass("war");
-            skillSelect();
+            skillIndex = 1;
+            skillListShow();
         }
         if ( event.keyCode === 27 ){
+            
             battleMenuMode = 0;
             $(".skillShow").removeClass("war");
+
+            console.log("-----------ESC------------");
+            console.log("我現在 optionActiveValue 是: "+optionActiveValue);
+            console.log("我現在 battleMenuMode 是: "+battleMenuMode);
+            console.log("-----------ESC------------");
+
+            bodyElement.removeEventListener("keydown",skillConfirm);
+            // 按完ESC後要移除監聽事件!!!!!! (選單後進去才需要的監聽事件)
+
         }
 
         
@@ -400,11 +424,16 @@ function battleActionChange(event){
 }
 
 function battleActionSelect(){
+    console.log("-----------------------");
+                console.log("我現在 optionActiveValue 是: "+optionActiveValue);
+                console.log("我現在 battleMenuMode 是: "+battleMenuMode);
+                console.log("-----------------------");
+
     console.log("按下ENTER，塵埃落定！");
     console.log("目前作動角色: "+roleData[roleActive-1].name);
     console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
 
-    
+    skillIndex = 1;
 
     bodyElement.removeEventListener("keydown", battleActionChange);
     console.log(`${roleActive}選擇的動作是: ${optionActiveValue}`); 
@@ -429,7 +458,8 @@ function battleActionSelect(){
     }
 }
 
-function skillSelect(){
+function skillListShow(){
+    battleMenuMode = 1;
     console.log("選招式囉~~~");
     console.log("optionActiveValue: "+optionActiveValue);
     console.log("----------------");
@@ -468,19 +498,35 @@ function skillSelect(){
 
 function skillConfirm(event){
     console.log("確定招式~");
+    console.log("我走到確定招式~的邏輯了!!!!!!!!!");
 
-    if ( event.keyCode === 39 ){
-        console.log("往右按~");
-        if ( skillIndex+1 <= roleData[roleActive-1].skillList.length ){
-            skillIndex += 1;
-            skillSelect();
+    console.log("-----------------------");
+    console.log("我現在 optionActiveValue 是: "+optionActiveValue);
+    console.log("我現在 battleMenuMode 是: "+battleMenuMode);
+    console.log("-----------------------");
+
+    if ( battleMenuMode === 1){
+        if ( event.keyCode === 39 ){
+            console.log("往右按~");
+            if ( skillIndex+1 <= roleData[roleActive-1].skillList.length ){
+                skillIndex += 1;
+                skillListShow();
+            }
         }
-    }
-    if ( event.keyCode === 37 ){
-        console.log("往左按~");
-        if ( skillIndex-1 >= 1 ){
-            skillIndex -= 1;
-            skillSelect();
+        if ( event.keyCode === 37 ){
+            console.log("往左按~");
+            if ( skillIndex-1 >= 1 ){
+                skillIndex -= 1;
+                skillListShow();
+            }
+        }
+
+        if ( event.keyCode === 13 ){
+            battleMenuMode = 0;
+            $(".skillShow").removeClass("war");
+            bodyElement.removeEventListener("keydown",skillConfirm);
+            // bodyElement.addEventListener("keydown",battleActionChange);
+            battleActionSelect();
         }
     }
 }
