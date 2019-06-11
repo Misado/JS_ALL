@@ -29,7 +29,7 @@ let roleData = [{
     magicNum: 118,
     magicTotalNum: 118,
     attackPower: 20,
-    magicPower: 1.2,
+    magicPower: 1.5,
     protectPower: 20,
     actionAndNum: [0,0], // 記錄該回合的動作,數量
     skillList:[
@@ -46,7 +46,7 @@ let roleData = [{
     magicNum: 240,
     magicTotalNum: 240,
     attackPower: 10,
-    magicPower: 2,
+    magicPower: 3,
     protectPower: 10,
     actionAndNum: [0,0],
     skillList:[
@@ -473,7 +473,9 @@ function skillListShow(){
             skillMagicCostShowStr += `${roleData[roleActive-1].skillList[i].skillMagicCost}/`;
             skillMagicCostShowStr += `<span class="total">${roleData[roleActive-1].magicNum}</span>`;
             
+            // 如果選的是招式，這邊就要把作動量算出來了
             roleData[roleActive-1].actionAndNum[0] = 2;
+            // 公式：法攻*招式消耗法力
             roleData[roleActive-1].actionAndNum[1] = (roleData[roleActive-1].magicPower)*(roleData[roleActive-1].skillList[i].skillMagicCost);
             roleData[roleActive-1].actionAndNum[1] = (roleData[roleActive-1].actionAndNum[1]).toFixed(0);
             console.log(`actionAndNum[1]: ${roleData[roleActive-1].actionAndNum[1]}`);
@@ -525,7 +527,7 @@ function skillConfirm(event){
             console.log("此時的 skillIndex : "+skillIndex);
             console.log("-------------");
 
-            // 用招式需要耗法力
+            // 用招式需要耗法力，寫在裡面會導致左右時就一直扣法力惹
             roleData[roleActive-1].magicNum -= roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost;
 
             // 要讓招式選單模式變回0，把招式選單隱藏起來，移除招式時的監聽
