@@ -292,15 +292,7 @@ function battleRemoveActive(){
 // 戰鬥選單，動作選擇
 // 1: 普通攻擊 - 2: 法術 - 3: 防禦 - 4: 聯合攻擊
 function battleActionChange(event){
-    if( event.keyCode === 13){
-        console.log("-----------------------");
-        console.log("我現在 optionActiveValue 是: "+optionActiveValue);
-        console.log("我現在 battleMenuMode 是: "+battleMenuMode);
-        console.log("-----------------------");              
-    }
-
-    
-    
+       
     // 戰鬥選單模式如果是0才作選單的選擇，不是就表示在打開招式選單
     if ( battleMenuMode === 0){
         battleRemoveActive(); //一開始要先remove active的class
