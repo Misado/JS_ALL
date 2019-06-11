@@ -29,16 +29,16 @@ let roleData = [{
     magicNum: 118,
     magicTotalNum: 118,
     attackPower: 20,
-    magicPower: 0,
+    magicPower: 1.2,
     protectPower: 20,
     actionAndNum: [0,0], // 記錄該回合的動作,數量
     skillList:[
     {skillName: "氣療術",
     skillMagicCost: 6,
-    skillEffect: 25},
+    skillEffect: "+"},
     {skillName: "御劍術",
     skillMagicCost: 10,
-    skillEffect: -40},],
+    skillEffect: "-"},],
 },{
     name: "趙靈兒",
     bloodNum: 240,
@@ -46,19 +46,19 @@ let roleData = [{
     magicNum: 240,
     magicTotalNum: 240,
     attackPower: 10,
-    magicPower: 30,
+    magicPower: 2,
     protectPower: 10,
     actionAndNum: [0,0],
     skillList:[
         {skillName: "觀音咒",
         skillMagicCost: 10,
-        skillEffect: 50},
+        skillEffect: "+"},
         {skillName: "風咒",
         skillMagicCost: 5,
-        skillEffect: -20},
+        skillEffect: "-"},
         {skillName: "雷咒",
         skillMagicCost: 7,
-        skillEffect: -30},],
+        skillEffect: "-"},],
 },{
     name: "怪",
     bloodNum: 100,
@@ -389,7 +389,7 @@ function battleActionChange(event){
             }
         }
 
-        if ( event.keyCode === 13 && optionActiveValue === 2 ){
+        if ( event.keyCode === 13 && optionActiveValue === 2 && battleMenuMode === 0 ){
             // battleMenuMode = 1;
             $(".skillShow").addClass("war");
             skillIndex = 1;
@@ -473,6 +473,17 @@ function skillListShow(){
             skillMagicCostShowStr += `${roleData[roleActive-1].skillList[i].skillMagicCost}/`;
             skillMagicCostShowStr += `<span class="total">${roleData[roleActive-1].magicNum}</span>`;
             
+            roleData[roleActive-1].actionAndNum[0] = 2;
+            roleData[roleActive-1].actionAndNum[1] = (roleData[roleActive-1].magicPower)*(roleData[roleActive-1].skillList[i].skillMagicCost);
+            roleData[roleActive-1].actionAndNum[1] = (roleData[roleActive-1].actionAndNum[1]).toFixed(0);
+            console.log(`actionAndNum[1]: ${roleData[roleActive-1].actionAndNum[1]}`);
+            // console.log("目前作動角色: "+roleData[roleActive-1].name);
+            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            
+            console.log("法術");
+            console.log("optionActiveValue: "+optionActiveValue);
+            console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
+
         } else{
             skillListStr += `<li>`;
             skillListStr += `<div class="skillName">${roleData[roleActive-1].skillList[i].skillName}</div>`;
@@ -509,6 +520,15 @@ function skillConfirm(event){
         }
 
         if ( event.keyCode === 13 ){
+            console.log("-------------");
+            console.log(`攻擊量actionAndNum[1]: ${roleData[roleActive-1].actionAndNum[1]}`);
+            console.log("此時的 skillIndex : "+skillIndex);
+            console.log("-------------");
+
+            // 用招式需要耗法力
+            roleData[roleActive-1].magicNum -= roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost;
+
+            // 要讓招式選單模式變回0，把招式選單隱藏起來，移除招式時的監聽
             battleMenuMode = 0;
             $(".skillShow").removeClass("war");
             bodyElement.removeEventListener("keydown",skillConfirm);
@@ -580,15 +600,15 @@ function battleActionConfirm(){
             console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 2:
-            roleData[roleActive-1].actionAndNum[0] = 2;
-            roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].magicPower;
-            console.log(`attackPower: ${roleData[roleActive-1].magicPower}`);
-            // console.log("目前作動角色: "+roleData[roleActive-1].name);
-            // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
+            // roleData[roleActive-1].actionAndNum[0] = 2;
+            // roleData[roleActive-1].actionAndNum[1] = roleData[roleActive-1].magicPower;
+            // console.log(`attackPower: ${roleData[roleActive-1].magicPower}`);
+            // // console.log("目前作動角色: "+roleData[roleActive-1].name);
+            // // console.log(`目前作動角色的動作及數量: ${roleData[roleActive-1].actionAndNum[0]}/${roleData[roleActive-1].actionAndNum[1]}`);
             
-            console.log("法術");
-            console.log("optionActiveValue: "+optionActiveValue);
-            console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
+            // console.log("法術");
+            // console.log("optionActiveValue: "+optionActiveValue);
+            // console.log(`數量： ${roleData[roleActive-1].actionAndNum[1]}`);
             break;
         case 3:
             roleData[roleActive-1].actionAndNum[0] = 3;
