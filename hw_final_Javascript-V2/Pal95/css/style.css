@@ -257,21 +257,24 @@ body {
 
 .war.status .arrowFlag {
   margin: 0 auto;
-  font-size: 18px;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  -webkit-animation-name: arrowBlink;
-  animation-name: arrowBlink;
-  -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s; }
+  font-size: 18px; }
   .war.status .arrowFlag.upper {
     opacity: 0; }
     .war.status .arrowFlag.upper.index {
-      opacity: 1; }
+      opacity: 1;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;
+      -webkit-animation-name: arrowBlink;
+      animation-name: arrowBlink;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s; }
   .war.status .arrowFlag.lower {
+    color: #eaa0a9;
     opacity: 0; }
+    .war.status .arrowFlag.lower.index {
+      opacity: 1; }
 
 .war.status .bodyStatus {
   height: 100%;

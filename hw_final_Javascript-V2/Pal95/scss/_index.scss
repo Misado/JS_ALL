@@ -180,18 +180,23 @@ body{
             // top: -20px;
             font-size: 18px;
 
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-name: arrowBlink;
-            animation-duration: 0.3s;
+            
             &.upper{
                 opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
                 &.index{
                     opacity: 1;
+                    animation-iteration-count: infinite;
+                    animation-direction: alternate;
+                    animation-name: arrowBlink;
+                    animation-duration: 0.3s;
                 }
             }
             &.lower{
+                color: #eaa0a9;
                 opacity: 0; //希望三角形本來就要在，不然下面的血量法力顯示位置會跑掉
+                &.index{
+                    opacity: 1;
+                }
             }
             
         }

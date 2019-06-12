@@ -31,7 +31,7 @@ let roleData = [{
     attackPower: 20,
     magicPower: 1.5,
     protectPower: 20,
-    actionAndNum: [0,0], // 記錄該回合的動作,數量
+    actionAndNum: [0,0,0], // 記錄該回合的動作,數量,招式
     skillList:[
     {skillName: "氣療術",
     skillMagicCost: 6,
@@ -48,7 +48,7 @@ let roleData = [{
     attackPower: 10,
     magicPower: 3,
     protectPower: 10,
-    actionAndNum: [0,0],
+    actionAndNum: [0,0,0],
     skillList:[
         {skillName: "觀音咒",
         skillMagicCost: 10,
@@ -527,6 +527,15 @@ function skillConfirm(event){
             console.log("此時的 skillIndex : "+skillIndex);
             console.log("-------------");
 
+            console.log(`招式效果: ${roleData[roleActive-1].skillList[skillIndex-1].skillEffect}`);
+
+            roleData[roleActive-1].actionAndNum[2] = roleData[roleActive-1].skillList[skillIndex-1].skillEffect;
+            // if ( roleData[roleActive-1].skillList[skillIndex-1].skillEffect === "+" ){
+            //     console.log("我是補血招");
+            // } else{
+            //     console.log("我是攻擊招");
+            // }
+
             // 用招式需要耗法力，寫在裡面會導致左右時就一直扣法力惹
             roleData[roleActive-1].magicNum -= roleData[roleActive-1].skillList[skillIndex-1].skillMagicCost;
 
@@ -534,16 +543,43 @@ function skillConfirm(event){
             battleMenuMode = 0;
             $(".skillShow").removeClass("war");
             bodyElement.removeEventListener("keydown",skillConfirm);
+            bodyElement.removeEventListener("keydown",battleActionChange);
             // bodyElement.addEventListener("keydown",battleActionChange);
 
-            // 讓戰鬥選單回預設值
-            optionActiveValue = 1;
-            battleRemoveActive();
-            battleShowActive(); // 更新active值後要加active class
+            // // 讓戰鬥選單回預設值
+            // optionActiveValue = 1;
+            // battleRemoveActive();
+            // battleShowActive(); // 更新active值後要加active class
             
-            battleActionSelect();
+            // battleActionSelect();
+            if ( roleData[roleActive-1].actionAndNum[2] === "+"){
+                bodyElement.addEventListener("keydown",battleAddBloodSelect);
+                if ( roleActive === 1){
+                    console.log("男主要對人補血");
+                    $(".status .boy .arrowFlag.lower").addClass('index');
+                    $(".status .girl .arrowFlag.lower").removeClass('index');
+                }
+                if ( roleActive === 2){
+                    console.log("仙女姐姐要對人補血");
+                    $(".status .boy .arrowFlag.lower").removeClass('index');
+                    $(".status .girl .arrowFlag.lower").addClass('index');
+                }
+            } else{
+                console.log("攻擊招");
+                // 讓戰鬥選單回預設值
+                optionActiveValue = 1;
+                battleRemoveActive();
+                battleShowActive(); // 更新active值後要加active class
+                battleActionSelect();
+            }
+            
         }
     }
+}
+
+function battleAddBloodSelect(event){
+    console.log("要準備補血了哦");
+    
 }
 
 
@@ -679,6 +715,13 @@ function eachActionBoy(){
     $(".role.monster .attackNumShow").show();
     $(".role.monster .attackNumShow").addClass("flash animated");
     
+    
+    if (  roleData[0].actionAndNum[2] === "+" ){
+        console.log("***我是補血招***");
+    } else{
+        console.log("***我是攻擊招***");
+    }
+
     roleData[2].bloodNum -= roleData[0].actionAndNum[1];
     $(".role.monster").data("blood", roleData[2].bloodNum);
     let monsterBloodNum = $(".role.monster").data("blood");
@@ -707,6 +750,12 @@ function eachActionGirl(){
     $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
     $(".role.monster .attackNumShow").show();
     $(".role.monster .attackNumShow").addClass("flash animated");
+
+    if (  roleData[1].actionAndNum[2] === "+" ){
+        console.log("***我是補血招***");
+    } else{
+        console.log("***我是攻擊招***");
+    }
 
     roleData[2].bloodNum -= roleData[1].actionAndNum[1];
     $(".role.monster").data("blood", roleData[2].bloodNum);
