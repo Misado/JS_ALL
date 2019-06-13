@@ -117,7 +117,8 @@ body {
   background-position: bottom center;
   background-repeat: no-repeat;
   height: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  cursor: none; }
 
 .wrap {
   position: relative;

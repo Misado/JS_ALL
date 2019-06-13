@@ -762,7 +762,8 @@ function eachActionBoy(){
     if (  roleData[0].actionAndNum[2] === "+" ){
         console.log("***我是補血招***");
         console.log(`補血對象(roleAddBloodIndex): ${roleAddBloodIndex}`);
-        // console.log(``);
+        console.log(`加血量: ${roleData[0].actionAndNum[2]}`);
+        console.log(`加血對象: ${roleAddBloodIndex}`);
     } else{
         console.log("***我是攻擊招***");
         $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
@@ -814,15 +815,19 @@ function eachActionGirl(){
     // $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
     // $(".role.monster .attackNumShow").show();
     // $(".role.monster .attackNumShow").addClass("flash animated");
+    
 
     if (  roleData[1].actionAndNum[2] === "+" ){
         console.log("***我是補血招***");
+        console.log(`補血對象(roleAddBloodIndex): ${roleAddBloodIndex}`);
+        console.log(`加血量: ${roleData[0].actionAndNum[2]}`);
+        console.log(`加血對象: ${roleAddBloodIndex}`);
     } else{
         console.log("***我是攻擊招***");
         $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
         $(".role.monster .attackNumShow").show();
         $(".role.monster .attackNumShow").addClass("flash animated");
-        
+
         roleData[2].bloodNum -= roleData[1].actionAndNum[1];
         $(".role.monster").data("blood", roleData[2].bloodNum);
         let monsterBloodNum = $(".role.monster").data("blood");
