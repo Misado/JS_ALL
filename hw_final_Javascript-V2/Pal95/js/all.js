@@ -14,6 +14,7 @@ const skillMagicCostShowObj = document.querySelector(".skillMagicCostShow");
 
 let optionActiveValue = 1; //預設為1 - 攻擊模式
 let roleActive = 1; // 目前作動的角色是誰，預設第1個是李逍遙
+let roleAddBloodIndex = 1; //目前選擇的補血對象是誰，預設為1
 
 let monsterDeath = 0; // 怪是否掛了，預設為否(0)
 let roleDeath = 0; // 角色是否全掛了，預設為否(0)
@@ -554,16 +555,18 @@ function skillConfirm(event){
             // battleActionSelect();
             if ( roleData[roleActive-1].actionAndNum[2] === "+"){
                 bodyElement.addEventListener("keydown",battleAddBloodSelect);
-                if ( roleActive === 1){
-                    console.log("男主要對人補血");
-                    $(".status .boy .arrowFlag.lower").addClass('index');
-                    $(".status .girl .arrowFlag.lower").removeClass('index');
-                }
-                if ( roleActive === 2){
-                    console.log("仙女姐姐要對人補血");
-                    $(".status .boy .arrowFlag.lower").removeClass('index');
-                    $(".status .girl .arrowFlag.lower").addClass('index');
-                }
+                roleAddBloodIndex = roleActive; //補血對象預設為roleActive
+                battleAddBloodSelectShow();
+                // if ( roleActive === 1){
+                //     console.log("男主要對人補血");
+                //     $(".status .boy .arrowFlag.lower").addClass('index');
+                //     $(".status .girl .arrowFlag.lower").removeClass('index');
+                // }
+                // if ( roleActive === 2){
+                //     console.log("仙女姐姐要對人補血");
+                //     $(".status .boy .arrowFlag.lower").removeClass('index');
+                //     $(".status .girl .arrowFlag.lower").addClass('index');
+                // }
             } else{
                 console.log("攻擊招");
                 // 讓戰鬥選單回預設值
@@ -578,8 +581,38 @@ function skillConfirm(event){
 }
 
 function battleAddBloodSelect(event){
-    console.log("要準備補血了哦");
+    console.log("選擇補血對象");
+    console.log(`此時的招式是: ${roleData[roleActive-1].actionAndNum[2]} 效果`);
     
+    switch(event.keyCode){
+        case 37:
+            if ( roleAddBloodIndex > 1 ){
+                roleAddBloodIndex -= 1;
+            }
+            break;
+        case 39:
+            if ( roleAddBloodIndex < 2 ){
+                roleAddBloodIndex += 1; 
+            }
+            break;
+        default:
+            break;
+    }
+    console.log("補血對象是: "+roleAddBloodIndex);
+    battleAddBloodSelectShow();
+}
+
+function battleAddBloodSelectShow(){
+    if ( roleAddBloodIndex === 1){
+        console.log("補血對象為男主");
+        $(".status .boy .arrowFlag.lower").addClass('index');
+        $(".status .girl .arrowFlag.lower").removeClass('index');
+    }
+    if ( roleAddBloodIndex === 2){
+        console.log("補血對象為仙女姐姐");
+        $(".status .boy .arrowFlag.lower").removeClass('index');
+        $(".status .girl .arrowFlag.lower").addClass('index');
+    }
 }
 
 
