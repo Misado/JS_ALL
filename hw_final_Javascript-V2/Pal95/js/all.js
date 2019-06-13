@@ -595,6 +595,9 @@ function battleAddBloodSelect(event){
                 roleAddBloodIndex += 1; 
             }
             break;
+        case 13:
+            console.log(`按下ENTER，確定補血對象是 ${roleAddBloodIndex}`);
+            break;
         default:
             break;
     }
@@ -753,23 +756,38 @@ function eachActionBoy(){
         console.log("***我是補血招***");
     } else{
         console.log("***我是攻擊招***");
+        roleData[2].bloodNum -= roleData[0].actionAndNum[1];
+        $(".role.monster").data("blood", roleData[2].bloodNum);
+        let monsterBloodNum = $(".role.monster").data("blood");
+        console.log("monsterBloodNum: "+monsterBloodNum);
+        $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+
+        setTimeout(function() {
+            console.log("移除CLASS flash animated")
+            $(".role.monster .attackNumShow").removeClass("flash animated");
+            $(".role.monster .attackNumShow").hide();
+            monsterDeathCheck();
+            if ( monsterDeath === 0 ){
+                setTimeout(eachActionGirl,600);
+            }
+        }, 2000);
     }
 
-    roleData[2].bloodNum -= roleData[0].actionAndNum[1];
-    $(".role.monster").data("blood", roleData[2].bloodNum);
-    let monsterBloodNum = $(".role.monster").data("blood");
-    console.log("monsterBloodNum: "+monsterBloodNum);
-    $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+    // roleData[2].bloodNum -= roleData[0].actionAndNum[1];
+    // $(".role.monster").data("blood", roleData[2].bloodNum);
+    // let monsterBloodNum = $(".role.monster").data("blood");
+    // console.log("monsterBloodNum: "+monsterBloodNum);
+    // $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
 
-    setTimeout(function() {
-        console.log("移除CLASS flash animated")
-        $(".role.monster .attackNumShow").removeClass("flash animated");
-        $(".role.monster .attackNumShow").hide();
-        monsterDeathCheck();
-        if ( monsterDeath === 0 ){
-            setTimeout(eachActionGirl,600);
-        }
-    }, 2000);
+    // setTimeout(function() {
+    //     console.log("移除CLASS flash animated")
+    //     $(".role.monster .attackNumShow").removeClass("flash animated");
+    //     $(".role.monster .attackNumShow").hide();
+    //     monsterDeathCheck();
+    //     if ( monsterDeath === 0 ){
+    //         setTimeout(eachActionGirl,600);
+    //     }
+    // }, 2000);
     
     
     
@@ -788,26 +806,40 @@ function eachActionGirl(){
         console.log("***我是補血招***");
     } else{
         console.log("***我是攻擊招***");
+        roleData[2].bloodNum -= roleData[1].actionAndNum[1];
+        $(".role.monster").data("blood", roleData[2].bloodNum);
+        let monsterBloodNum = $(".role.monster").data("blood");
+        console.log("monsterBloodNum: "+monsterBloodNum);
+        $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+
+        setTimeout(function() {
+            console.log("移除CLASS flash animated")
+            $(".role.monster .attackNumShow").removeClass("flash animated");
+            $(".role.monster .attackNumShow").hide();
+            monsterDeathCheck();
+            if ( monsterDeath === 0 ){
+                setTimeout(eachActionMonster,600);
+            }
+        }, 2000);
     }
 
-    roleData[2].bloodNum -= roleData[1].actionAndNum[1];
-    $(".role.monster").data("blood", roleData[2].bloodNum);
-    let monsterBloodNum = $(".role.monster").data("blood");
-    console.log("monsterBloodNum: "+monsterBloodNum);
-    $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
+    // roleData[2].bloodNum -= roleData[1].actionAndNum[1];
+    // $(".role.monster").data("blood", roleData[2].bloodNum);
+    // let monsterBloodNum = $(".role.monster").data("blood");
+    // console.log("monsterBloodNum: "+monsterBloodNum);
+    // $(".role.monster .bloodShow").css("width",`${monsterBloodNum}%`);
 
-    setTimeout(function() {
-        console.log("移除CLASS flash animated")
-        $(".role.monster .attackNumShow").removeClass("flash animated");
-        $(".role.monster .attackNumShow").hide();
-        monsterDeathCheck();
-        if ( monsterDeath === 0 ){
-            setTimeout(eachActionMonster,600);
-        }
-    }, 2000);
-    // roleActive = 1;
-    // monsterDeathCheck();
-    // setTimeout(eachActionMonster,3000);
+    // setTimeout(function() {
+    //     console.log("移除CLASS flash animated")
+    //     $(".role.monster .attackNumShow").removeClass("flash animated");
+    //     $(".role.monster .attackNumShow").hide();
+    //     monsterDeathCheck();
+    //     if ( monsterDeath === 0 ){
+    //         setTimeout(eachActionMonster,600);
+    //     }
+    // }, 2000);
+
+    
     
     
 }
