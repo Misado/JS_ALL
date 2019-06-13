@@ -589,20 +589,27 @@ function battleAddBloodSelect(event){
             if ( roleAddBloodIndex > 1 ){
                 roleAddBloodIndex -= 1;
             }
+            battleAddBloodSelectShow();
             break;
         case 39:
             if ( roleAddBloodIndex < 2 ){
                 roleAddBloodIndex += 1; 
             }
+            battleAddBloodSelectShow();
             break;
         case 13:
+            // bodyElement.removeEventListener("keydown",battleAddBloodSelect);
+            // $(".status .boy .arrowFlag.lower").removeClass('index');
+            // $(".status .girl .arrowFlag.lower").removeClass('index');
+
             console.log(`按下ENTER，確定補血對象是 ${roleAddBloodIndex}`);
+            
             break;
         default:
             break;
     }
     console.log("補血對象是: "+roleAddBloodIndex);
-    battleAddBloodSelectShow();
+    
 }
 
 function battleAddBloodSelectShow(){
@@ -747,15 +754,21 @@ function eachActionBoy(){
     console.log("1我開始做動了~");
     console.log("目前作動角色: "+roleData[0].name);
     console.log(`目前作動角色的動作及數量: ${roleData[0].actionAndNum[0]}/${roleData[0].actionAndNum[1]}`);
-    $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
-    $(".role.monster .attackNumShow").show();
-    $(".role.monster .attackNumShow").addClass("flash animated");
+    // $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
+    // $(".role.monster .attackNumShow").show();
+    // $(".role.monster .attackNumShow").addClass("flash animated");
     
     
     if (  roleData[0].actionAndNum[2] === "+" ){
         console.log("***我是補血招***");
+        console.log(`補血對象(roleAddBloodIndex): ${roleAddBloodIndex}`);
+        // console.log(``);
     } else{
         console.log("***我是攻擊招***");
+        $(".role.monster .attackNumShow").text(`-${roleData[0].actionAndNum[1]}`);
+        $(".role.monster .attackNumShow").show();
+        $(".role.monster .attackNumShow").addClass("flash animated");
+
         roleData[2].bloodNum -= roleData[0].actionAndNum[1];
         $(".role.monster").data("blood", roleData[2].bloodNum);
         let monsterBloodNum = $(".role.monster").data("blood");
@@ -798,14 +811,18 @@ function eachActionGirl(){
     console.log("2我開始做動了~");
     console.log("目前作動角色: "+roleData[1].name);
     console.log(`目前作動角色的動作及數量: ${roleData[1].actionAndNum[0]}/${roleData[1].actionAndNum[1]}`);
-    $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
-    $(".role.monster .attackNumShow").show();
-    $(".role.monster .attackNumShow").addClass("flash animated");
+    // $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
+    // $(".role.monster .attackNumShow").show();
+    // $(".role.monster .attackNumShow").addClass("flash animated");
 
     if (  roleData[1].actionAndNum[2] === "+" ){
         console.log("***我是補血招***");
     } else{
         console.log("***我是攻擊招***");
+        $(".role.monster .attackNumShow").text(`-${roleData[1].actionAndNum[1]}`);
+        $(".role.monster .attackNumShow").show();
+        $(".role.monster .attackNumShow").addClass("flash animated");
+        
         roleData[2].bloodNum -= roleData[1].actionAndNum[1];
         $(".role.monster").data("blood", roleData[2].bloodNum);
         let monsterBloodNum = $(".role.monster").data("blood");
