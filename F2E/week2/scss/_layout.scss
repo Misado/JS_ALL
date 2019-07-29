@@ -1,0 +1,44 @@
+
+/* -- 0. Overall page setting -- */
+
+body{
+	font-family: $font_type;
+}
+p{
+	text-align: justify;
+	text-indent: 1em;
+}
+@include clearfix;
+
+/* 統一字型大小 h2~h6,p {font-size} */
+h2{	font-size: 30px; }
+h3{	font-size: 24px; }
+h4{ font-size: 20px; }
+h5{	font-size: 18px; }
+h6{	font-size: 16px; }
+p{	font-size: 14px;
+	line-height: 1.5;
+	text-align: justify;
+	text-indent: 2em; }
+
+// @include wrap_setting($max_width);
+.wrap{
+    max-width: $max_width;
+	margin: 0 auto;
+	background-color: #C0Dfff;
+}
+
+
+.footer{
+    display: flex;
+	justify-content: flex-end;
+	.rainbowPic{
+		width: 259px;
+		height: 251px;
+		background-image: url("../img/rainbow.png");
+		background-repeat: no-repeat;
+		background-position: bottom right;
+	}
+}
+
+/* -- 0. Overall page setting END -- */

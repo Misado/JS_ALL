@@ -1,0 +1,38 @@
+@mixin clearfix{
+	.clearfix:after{
+	  content:'';
+	  display:table;
+	  clear:both;
+	}
+}
+
+@mixin wrap_setting($max_width){
+	.wrap{
+		max-width: $max_width;
+		margin: 0 auto;
+	}
+}
+
+@mixin logo($width,$height,$imgurl){
+	width: $width;
+	height: $height;
+	background-image: url($imgurl);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@mixin logo-for-searchengine($width,$height,$imgurl){
+	width: $width;
+	height: $height;
+	background-image: url($imgurl);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: block;
+	text-indent: 101%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+// @mixin bodyTypeClass($color){
+// 	border-left: 8px solid $color;
+// }
