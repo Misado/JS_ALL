@@ -100,6 +100,53 @@ p {
   margin: 0 auto;
   background-color: #C0Dfff; }
 
+/* -- 0. Overall page setting END -- */
+/* 1. INDEX.HTML CSS */
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .header .frame {
+    width: 313px;
+    height: 122px;
+    background-image: url("../img/frame.png");
+    background-repeat: no-repeat;
+    background-position: center; }
+  .header .shinydollPic {
+    width: 52px;
+    height: 64px;
+    background-image: url("../img/shinydoll.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto 20px; }
+    .header .shinydollPic.right {
+      -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+      transform: scaleX(-1); }
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .main .pocker {
+    width: 637px;
+    height: 224px;
+    background-image: url("../img/poker.png");
+    background-repeat: no-repeat;
+    background-position: center; }
+
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -107,12 +154,18 @@ p {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end; }
-  .footer .rainbowPic {
+  .footer .resultShow {
     width: 259px;
     height: 251px;
     background-image: url("../img/rainbow.png");
     background-repeat: no-repeat;
-    background-position: bottom right; }
-
-/* -- 0. Overall page setting END -- */
-/* 1. INDEX.HTML CSS */
+    background-position: bottom right;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
